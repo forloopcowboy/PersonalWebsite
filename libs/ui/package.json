@@ -1,0 +1,28 @@
+{
+  "name": "@personal/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./Logo": "./src/Logo.tsx",
+    "./tailwind-preset": "./tailwind.config.js",
+    "./assets/favicon": "./assets/favicon.ico",
+    "./assets/logo192": "./assets/logo192.png",
+    "./assets/logo512": "./assets/logo512.png"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@headlessui/tailwindcss": "^0.2.1",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tailwindcss": "^3.4.17"
+  }
+}

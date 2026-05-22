@@ -1,0 +1,33 @@
+{
+  "name": "web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/web/app",
+  "targets": {
+    "dev": {
+      "command": "react-router dev",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "build": {
+      "command": "react-router build",
+      "options": {
+        "cwd": "{projectRoot}"
+      },
+      "outputs": ["{projectRoot}/build"]
+    },
+    "start": {
+      "command": "react-router-serve ./build/server/index.js",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    },
+    "typecheck": {
+      "command": "react-router typegen && tsc --noEmit",
+      "options": {
+        "cwd": "{projectRoot}"
+      }
+    }
+  }
+}
