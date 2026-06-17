@@ -10,32 +10,40 @@
     "contact": "Contact"
   },
   "hero": {
-    "index": "§ 00",
+    "index": "00",
     "tagline": "Leo Gonsalves — Software engineer",
-    "headline": "Five years of React and C# —",
-    "headline_em": "spent on systems that look simple and aren't",
+    "headlines": [
+      "Programmer with design instincts — <em>drawn to domains that fight back</em>.",
+      "Half a decade of React and C# spent in systems with <em>too many moving parts</em>."
+    ],
     "cta_work": "See my work",
     "cta_contact": "Get in touch"
   },
   "about": {
     "eyebrow": "About",
     "title": "Programmer with design instincts. Drawn to the messy ones.",
-    "body_1": "I work primarily in React and C#, with a soft spot for domains that look tractable until they aren't — clinical-trial supply chains, satellite-driven land analysis, Belgian payroll. Half a decade in, my taste has settled around the pattern <emphasis>this should be simple</emphasis>, and I keep walking toward it on purpose.",
-    "body_2": "Outside work, I build games and small LLM experiments — partly to keep a beginner's mind near the tools I use professionally, partly because games compile into something you can play. (Earliest evidence of stubbornness: a summer spent learning the Strokes' “Reptilia” on guitar, bass, and drums.)"
+    "bodies": [
+      "Programmer with design instincts; half a decade in React and C#, with a soft spot for slightly absurd problem statements. So far that's meant <emphasis>clinical-trial supply chains, satellite carbon analysis, and Belgian payroll</emphasis>.<br/>Outside work, I build games, interactive media, tools, and LLM-based experiments. They all serve the same purpose: keeping a beginner's mind near the tools I use professionally.",
+      "I'm a programmer with a designer's habits, working mostly in React and C#. Half a decade in, my taste runs toward systems where <emphasis>“this should be simple” turns out to be the most expensive sentence in the room</emphasis> — clinical trials, carbon registries, Belgian payroll.<br/>Outside hours go to games, interactive media, tools, and LLM-based experiments. The variety keeps a beginner's mind around tools I use professionally.",
+      "Half a decade of React and C# spent inside slightly absurd domains — clinical-trial supply, satellite carbon analysis, continental payroll. I'm not picky about the stack so much as <emphasis>the shape of the problem</emphasis>: dense, under-specified, occasionally regulated into a corner.<br/>Outside work I build games, interactive media, tools, and LLM-based experiments. A finished one is the cleanest proof I know that I still enjoy this."
+    ]
   },
   "work": {
     "eyebrow": "Selected work",
-    "title": "Three companies. Three improbable domains.",
+    "titles": [
+      "Three companies. Three problem statements that didn't fit on a slide.",
+      "Three companies, three regulated industries, one stubborn engineer."
+    ],
     "lede": "Shipped under audit, under deadline, and occasionally under satellite passes.",
     "visit": "Visit",
     "view_all": "View all projects",
     "roles": {
       "nside": {
-        "company": "n-side",
+        "company": "N-SIDE",
         "contribution": "Founding-team engineer on Lighthouse — a clinical-trial supply-planning platform modernizing a legacy Java stack."
       },
       "tris": {
-        "company": "tris.earth",
+        "company": "TRIS",
         "contribution": "Bootstrapped and built a geospatial analysis tool opening carbon-credit access to Brazilian farmers and landowners."
       },
       "payflip": {
@@ -68,7 +76,7 @@
     }
   },
   "contact": {
-    "index": "§ 04 — Available",
+    "index": "04 — Available",
     "title": "Have a system that's grown teeth?",
     "title_em": "Let's talk.",
     "body": "Taking on contract and consulting work — React and C# preferred, ambiguous problem statements welcome.",

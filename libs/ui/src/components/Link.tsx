@@ -6,7 +6,7 @@ export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
 }
 
-const inkPullUnderline = [
+export const inkPullUnderline = [
   'group inline-flex items-baseline gap-1',
   'font-sans font-medium text-ink',
   'bg-[linear-gradient(currentColor,currentColor)] bg-no-repeat',

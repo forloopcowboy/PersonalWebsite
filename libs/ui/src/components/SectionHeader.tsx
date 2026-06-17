@@ -38,7 +38,7 @@ export function SectionHeader({
         <div className="mb-6 flex items-center gap-3 text-ink-soft">
           {indexLabel && (
             <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
-              § {indexLabel}
+              {indexLabel}
             </span>
           )}
           {eyebrow && (

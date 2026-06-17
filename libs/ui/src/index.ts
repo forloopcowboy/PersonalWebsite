@@ -8,7 +8,7 @@ export { default as logo512Url } from '../assets/logo512.png';
 export { Button } from './components/Button';
 export type { ButtonProps, ButtonVariant, ButtonSize } from './components/Button';
 
-export { Link } from './components/Link';
+export { Link, inkPullUnderline } from './components/Link';
 export type { LinkProps } from './components/Link';
 
 export { SectionHeader } from './components/SectionHeader';

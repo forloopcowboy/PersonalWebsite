@@ -1,6 +1,8 @@
 import { Trans, useTranslation } from "react-i18next";
-import { Button, LanguagePicker, Link, Logo, SectionHeader } from "@personal/ui";
+import { useLoaderData } from "react-router";
+import {Button, cn, LanguagePicker, Link, Logo, SectionHeader, inkPullUnderline} from "@personal/ui";
 import { supportedLanguages } from "../i18n/config";
+import enUS from "../i18n/en-us.json";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -14,13 +16,23 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+const pick = (n: number) => Math.floor(Math.random() * n);
+
+export function loader() {
+  return {
+    heroIndex: pick(enUS.hero.headlines.length),
+    aboutIndex: pick(enUS.about.bodies.length),
+    workTitleIndex: pick(enUS.work.titles.length),
+  };
+}
+
 interface Role {
   key: string;
   href: string;
 }
 
 const SELECTED_WORK: Role[] = [
-  { key: "nside", href: "https://cms.n-side.com/files/uploads/2025/07/N-SIDE_Lighthouse_Brochure.pdf" },
+  { key: "nside", href: "https://www.n-side.com/en/life-sciences/cts-digital-twin/lighthouse-easy-and-accurate-clinical-supply-forecasting-planning-solution/" },
   { key: "tris", href: "https://www.tris.earth/" },
   { key: "payflip", href: "https://payflip.be/en/" },
 ];
@@ -37,13 +49,16 @@ const SIDE_PROJECTS: SideProject[] = [
 ];
 
 export default function Home() {
+  const { heroIndex, aboutIndex, workTitleIndex } =
+    useLoaderData<typeof loader>();
+
   return (
     <main className="min-h-dvh bg-paper text-ink">
       <div className="mx-auto flex max-w-page flex-col px-6 md:px-10 lg:px-gutter">
         <SiteHeader />
-        <Hero />
-        <About />
-        <SelectedWork />
+        <Hero index={heroIndex} />
+        <About index={aboutIndex} />
+        <SelectedWork titleIndex={workTitleIndex} />
         <SideProjects />
         <ContactCTA />
         <SiteFooter />
@@ -96,7 +111,7 @@ function SiteHeader() {
   );
 }
 
-function Hero() {
+function Hero({ index }: { index: number }) {
   const { t } = useTranslation();
 
   return (
@@ -115,11 +130,12 @@ function Hero() {
         className="animate-settle-in max-w-[22ch] font-display text-5xl font-light leading-[1.02] tracking-[-0.025em] text-ink md:text-6xl [text-wrap:balance]"
         style={{ animationDelay: "80ms" }}
       >
-        {t("hero.headline")}{" "}
-        <em className="font-normal italic text-ember">
-          {t("hero.headline_em")}
-        </em>
-        .
+        <Trans
+          i18nKey={`hero.headlines.${index}`}
+          components={{
+            em: <em className="font-normal italic text-ember" />,
+          }}
+        />
       </h1>
 
       <div
@@ -141,7 +157,7 @@ function Hero() {
   );
 }
 
-function About() {
+function About({ index }: { index: number }) {
   const { t } = useTranslation();
 
   return (
@@ -151,20 +167,20 @@ function About() {
         eyebrow={t("about.eyebrow")}
         title={t("about.title")}
       />
-      <div className="mt-10 grid max-w-prose gap-6 font-sans text-lg leading-relaxed text-ink-soft [text-wrap:pretty]">
-        <p>
-          <Trans
-            i18nKey="about.body_1"
-            components={{ emphasis: <span className="text-ink" /> }}
-          />
-        </p>
-        <p>{t("about.body_2")}</p>
-      </div>
+      <p className="mt-10 max-w-prose font-sans text-lg leading-relaxed text-ink-soft [text-wrap:pretty]">
+        <Trans
+          i18nKey={`about.bodies.${index}`}
+          components={{
+            emphasis: <span className="text-ink" />,
+            br: <span aria-hidden className="block h-4" />,
+          }}
+        />
+      </p>
     </section>
   );
 }
 
-function SelectedWork() {
+function SelectedWork({ titleIndex }: { titleIndex: number }) {
   const { t } = useTranslation();
 
   return (
@@ -172,7 +188,7 @@ function SelectedWork() {
       <SectionHeader
         index={2}
         eyebrow={t("work.eyebrow")}
-        title={t("work.title")}
+        title={t(`work.titles.${titleIndex}`)}
         lede={t("work.lede")}
       />
 
@@ -184,7 +200,7 @@ function SelectedWork() {
             style={{ animationDelay: `${i * 80}ms` }}
           >
             <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em] text-ink">
-              <span className="transition-[font-style,color] duration-200 ease-settle group-hover:italic group-hover:text-ember">
+              <span className={cn(inkPullUnderline, "duration-200 ease-settle group-hover:text-ember")}>
                 {t(`work.roles.${role.key}.company`)}
               </span>
             </h3>
