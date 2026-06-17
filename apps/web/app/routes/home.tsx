@@ -1,52 +1,238 @@
-import { Logo } from "@personal/ui";
+import { Button, Link, SectionHeader } from "@personal/ui";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Hello World" },
-    { name: "description", content: "Personal website" },
+    { title: "Leo Gonsalves — Software Engineer" },
+    {
+      name: "description",
+      content:
+        "Software engineer working across clinical trials, geospatial tooling, and payments infrastructure.",
+    },
   ];
 }
 
-const TAGS = ["NX", "Vite", "React Router", "pnpm", "SSR"];
+interface Project {
+  name: string;
+  role: string;
+  period: string;
+  blurb: string;
+  href?: string;
+}
 
-const TAG_STYLES = [
-  { bg: "#ff6b6b", shadow: "rgba(255,68,68,0.33)" },
-  { bg: "#ffd93d", shadow: "rgba(255,187,0,0.33)" },
-  { bg: "#6bcb77", shadow: "rgba(68,170,85,0.33)" },
-  { bg: "#4d96ff", shadow: "rgba(17,102,255,0.33)" },
-  { bg: "#c77dff", shadow: "rgba(153,51,255,0.33)" },
+const PROJECTS: Project[] = [
+  {
+    name: "Payflip",
+    role: "Engineer",
+    period: "2024 — present",
+    blurb:
+      "Belgian payments and payroll infrastructure. TypeScript, NestJS, a stack of legacy edge cases nobody warned anyone about.",
+    href: "https://payflip.be",
+  },
+  {
+    name: "tris.earth",
+    role: "Founder, solo build",
+    period: "2022 — 2023",
+    blurb:
+      "Geospatial carbon-credit tooling for Brazilian farmers and landowners. PostGIS, satellite imagery, and a lot of polygon math.",
+    href: "https://tris.earth",
+  },
+  {
+    name: "n-side",
+    role: "Founding engineer",
+    period: "2019 — 2022",
+    blurb:
+      "Supply planning platform for clinical trials. Shipped the first version, grew the team, learned what production looks like under audit.",
+    href: "https://nside.com",
+  },
+  {
+    name: "Side: Unity, LLM tooling",
+    role: "Tinkering",
+    period: "ongoing",
+    blurb:
+      "Tower defense and a jam platformer in Unity (C#), plus a small LLM product that exists mostly to keep me honest about latency.",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="flex min-h-dvh flex-col items-center justify-center gap-10 bg-[linear-gradient(135deg,#0f0c29,#302b63,#24243e)] p-8 font-sans">
-      <div className="flex flex-col items-center gap-4">
-        <Logo className="h-24 w-24 drop-shadow-[0_0_30px_rgba(77,150,255,0.45)]" />
-        <div className="bg-[linear-gradient(90deg,#ff6b6b,#ffd93d,#6bcb77,#4d96ff,#c77dff)] bg-clip-text text-[clamp(3.5rem,10vw,7rem)] font-black leading-none tracking-[-0.03em] text-transparent drop-shadow-[0_0_40px_rgba(77,150,255,0.4)]">
-          Hello, World
-        </div>
-        <p className="text-[clamp(0.95rem,2.5vw,1.2rem)] font-light uppercase tracking-[0.12em] text-white/55">
-          your new personal website
-        </p>
-      </div>
-
-      <div className="flex flex-wrap justify-center gap-[0.6rem]">
-        {TAGS.map((tag, i) => (
-          <span
-            key={tag}
-            className="rounded-full px-[1.1rem] py-[0.4rem] text-[0.8rem] font-bold tracking-[0.06em] text-white shadow-[0_4px_20px_var(--tag-shadow)]"
-            style={
-              {
-                backgroundColor: TAG_STYLES[i % TAG_STYLES.length].bg,
-                "--tag-shadow": TAG_STYLES[i % TAG_STYLES.length].shadow,
-              } as React.CSSProperties
-            }
-          >
-            {tag}
-          </span>
-        ))}
+    <main className="min-h-dvh bg-paper text-ink">
+      <div className="mx-auto flex max-w-page flex-col px-6 md:px-10 lg:px-gutter">
+        <SiteHeader />
+        <Hero />
+        <RecentWork />
+        <Currently />
+        <SiteFooter />
       </div>
     </main>
   );
 }
+
+function SiteHeader() {
+  return (
+    <header className="flex items-center justify-between py-8">
+      <Link
+        href="/"
+        className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
+      >
+        forloopcowboy
+      </Link>
+      <nav className="flex items-center gap-6">
+        <Link
+          href="#work"
+          className="font-mono text-xs uppercase tracking-[0.18em]"
+        >
+          Work
+        </Link>
+        <Link
+          href="mailto:leo@example.com"
+          className="font-mono text-xs uppercase tracking-[0.18em]"
+        >
+          Contact
+        </Link>
+      </nav>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="flex flex-col gap-10 pb-24 pt-16 md:pt-28">
+      <div className="animate-settle-in flex items-center gap-3 text-ink-soft">
+        <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
+          § 00
+        </span>
+        <span aria-hidden className="h-px w-8 bg-rule" />
+        <span className="font-mono text-xs uppercase tracking-[0.18em]">
+          Leo Gonsalves — Software Engineer
+        </span>
+      </div>
+
+      <h1
+        className="animate-settle-in max-w-[20ch] font-display text-5xl font-light leading-[1.02] tracking-[-0.025em] text-ink md:text-6xl [text-wrap:balance]"
+        style={{ animationDelay: "80ms" }}
+      >
+        Building software for clinical trials, carbon credits, and Belgian
+        payroll — <em className="font-normal italic text-ember">in roughly that order</em>.
+      </h1>
+
+      <p
+        className="animate-settle-in max-w-prose font-sans text-lg leading-relaxed text-ink-soft [text-wrap:pretty]"
+        style={{ animationDelay: "160ms" }}
+      >
+        Five years writing TypeScript and C#. Founding engineer at n-side, built
+        tris.earth solo, and currently making Belgian payslips less mysterious
+        at Payflip. Available for contract and consulting work from Q3 2026.
+      </p>
+
+      <div
+        className="animate-settle-in flex flex-wrap items-center gap-3"
+        style={{ animationDelay: "240ms" }}
+      >
+        <Button variant="primary" size="lg">
+          Hire me for contract work
+        </Button>
+        <Button variant="secondary" size="lg">
+          See recent work
+        </Button>
+        <Button variant="ghost" size="lg">
+          Read the writing
+        </Button>
+      </div>
+    </section>
+  );
+}
+
+function RecentWork() {
+  return (
+    <section id="work" className="border-t border-rule py-24">
+      <SectionHeader
+        index={1}
+        eyebrow="Recent work"
+        title="Four projects across three unreasonable domains."
+        lede="Clinical trial logistics, carbon credit accounting, and continental payroll have nothing in common except that they're all harder than they look. Brief tours below."
+      />
+
+      <ol className="mt-16 flex flex-col divide-y divide-rule">
+        {PROJECTS.map((project, i) => (
+          <li
+            key={project.name}
+            className="animate-settle-in group grid grid-cols-1 gap-x-10 gap-y-4 py-8 md:grid-cols-[10rem_1fr_auto]"
+            style={{ animationDelay: `${i * 80}ms` }}
+          >
+            <div className="flex flex-col gap-1 font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
+              <span>{project.period}</span>
+              <span>{project.role}</span>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h3 className="font-display text-2xl font-normal leading-tight tracking-[-0.01em] text-ink">
+                <span className="transition-[font-style,color] duration-200 ease-settle group-hover:italic group-hover:text-ember">
+                  {project.name}
+                </span>
+              </h3>
+              <p className="max-w-prose font-sans text-base leading-relaxed text-ink-soft">
+                {project.blurb}
+              </p>
+            </div>
+
+            <div className="self-end md:self-center">
+              {project.href && (
+                <Link href={project.href} className="text-sm">
+                  Visit
+                </Link>
+              )}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
+function Currently() {
+  return (
+    <section className="border-t border-rule py-24">
+      <SectionHeader
+        index={2}
+        eyebrow="Currently"
+        title="Belgian payroll by day. Tower defense by night."
+        lede="At Payflip, I work on payments infrastructure for Belgian employers. On the side: a Unity tower-defense game, a jam-grade platformer, and a small LLM product that mostly exists to keep me honest about latency."
+      />
+
+      <div className="mt-10 flex flex-wrap items-center gap-6 font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
+        <Stat label="Based" value="Brussels" />
+        <span aria-hidden className="h-3 w-px bg-rule" />
+        <Stat label="Stack" value="TypeScript · C# · PostGIS" />
+        <span aria-hidden className="h-3 w-px bg-rule" />
+        <Stat label="Open to" value="Contract · Consulting" />
+      </div>
+    </section>
+  );
+}
+
+function Stat({ label, value }: { label: string; value: string }) {
+  return (
+    <span className="flex items-baseline gap-2">
+      <span className="text-ember">§</span>
+      <span>{label}</span>
+      <span className="text-ink">{value}</span>
+    </span>
+  );
+}
+
+function SiteFooter() {
+  return (
+    <footer className="mt-24 flex flex-col gap-6 border-t border-rule py-10 md:flex-row md:items-center md:justify-between">
+      <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
+        © 2026 — Built with too much coffee
+      </p>
+      <div className="flex items-center gap-6 font-sans text-sm">
+        <Link href="mailto:leo@example.com">leo@example.com</Link>
+        <Link href="https://github.com/forloopcowboy">GitHub</Link>
+        <Link href="https://www.linkedin.com/in/leogonsalves">LinkedIn</Link>
+      </div>
+    </footer>
+  );
+}
+

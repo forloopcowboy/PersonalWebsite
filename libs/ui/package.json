@@ -6,7 +6,7 @@
   "exports": {
     ".": "./src/index.ts",
     "./Logo": "./src/Logo.tsx",
-    "./tailwind-preset": "./tailwind.config.js",
+    "./tailwind-preset": "./tailwind.config.ts",
     "./assets/favicon": "./assets/favicon.ico",
     "./assets/logo192": "./assets/logo192.png",
     "./assets/logo512": "./assets/logo512.png"

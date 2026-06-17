@@ -3,6 +3,26 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-paper: 244 238 226;
+    --color-paper-raised: 251 247 238;
+    --color-ink: 26 23 20;
+    --color-ink-soft: 107 98 88;
+    --color-rule: 229 221 203;
+    --color-ember: 152 68 71;
+    --color-ember-deep: 103 55 57;
+  }
+
+  .dark {
+    --color-paper: 21 17 13;
+    --color-paper-raised: 31 26 20;
+    --color-ink: 240 232 218;
+    --color-ink-soft: 168 151 138;
+    --color-rule: 45 38 32;
+    --color-ember: 249 115 22;
+    --color-ember-deep: 251 146 60;
+  }
+
   *,
   *::before,
   *::after {
@@ -11,7 +31,30 @@
     padding: 0;
   }
 
+  html {
+    font-family: theme('fontFamily.sans');
+    color: theme('colors.ink');
+    background-color: theme('colors.paper');
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     min-height: 100dvh;
+  }
+
+  ::selection {
+    background-color: theme('colors.ember');
+    color: theme('colors.paper');
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
