@@ -2,10 +2,10 @@ import type { ReactNode } from 'react';
 import { cn } from '../lib/cn';
 
 export interface SectionHeaderProps {
-  /** Optional section number — rendered as `§ 02` in mono, ember-colored. */
-  index?: string | number;
-  /** Small label rendered alongside the index in mono uppercase. */
+  /** Small label rendered in mono uppercase, preceded by a rule line. */
   eyebrow?: string;
+  /** Hash link (e.g. `#work`) — when set, the eyebrow becomes a clickable anchor. */
+  href?: string;
   /** Headline. Set in display serif. */
   title: ReactNode;
   /** Optional lede paragraph below the title. */
@@ -15,16 +15,18 @@ export interface SectionHeaderProps {
 }
 
 export function SectionHeader({
-  index,
   eyebrow,
+  href,
   title,
   lede,
   align = 'left',
   className,
 }: SectionHeaderProps) {
-  const indexLabel =
-    typeof index === 'number' ? index.toString().padStart(2, '0') : index;
-  const hasMeta = Boolean(indexLabel || eyebrow);
+  const eyebrowLabel = eyebrow && (
+    <span className="font-mono text-xs uppercase tracking-[0.18em]">
+      {eyebrow}
+    </span>
+  );
 
   return (
     <header
@@ -34,20 +36,18 @@ export function SectionHeader({
         className,
       )}
     >
-      {hasMeta && (
+      {eyebrow && (
         <div className="mb-6 flex items-center gap-3 text-ink-soft">
-          {indexLabel && (
-            <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
-              {indexLabel}
-            </span>
-          )}
-          {eyebrow && (
-            <>
-              <span aria-hidden className="h-px w-8 bg-rule" />
-              <span className="font-mono text-xs uppercase tracking-[0.18em]">
-                {eyebrow}
-              </span>
-            </>
+          <span aria-hidden className="h-px w-8 bg-rule" />
+          {href ? (
+            <a
+              href={href}
+              className="transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
+            >
+              {eyebrowLabel}
+            </a>
+          ) : (
+            eyebrowLabel
           )}
         </div>
       )}

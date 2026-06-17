@@ -117,9 +117,6 @@ function Hero({ index }: { index: number }) {
   return (
     <section className="flex flex-col gap-12 pb-32 pt-20 md:gap-14 md:pt-32">
       <div className="animate-settle-in flex items-center gap-3 text-ink-soft">
-        <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
-          {t("hero.index")}
-        </span>
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">
           {t("hero.tagline")}
@@ -161,17 +158,17 @@ function About({ index }: { index: number }) {
   const { t } = useTranslation();
 
   return (
-    <section className="border-t border-rule py-24 md:py-28">
+    <section id="about" className="border-t border-rule py-24 md:py-28 scroll-mt-16">
       <SectionHeader
-        index={1}
         eyebrow={t("about.eyebrow")}
+        href="#about"
         title={t("about.title")}
       />
       <p className="mt-10 max-w-prose font-sans text-lg leading-relaxed text-ink-soft [text-wrap:pretty]">
         <Trans
           i18nKey={`about.bodies.${index}`}
           components={{
-            emphasis: <span className="text-ink" />,
+            emphasis: <span className="text-ink italic" />,
             br: <span aria-hidden className="block h-4" />,
           }}
         />
@@ -184,10 +181,10 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
   const { t } = useTranslation();
 
   return (
-    <section id="work" className="border-t border-rule py-24 md:py-28">
+    <section id="work" className="border-t border-rule py-24 md:py-28 scroll-mt-16">
       <SectionHeader
-        index={2}
         eyebrow={t("work.eyebrow")}
+        href="#work"
         title={t(`work.titles.${titleIndex}`)}
         lede={t("work.lede")}
       />
@@ -232,10 +229,10 @@ function SideProjects() {
   const { t } = useTranslation();
 
   return (
-    <section id="side" className="border-t border-rule py-24 md:py-28">
+    <section id="side" className="border-t border-rule py-24 md:py-28 scroll-mt-16">
       <SectionHeader
-        index={3}
         eyebrow={t("side.eyebrow")}
+        href="#side"
         title={t("side.title")}
         lede={t("side.lede")}
       />
@@ -275,12 +272,18 @@ function ContactCTA() {
   const { t } = useTranslation();
 
   return (
-    <section className="border-t border-rule py-28 md:py-32">
+    <section id="contact" className="border-t border-rule py-28 md:py-32 scroll-mt-16">
       <div className="flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
         <div className="max-w-[30ch]">
-          <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
-            {t("contact.index")}
-          </span>
+          <div className="flex items-center gap-3 text-ink-soft">
+            <span aria-hidden className="h-px w-8 bg-rule" />
+            <a
+              href="#contact"
+              className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
+            >
+              {t("contact.eyebrow")}
+            </a>
+          </div>
           <h2 className="mt-6 font-display text-4xl font-light leading-[1.04] tracking-[-0.02em] text-ink md:text-5xl [text-wrap:balance]">
             {t("contact.title")}{" "}
             <em className="font-normal italic text-ember">
