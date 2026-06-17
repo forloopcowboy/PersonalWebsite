@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src"],
+  "include": ["src", "tailwind.config.ts"],
   "compilerOptions": {
     "esModuleInterop": true
   }

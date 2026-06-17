@@ -4,7 +4,7 @@ A warm-paper editorial aesthetic for a software-engineering portfolio. Playfulne
 
 ## 1. Concept
 
-An *engineer's editorial*: a warm cream canvas, deep ink for body, a single confident persimmon for accent, and JetBrains Mono used sparingly for metadata. Headlines set in **Fraunces** — a contemporary serif whose opsz/italic axes carry real personality — let type do the playful work. The site reads like a printed object that happens to be on the web.
+An *engineer's editorial*: a warm cream canvas (light) or deep cocoa-near-black (dark, default), deep ink for body, a single confident clay-red for accent, and JetBrains Mono used sparingly for metadata. Headlines set in **Fraunces** — a contemporary serif whose opsz/italic axes carry real personality — let type do the playful work. The site reads like a printed object that happens to be on the web. **Dark mode is the default**; light mode is wired and tested.
 
 ## 2. Principles
 
@@ -25,8 +25,8 @@ Driven by CSS custom properties on `:root` and `.dark` (in `apps/web/app/app.css
 | `ink`         | `#1A1714` | `#F0E8DA` | Body and headings. Warm near-black, never `#000`.   |
 | `ink-soft`    | `#6B6258` | `#A8978A` | Captions, secondary copy, dividers' text neighbors. |
 | `rule`        | `#E5DDCB` | `#2D2620` | Hairlines, card borders, input borders.             |
-| `ember`       | `#C2410C` | `#F97316` | The accent. Links on hover, primary CTA, eyebrow §. |
-| `ember-deep`  | `#7C2D12` | `#FB923C` | Hover/press state of `ember`.                       |
+| `ember`       | `#984447` | `#C2575A` | The accent. Links on hover, primary CTA, eyebrow §. |
+| `ember-deep`  | `#673739` | `#E0747A` | Hover/press state of `ember`.                       |
 
 Rules:
 - Black is never `#000`. White is never `#FFF`.
