@@ -14,4 +14,7 @@ export type { LinkProps } from './components/Link';
 export { SectionHeader } from './components/SectionHeader';
 export type { SectionHeaderProps } from './components/SectionHeader';
 
+export { LanguagePicker } from './components/LanguagePicker';
+export type { LanguagePickerProps, LanguageOption } from './components/LanguagePicker';
+
 export { cn } from './lib/cn';

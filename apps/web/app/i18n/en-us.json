@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "title": "Leo Gonsalves — Software engineer",
+    "description": "Engineer working in React and C# across clinical trials, geospatial tooling, and Belgian payroll. Available for contract and consulting work."
+  },
+  "nav": {
+    "home": "forloopcowboy",
+    "work": "Work",
+    "side": "Side",
+    "contact": "Contact"
+  },
+  "hero": {
+    "index": "§ 00",
+    "tagline": "Leo Gonsalves — Software engineer",
+    "headline": "Five years of React and C# —",
+    "headline_em": "spent on systems that look simple and aren't",
+    "cta_work": "See my work",
+    "cta_contact": "Get in touch"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Programmer with design instincts. Drawn to the messy ones.",
+    "body_1": "I work primarily in React and C#, with a soft spot for domains that look tractable until they aren't — clinical-trial supply chains, satellite-driven land analysis, Belgian payroll. Half a decade in, my taste has settled around the pattern <emphasis>this should be simple</emphasis>, and I keep walking toward it on purpose.",
+    "body_2": "Outside work, I build games and small LLM experiments — partly to keep a beginner's mind near the tools I use professionally, partly because games compile into something you can play. (Earliest evidence of stubbornness: a summer spent learning the Strokes' “Reptilia” on guitar, bass, and drums.)"
+  },
+  "work": {
+    "eyebrow": "Selected work",
+    "title": "Three companies. Three improbable domains.",
+    "lede": "Shipped under audit, under deadline, and occasionally under satellite passes.",
+    "visit": "Visit",
+    "view_all": "View all projects",
+    "roles": {
+      "nside": {
+        "company": "n-side",
+        "contribution": "Founding-team engineer on Lighthouse — a clinical-trial supply-planning platform modernizing a legacy Java stack."
+      },
+      "tris": {
+        "company": "tris.earth",
+        "contribution": "Bootstrapped and built a geospatial analysis tool opening carbon-credit access to Brazilian farmers and landowners."
+      },
+      "payflip": {
+        "company": "Payflip",
+        "contribution": "Currently building unified card-payment infrastructure under Belgian cafeteria-plan benefits and salary transparency."
+      }
+    }
+  },
+  "side": {
+    "eyebrow": "On the side",
+    "title": "Smaller things, built for the joy of finishing them.",
+    "lede": "Outside work, mostly weekends. A different register — same instinct.",
+    "play": "Play",
+    "projects": {
+      "recolonizer": {
+        "title": "Recolonizer",
+        "tag": "Game",
+        "blurb": "A tower defense built solo in Unity — pathing, waves, and a stubborn fondness for C#."
+      },
+      "glutton": {
+        "title": "Glutton for Gluten",
+        "tag": "Jam",
+        "blurb": "Game-jam platformer; built in a weekend and still walks."
+      },
+      "cowboy_investor": {
+        "title": "Cowboy Investor",
+        "tag": "LLM",
+        "blurb": "A small LLM-backed wrapper that pretends to give investment advice."
+      }
+    }
+  },
+  "contact": {
+    "index": "§ 04 — Available",
+    "title": "Have a system that's grown teeth?",
+    "title_em": "Let's talk.",
+    "body": "Taking on contract and consulting work — React and C# preferred, ambiguous problem statements welcome.",
+    "cta": "Get in touch"
+  },
+  "footer": {
+    "copyright": "© 2026 — Leo Gonsalves",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  }
+}

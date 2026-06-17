@@ -1,57 +1,39 @@
-import { Button, Link, SectionHeader } from "@personal/ui";
+import { Trans, useTranslation } from "react-i18next";
+import { Button, LanguagePicker, Link, Logo, SectionHeader } from "@personal/ui";
+import { supportedLanguages } from "../i18n/config";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Leo Gonsalves — Software Engineer" },
+    { title: "Leo Gonsalves — Software engineer" },
     {
       name: "description",
       content:
-        "Software engineer working across clinical trials, geospatial tooling, and payments infrastructure.",
+        "Engineer working in React and C# across clinical trials, geospatial tooling, and Belgian payroll. Available for contract and consulting work.",
     },
   ];
 }
 
-interface Project {
-  name: string;
-  role: string;
-  period: string;
-  blurb: string;
-  href?: string;
+interface Role {
+  key: string;
+  href: string;
 }
 
-const PROJECTS: Project[] = [
-  {
-    name: "Payflip",
-    role: "Engineer",
-    period: "2024 — present",
-    blurb:
-      "Belgian payments and payroll infrastructure. TypeScript, NestJS, a stack of legacy edge cases nobody warned anyone about.",
-    href: "https://payflip.be",
-  },
-  {
-    name: "tris.earth",
-    role: "Founder, solo build",
-    period: "2022 — 2023",
-    blurb:
-      "Geospatial carbon-credit tooling for Brazilian farmers and landowners. PostGIS, satellite imagery, and a lot of polygon math.",
-    href: "https://tris.earth",
-  },
-  {
-    name: "n-side",
-    role: "Founding engineer",
-    period: "2019 — 2022",
-    blurb:
-      "Supply planning platform for clinical trials. Shipped the first version, grew the team, learned what production looks like under audit.",
-    href: "https://nside.com",
-  },
-  {
-    name: "Side: Unity, LLM tooling",
-    role: "Tinkering",
-    period: "ongoing",
-    blurb:
-      "Tower defense and a jam platformer in Unity (C#), plus a small LLM product that exists mostly to keep me honest about latency.",
-  },
+const SELECTED_WORK: Role[] = [
+  { key: "nside", href: "https://cms.n-side.com/files/uploads/2025/07/N-SIDE_Lighthouse_Brochure.pdf" },
+  { key: "tris", href: "https://www.tris.earth/" },
+  { key: "payflip", href: "https://payflip.be/en/" },
+];
+
+interface SideProject {
+  key: string;
+  href: string;
+}
+
+const SIDE_PROJECTS: SideProject[] = [
+  { key: "recolonizer", href: "https://forloopcowboy.itch.io/recolonizer" },
+  { key: "glutton", href: "https://forloopcowboy.itch.io/glutton-for-gluten" },
+  { key: "cowboy_investor", href: "https://invest.forloopcowboy.com/" },
 ];
 
 export default function Home() {
@@ -60,8 +42,10 @@ export default function Home() {
       <div className="mx-auto flex max-w-page flex-col px-6 md:px-10 lg:px-gutter">
         <SiteHeader />
         <Hero />
-        <RecentWork />
-        <Currently />
+        <About />
+        <SelectedWork />
+        <SideProjects />
+        <ContactCTA />
         <SiteFooter />
       </div>
     </main>
@@ -69,170 +53,251 @@ export default function Home() {
 }
 
 function SiteHeader() {
+  const { t, i18n } = useTranslation();
+
   return (
     <header className="flex items-center justify-between py-8">
-      <Link
+      <a
         href="/"
-        className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft"
+        className="group inline-flex items-center gap-3"
+        aria-label="forloopcowboy — home"
       >
-        forloopcowboy
-      </Link>
+        <Logo className="h-7 w-7" />
+        <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft transition-colors duration-200 group-hover:text-ink">
+          {t("nav.home")}
+        </span>
+      </a>
       <nav className="flex items-center gap-6">
         <Link
           href="#work"
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
-          Work
+          {t("nav.work")}
         </Link>
         <Link
-          href="mailto:leo@example.com"
+          href="#side"
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
-          Contact
+          {t("nav.side")}
         </Link>
+        <Link
+          href="/contact"
+          className="font-mono text-xs uppercase tracking-[0.18em]"
+        >
+          {t("nav.contact")}
+        </Link>
+        <LanguagePicker
+          value={i18n.language}
+          options={supportedLanguages}
+          onChange={(code) => i18n.changeLanguage(code)}
+        />
       </nav>
     </header>
   );
 }
 
 function Hero() {
+  const { t } = useTranslation();
+
   return (
-    <section className="flex flex-col gap-10 pb-24 pt-16 md:pt-28">
+    <section className="flex flex-col gap-12 pb-32 pt-20 md:gap-14 md:pt-32">
       <div className="animate-settle-in flex items-center gap-3 text-ink-soft">
         <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
-          § 00
+          {t("hero.index")}
         </span>
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">
-          Leo Gonsalves — Software Engineer
+          {t("hero.tagline")}
         </span>
       </div>
 
       <h1
-        className="animate-settle-in max-w-[20ch] font-display text-5xl font-light leading-[1.02] tracking-[-0.025em] text-ink md:text-6xl [text-wrap:balance]"
+        className="animate-settle-in max-w-[22ch] font-display text-5xl font-light leading-[1.02] tracking-[-0.025em] text-ink md:text-6xl [text-wrap:balance]"
         style={{ animationDelay: "80ms" }}
       >
-        Building software for clinical trials, carbon credits, and Belgian
-        payroll — <em className="font-normal italic text-ember">in roughly that order</em>.
+        {t("hero.headline")}{" "}
+        <em className="font-normal italic text-ember">
+          {t("hero.headline_em")}
+        </em>
+        .
       </h1>
-
-      <p
-        className="animate-settle-in max-w-prose font-sans text-lg leading-relaxed text-ink-soft [text-wrap:pretty]"
-        style={{ animationDelay: "160ms" }}
-      >
-        Five years writing TypeScript and C#. Founding engineer at n-side, built
-        tris.earth solo, and currently making Belgian payslips less mysterious
-        at Payflip. Available for contract and consulting work from Q3 2026.
-      </p>
 
       <div
         className="animate-settle-in flex flex-wrap items-center gap-3"
-        style={{ animationDelay: "240ms" }}
+        style={{ animationDelay: "160ms" }}
       >
-        <Button variant="primary" size="lg">
-          Hire me for contract work
-        </Button>
-        <Button variant="secondary" size="lg">
-          See recent work
-        </Button>
-        <Button variant="ghost" size="lg">
-          Read the writing
-        </Button>
+        <a href="#work" className="focus-visible:outline-none">
+          <Button variant="primary" size="lg">
+            {t("hero.cta_work")}
+          </Button>
+        </a>
+        <a href="/contact" className="focus-visible:outline-none">
+          <Button variant="secondary" size="lg">
+            {t("hero.cta_contact")}
+          </Button>
+        </a>
       </div>
     </section>
   );
 }
 
-function RecentWork() {
+function About() {
+  const { t } = useTranslation();
+
   return (
-    <section id="work" className="border-t border-rule py-24">
+    <section className="border-t border-rule py-24 md:py-28">
       <SectionHeader
         index={1}
-        eyebrow="Recent work"
-        title="Four projects across three unreasonable domains."
-        lede="Clinical trial logistics, carbon credit accounting, and continental payroll have nothing in common except that they're all harder than they look. Brief tours below."
+        eyebrow={t("about.eyebrow")}
+        title={t("about.title")}
+      />
+      <div className="mt-10 grid max-w-prose gap-6 font-sans text-lg leading-relaxed text-ink-soft [text-wrap:pretty]">
+        <p>
+          <Trans
+            i18nKey="about.body_1"
+            components={{ emphasis: <span className="text-ink" /> }}
+          />
+        </p>
+        <p>{t("about.body_2")}</p>
+      </div>
+    </section>
+  );
+}
+
+function SelectedWork() {
+  const { t } = useTranslation();
+
+  return (
+    <section id="work" className="border-t border-rule py-24 md:py-28">
+      <SectionHeader
+        index={2}
+        eyebrow={t("work.eyebrow")}
+        title={t("work.title")}
+        lede={t("work.lede")}
       />
 
       <ol className="mt-16 flex flex-col divide-y divide-rule">
-        {PROJECTS.map((project, i) => (
+        {SELECTED_WORK.map((role, i) => (
           <li
-            key={project.name}
-            className="animate-settle-in group grid grid-cols-1 gap-x-10 gap-y-4 py-8 md:grid-cols-[10rem_1fr_auto]"
+            key={role.key}
+            className="animate-settle-in group grid grid-cols-1 gap-x-12 gap-y-4 py-10 md:grid-cols-[16rem_1fr_auto] md:items-baseline"
             style={{ animationDelay: `${i * 80}ms` }}
           >
-            <div className="flex flex-col gap-1 font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
-              <span>{project.period}</span>
-              <span>{project.role}</span>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <h3 className="font-display text-2xl font-normal leading-tight tracking-[-0.01em] text-ink">
-                <span className="transition-[font-style,color] duration-200 ease-settle group-hover:italic group-hover:text-ember">
-                  {project.name}
-                </span>
-              </h3>
-              <p className="max-w-prose font-sans text-base leading-relaxed text-ink-soft">
-                {project.blurb}
-              </p>
-            </div>
-
-            <div className="self-end md:self-center">
-              {project.href && (
-                <Link href={project.href} className="text-sm">
-                  Visit
-                </Link>
-              )}
+            <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em] text-ink">
+              <span className="transition-[font-style,color] duration-200 ease-settle group-hover:italic group-hover:text-ember">
+                {t(`work.roles.${role.key}.company`)}
+              </span>
+            </h3>
+            <p className="max-w-prose font-sans text-base leading-relaxed text-ink-soft">
+              {t(`work.roles.${role.key}.contribution`)}
+            </p>
+            <div className="md:self-baseline">
+              <Link href={role.href} className="text-sm">
+                {t("work.visit")}
+              </Link>
             </div>
           </li>
         ))}
       </ol>
-    </section>
-  );
-}
 
-function Currently() {
-  return (
-    <section className="border-t border-rule py-24">
-      <SectionHeader
-        index={2}
-        eyebrow="Currently"
-        title="Belgian payroll by day. Tower defense by night."
-        lede="At Payflip, I work on payments infrastructure for Belgian employers. On the side: a Unity tower-defense game, a jam-grade platformer, and a small LLM product that mostly exists to keep me honest about latency."
-      />
-
-      <div className="mt-10 flex flex-wrap items-center gap-6 font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
-        <Stat label="Based" value="Brussels" />
-        <span aria-hidden className="h-3 w-px bg-rule" />
-        <Stat label="Stack" value="TypeScript · C# · PostGIS" />
-        <span aria-hidden className="h-3 w-px bg-rule" />
-        <Stat label="Open to" value="Contract · Consulting" />
+      <div className="mt-12">
+        <Link
+          href="/projects"
+          className="font-mono text-xs uppercase tracking-[0.18em]"
+        >
+          {t("work.view_all")}
+        </Link>
       </div>
     </section>
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function SideProjects() {
+  const { t } = useTranslation();
+
   return (
-    <span className="flex items-baseline gap-2">
-      <span className="text-ember">§</span>
-      <span>{label}</span>
-      <span className="text-ink">{value}</span>
-    </span>
+    <section id="side" className="border-t border-rule py-24 md:py-28">
+      <SectionHeader
+        index={3}
+        eyebrow={t("side.eyebrow")}
+        title={t("side.title")}
+        lede={t("side.lede")}
+      />
+
+      <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-rule bg-rule md:grid-cols-3">
+        {SIDE_PROJECTS.map((project, i) => (
+          <article
+            key={project.key}
+            className="animate-settle-in flex flex-col gap-5 bg-paper-raised p-8"
+            style={{ animationDelay: `${i * 80}ms` }}
+          >
+            <div className="flex items-center gap-3 text-ink-soft">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
+                {t(`side.projects.${project.key}.tag`)}
+              </span>
+              <span aria-hidden className="h-px w-6 bg-rule" />
+            </div>
+            <h3 className="font-display text-2xl font-normal leading-tight tracking-[-0.01em] text-ink">
+              {t(`side.projects.${project.key}.title`)}
+            </h3>
+            <p className="font-sans text-sm leading-relaxed text-ink-soft">
+              {t(`side.projects.${project.key}.blurb`)}
+            </p>
+            <div className="mt-auto pt-2">
+              <Link href={project.href} className="text-sm">
+                {t("side.play")}
+              </Link>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ContactCTA() {
+  const { t } = useTranslation();
+
+  return (
+    <section className="border-t border-rule py-28 md:py-32">
+      <div className="flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-[30ch]">
+          <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
+            {t("contact.index")}
+          </span>
+          <h2 className="mt-6 font-display text-4xl font-light leading-[1.04] tracking-[-0.02em] text-ink md:text-5xl [text-wrap:balance]">
+            {t("contact.title")}{" "}
+            <em className="font-normal italic text-ember">
+              {t("contact.title_em")}
+            </em>
+          </h2>
+          <p className="mt-6 max-w-prose font-sans text-lg leading-relaxed text-ink-soft">
+            {t("contact.body")}
+          </p>
+        </div>
+        <a href="/contact" className="focus-visible:outline-none">
+          <Button variant="primary" size="lg">
+            {t("contact.cta")}
+          </Button>
+        </a>
+      </div>
+    </section>
   );
 }
 
 function SiteFooter() {
+  const { t } = useTranslation();
+
   return (
-    <footer className="mt-24 flex flex-col gap-6 border-t border-rule py-10 md:flex-row md:items-center md:justify-between">
+    <footer className="mt-8 flex flex-col gap-6 border-t border-rule py-10 md:flex-row md:items-center md:justify-between">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
-        © 2026 — Built with too much coffee
+        {t("footer.copyright")}
       </p>
       <div className="flex items-center gap-6 font-sans text-sm">
-        <Link href="mailto:leo@example.com">leo@example.com</Link>
-        <Link href="https://github.com/forloopcowboy">GitHub</Link>
-        <Link href="https://www.linkedin.com/in/leogonsalves">LinkedIn</Link>
+        <Link href="mailto:leo@forloopcowboy.com">{t("footer.email")}</Link>
+        <Link href="https://github.com/forloopcowboy">{t("footer.github")}</Link>
+        <Link href="https://www.linkedin.com/in/leogonsalves">{t("footer.linkedin")}</Link>
       </div>
     </footer>
   );
 }
-

@@ -11,12 +11,14 @@
   },
   "dependencies": {
     "@personal/ui": "workspace:*",
+    "@react-router/node": "^7.5.0",
+    "@react-router/serve": "^7.5.0",
+    "i18next": "^26.3.1",
+    "isbot": "^5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.5.0",
-    "@react-router/serve": "^7.5.0",
-    "@react-router/node": "^7.5.0",
-    "isbot": "^5"
+    "react-i18next": "^17.0.8",
+    "react-router": "^7.5.0"
   },
   "devDependencies": {
     "@react-router/dev": "^7.5.0",

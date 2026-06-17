@@ -6,8 +6,10 @@ import {
   ScrollRestoration,
   type LinksFunction,
 } from "react-router";
+import { useTranslation } from "react-i18next";
 import { faviconUrl, logo192Url } from "@personal/ui";
 import appStylesUrl from "./app.css?url";
+import "./i18n/config";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -22,8 +24,10 @@ export const links: LinksFunction = () => [
 ];
 
 export default function Root() {
+  const { i18n } = useTranslation();
+
   return (
-    <html lang="en" className="dark">
+    <html lang={i18n.language} className="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
