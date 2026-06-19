@@ -34,7 +34,7 @@ export const projects: readonly Project[] = [
     slug: "n-side",
     kind: "professional",
     company: "N-SIDE",
-    role: "Founding-team engineer, Lighthouse",
+    role: "Founding-team software engineer, Lighthouse",
     years: "2020-2024",
     excerpt:
       "Founding-team engineer on Lighthouse, modernizing N-SIDE's legacy Java stack into a new clinical trial supply planning platform.",
@@ -47,7 +47,7 @@ export const projects: readonly Project[] = [
     slug: "tris",
     kind: "professional",
     company: "TRIS",
-    role: "Founding engineer",
+    role: "Founding engineer / CTO",
     years: "2025-2026",
     excerpt:
       "Bootstrapped a geospatial analysis tool democratizing carbon-credit access for Brazilian farmers and landowners.",
@@ -57,7 +57,7 @@ export const projects: readonly Project[] = [
     slug: "payflip",
     kind: "professional",
     company: "Payflip",
-    role: "Engineer (current)",
+    role: "Senior Engineer",
     years: "2025-present",
     excerpt:
       "Building unified card payment infrastructure for Belgian cafeteria-plan benefits and salary transparency.",
@@ -78,7 +78,7 @@ export const projects: readonly Project[] = [
     slug: "glutton-for-gluten",
     kind: "personal",
     title: "Glutton for Gluten",
-    role: "Game jam",
+    role: "Game jam – Lead programmer",
     excerpt: "Platformer built during a game jam.",
     link: {
       label: "Play on itch.io",
@@ -89,7 +89,7 @@ export const projects: readonly Project[] = [
     slug: "cowboy-investor",
     kind: "personal",
     title: "Cowboy Investor",
-    role: "Solo build",
+    role: "Solo build / Vibe coder",
     excerpt:
       "An LLM wrapper offering opinionated, experimental investment advice.",
     link: {

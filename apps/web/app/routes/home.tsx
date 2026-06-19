@@ -1,6 +1,14 @@
 import { Trans, useTranslation } from "react-i18next";
 import { useLoaderData } from "react-router";
-import {Button, cn, LanguagePicker, Link, Logo, SectionHeader, inkPullUnderline} from "@personal/ui";
+import {
+  Button,
+  cn,
+  LanguagePicker,
+  Link,
+  Logo,
+  SectionHeader,
+  inkPullUnderline,
+} from "@personal/ui";
 import { supportedLanguages } from "../i18n/config";
 import enUS from "../i18n/en-us.json";
 import type { Route } from "./+types/home";
@@ -32,7 +40,10 @@ interface Role {
 }
 
 const SELECTED_WORK: Role[] = [
-  { key: "nside", href: "https://www.n-side.com/en/life-sciences/cts-digital-twin/lighthouse-easy-and-accurate-clinical-supply-forecasting-planning-solution/" },
+  {
+    key: "n-side",
+    href: "https://www.n-side.com/en/life-sciences/cts-digital-twin/lighthouse-easy-and-accurate-clinical-supply-forecasting-planning-solution/",
+  },
   { key: "tris", href: "https://www.tris.earth/" },
   { key: "payflip", href: "https://payflip.be/en/" },
 ];
@@ -158,7 +169,10 @@ function About({ index }: { index: number }) {
   const { t } = useTranslation();
 
   return (
-    <section id="about" className="border-t border-rule py-24 md:py-28 scroll-mt-16">
+    <section
+      id="about"
+      className="border-t border-rule py-24 md:py-28 scroll-mt-16"
+    >
       <SectionHeader
         eyebrow={t("about.eyebrow")}
         href="#about"
@@ -181,7 +195,10 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
   const { t } = useTranslation();
 
   return (
-    <section id="work" className="border-t border-rule py-24 md:py-28 scroll-mt-16">
+    <section
+      id="work"
+      className="border-t border-rule py-24 md:py-28 scroll-mt-16"
+    >
       <SectionHeader
         eyebrow={t("work.eyebrow")}
         href="#work"
@@ -196,17 +213,17 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
             className="animate-settle-in group grid grid-cols-1 gap-x-12 gap-y-4 py-10 md:grid-cols-[16rem_1fr_auto] md:items-baseline"
             style={{ animationDelay: `${i * 80}ms` }}
           >
-            <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em] text-ink">
-              <span className={cn(inkPullUnderline, "duration-200 ease-settle group-hover:text-ember")}>
-                {t(`work.roles.${role.key}.company`)}
-              </span>
-            </h3>
+            <Link href={`/projects/${role.key}`}>
+              <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em]">
+                <span>{t(`work.roles.${role.key}.company`)}</span>
+              </h3>
+            </Link>
             <p className="max-w-prose font-sans text-base leading-relaxed text-ink-soft">
               {t(`work.roles.${role.key}.contribution`)}
             </p>
             <div className="md:self-baseline">
               <Link href={role.href} className="text-sm">
-                {t("work.visit")}
+                {`${t("work.visit")} ${role.href.split("https://")[1].split("/")[0].replace("www.", "")}`}
               </Link>
             </div>
           </li>
@@ -229,7 +246,10 @@ function SideProjects() {
   const { t } = useTranslation();
 
   return (
-    <section id="side" className="border-t border-rule py-24 md:py-28 scroll-mt-16">
+    <section
+      id="side"
+      className="border-t border-rule py-24 md:py-28 scroll-mt-16"
+    >
       <SectionHeader
         eyebrow={t("side.eyebrow")}
         href="#side"
@@ -272,7 +292,10 @@ function ContactCTA() {
   const { t } = useTranslation();
 
   return (
-    <section id="contact" className="border-t border-rule py-28 md:py-32 scroll-mt-16">
+    <section
+      id="contact"
+      className="border-t border-rule py-28 md:py-32 scroll-mt-16"
+    >
       <div className="flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
         <div className="max-w-[30ch]">
           <div className="flex items-center gap-3 text-ink-soft">
@@ -314,8 +337,12 @@ function SiteFooter() {
       </p>
       <div className="flex items-center gap-6 font-sans text-sm">
         <Link href="mailto:leo@forloopcowboy.com">{t("footer.email")}</Link>
-        <Link href="https://github.com/forloopcowboy">{t("footer.github")}</Link>
-        <Link href="https://www.linkedin.com/in/leogonsalves">{t("footer.linkedin")}</Link>
+        <Link href="https://github.com/forloopcowboy">
+          {t("footer.github")}
+        </Link>
+        <Link href="https://www.linkedin.com/in/leogonsalves">
+          {t("footer.linkedin")}
+        </Link>
       </div>
     </footer>
   );

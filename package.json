@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "nx": "^20.3.0",
+    "prettier": "^3.8.4",
+    "prettier-plugin-tailwindcss": "^0.8.0",
     "typescript": "^5.7.0"
   }
 }
