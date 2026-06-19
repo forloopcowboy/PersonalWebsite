@@ -1,4 +1,5 @@
 import { data, useLoaderData } from "react-router";
+import { useTranslation } from "react-i18next";
 import { Link } from "@personal/ui";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 import { getProject, getProjectBody } from "../lib/getProject";
@@ -7,24 +8,28 @@ import {
   type Project,
 } from "../lib/projects";
 import { projectMdxComponents } from "../lib/mdx-components";
+import i18n from "../i18n/config";
 import type { Route } from "./+types/project.$slug";
 
 export function meta({ data: pageData }: Route.MetaArgs) {
   if (!pageData) {
-    return [{ title: "Project not found — Leo Gonsalves" }];
+    return [{ title: i18n.t("projects.not_found_title") }];
   }
   const { metadata } = pageData;
   const heading = projectHeading(metadata);
   return [
-    { title: `${heading} — Leo Gonsalves` },
-    { name: "description", content: metadata.excerpt },
+    { title: i18n.t("projects.detail_meta_title", { heading }) },
+    {
+      name: "description",
+      content: i18n.t(`projects.items.${metadata.slug}.excerpt`),
+    },
   ];
 }
 
 export function loader({ params }: Route.LoaderArgs) {
   const project = getProject(params.slug);
   if (!project) {
-    throw data("Project not found", { status: 404 });
+    throw data(i18n.t("projects.not_found"), { status: 404 });
   }
   return project;
 }
@@ -55,6 +60,7 @@ export default function ProjectPage() {
 }
 
 function ProjectHero({ project }: { project: Project }) {
+  const { t } = useTranslation();
   const heading = projectHeading(project);
   const showYears = project.kind === "professional" || Boolean(project.years);
 
@@ -65,11 +71,13 @@ function ProjectHero({ project }: { project: Project }) {
           href="/projects"
           className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
         >
-          ← All projects
+          {t("projects.back")}
         </a>
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">
-          {project.kind === "professional" ? "Professional" : "Personal"}
+          {project.kind === "professional"
+            ? t("projects.kind_professional")
+            : t("projects.kind_personal")}
         </span>
       </div>
 
@@ -84,15 +92,22 @@ function ProjectHero({ project }: { project: Project }) {
         className="animate-settle-in grid grid-cols-1 gap-6 border-t border-rule pt-8 md:grid-cols-3"
         style={{ animationDelay: "160ms" }}
       >
-        <HeroField label="Role" value={project.role} />
+        <HeroField
+          label={t("projects.field_role")}
+          value={t(`projects.items.${project.slug}.role`)}
+        />
         {showYears && (
-          <HeroField label="Years" value={project.years ?? "—"} mono />
+          <HeroField
+            label={t("projects.field_years")}
+            value={project.years ?? "—"}
+            mono
+          />
         )}
         <HeroField
-          label="Link"
+          label={t("projects.field_link")}
           value={
             <Link href={project.link.href} className="text-base">
-              {project.link.label}
+              {t(`projects.items.${project.slug}.link_label`)}
             </Link>
           }
         />
@@ -155,8 +170,12 @@ function NavCell({
   project: Project | undefined;
   direction: "previous" | "next";
 }) {
+  const { t } = useTranslation();
   const alignRight = direction === "next";
-  const label = direction === "previous" ? "Previous" : "Next";
+  const label =
+    direction === "previous"
+      ? t("projects.nav_previous")
+      : t("projects.nav_next");
 
   if (!project) {
     return (
@@ -185,13 +204,15 @@ function NavCell({
       }`}
     >
       <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft group-hover:text-ember">
-        {direction === "previous" ? "← Previous" : "Next →"}
+        {direction === "previous"
+          ? t("projects.nav_previous_label")
+          : t("projects.nav_next_label")}
       </span>
       <span className="font-display text-2xl font-normal leading-tight tracking-[-0.01em] text-ink">
         {heading}
       </span>
       <span className="max-w-[36ch] font-sans text-sm leading-relaxed text-ink-soft">
-        {project.excerpt}
+        {t(`projects.items.${project.slug}.excerpt`)}
       </span>
     </a>
   );

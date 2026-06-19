@@ -87,5 +87,67 @@
     "email": "Email",
     "github": "GitHub",
     "linkedin": "LinkedIn"
+  },
+  "projects": {
+    "meta_title": "Projects — Leo Gonsalves",
+    "meta_description": "Selected professional and personal projects: Lighthouse at N-SIDE, TRIS, Payflip, and a handful of weekend things.",
+    "eyebrow": "All projects",
+    "title": "Professional and personal work",
+    "lede": "From regulated industries to weekend jams, a selection of projects big and small that I've found myself drawn to over the years.",
+    "professional_eyebrow": "Professional",
+    "professional_summary": "Founding-team or early-engineer work in regulated industries — clinical supply, carbon, payroll.",
+    "personal_eyebrow": "Personal",
+    "personal_summary": "Weekends, jams, and small experiments. Different register, same instinct.",
+    "back": "← All projects",
+    "kind_professional": "Professional",
+    "kind_personal": "Personal",
+    "field_role": "Role",
+    "field_years": "Years",
+    "field_link": "Link",
+    "nav_previous": "Previous",
+    "nav_next": "Next",
+    "nav_previous_label": "← Previous",
+    "nav_next_label": "Next →",
+    "detail_meta_title": "{{heading}} — Leo Gonsalves",
+    "not_found_title": "Project not found — Leo Gonsalves",
+    "not_found": "Project not found",
+    "items": {
+      "n-side": {
+        "company": "N-SIDE",
+        "role": "Founding-team software engineer, Lighthouse",
+        "excerpt": "Founding-team engineer on Lighthouse, modernizing N-SIDE's legacy Java stack into a new clinical trial supply planning platform.",
+        "link_label": "Lighthouse brochure (PDF)"
+      },
+      "tris": {
+        "company": "TRIS",
+        "role": "Founding engineer / CTO",
+        "excerpt": "Bootstrapped a geospatial analysis tool democratizing carbon-credit access for Brazilian farmers and landowners.",
+        "link_label": "tris.earth"
+      },
+      "payflip": {
+        "company": "Payflip",
+        "role": "Senior Engineer",
+        "excerpt": "Building unified card payment infrastructure for Belgian cafeteria-plan benefits and salary transparency.",
+        "link_label": "payflip.be"
+      },
+      "recolonizer": {
+        "title": "Recolonizer",
+        "role": "Solo dev",
+        "excerpt": "Tower defense built in Unity.",
+        "link_label": "Play on itch.io"
+      },
+      "glutton-for-gluten": {
+        "title": "Glutton for Gluten",
+        "role": "Game jam – Lead programmer",
+        "excerpt": "Platformer built during a game jam.",
+        "link_label": "Play on itch.io"
+      },
+      "cowboy-investor": {
+        "title": "Cowboy Investor",
+        "role": "Solo build / Vibe coder",
+        "excerpt": "An LLM wrapper offering opinionated, experimental investment advice.",
+        "link_label": "invest.forloopcowboy.com"
+      }
+    }
   }
 }

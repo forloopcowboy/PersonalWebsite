@@ -7,12 +7,12 @@ import {
   type Project,
 } from "./projects";
 
-import NSideBody from "../content/projects/n-side.mdx";
-import TrisBody from "../content/projects/tris.mdx";
-import PayflipBody from "../content/projects/payflip.mdx";
-import RecolonizerBody from "../content/projects/recolonizer.mdx";
-import GluttonBody from "../content/projects/glutton-for-gluten.mdx";
-import CowboyInvestorBody from "../content/projects/cowboy-investor.mdx";
+import NSideBody from "../content/projects/en-us/n-side.mdx";
+import TrisBody from "../content/projects/en-us/tris.mdx";
+import PayflipBody from "../content/projects/en-us/payflip.mdx";
+import RecolonizerBody from "../content/projects/en-us/recolonizer.mdx";
+import GluttonBody from "../content/projects/en-us/glutton-for-gluten.mdx";
+import CowboyInvestorBody from "../content/projects/en-us/cowboy-investor.mdx";
 
 const bodies: Record<string, MDXContent> = {
   "n-side": NSideBody,

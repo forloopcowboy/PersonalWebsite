@@ -1,16 +1,17 @@
 import { useLoaderData } from "react-router";
+import { useTranslation } from "react-i18next";
 import { SectionHeader, cn, inkPullUnderline } from "@personal/ui";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 import { projects, type Project } from "../lib/projects";
+import i18n from "../i18n/config";
 import type { Route } from "./+types/projects";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Projects — Leo Gonsalves" },
+    { title: i18n.t("projects.meta_title") },
     {
       name: "description",
-      content:
-        "Selected professional and personal projects: Lighthouse at N-SIDE, TRIS, Payflip, and a handful of weekend things.",
+      content: i18n.t("projects.meta_description"),
     },
   ];
 }
@@ -24,6 +25,7 @@ export function loader() {
 
 export default function ProjectsIndex() {
   const { professional, personal } = useLoaderData<typeof loader>();
+  const { t } = useTranslation();
 
   return (
     <main className="min-h-dvh bg-paper text-ink">
@@ -32,23 +34,23 @@ export default function ProjectsIndex() {
 
         <section className="border-t border-rule pb-16 pt-20 md:pt-28">
           <SectionHeader
-            eyebrow="All projects"
+            eyebrow={t("projects.eyebrow")}
             href="/projects"
-            title="Professional and personal work"
-            lede="From regulated industries to weekend jams, a selection of projects big and small that I’ve found myself drawn to over the years."
+            title={t("projects.title")}
+            lede={t("projects.lede")}
           />
         </section>
 
         <ProjectGroup
-          eyebrow="Professional"
-          summary="Founding-team or early-engineer work in regulated industries — clinical supply, carbon, payroll."
+          eyebrow={t("projects.professional_eyebrow")}
+          summary={t("projects.professional_summary")}
           items={professional}
           tone="professional"
         />
 
         <ProjectGroup
-          eyebrow="Personal"
-          summary="Weekends, jams, and small experiments. Different register, same instinct."
+          eyebrow={t("projects.personal_eyebrow")}
+          summary={t("projects.personal_summary")}
           items={personal}
           tone="personal"
         />
@@ -105,8 +107,12 @@ function ProjectCard({
   project: Project;
   tone: "professional" | "personal";
 }) {
+  const { t } = useTranslation();
+
   const heading =
-    project.kind === "professional" ? project.company : project.title;
+    project.kind === "professional"
+      ? t(`projects.items.${project.slug}.company`)
+      : t(`projects.items.${project.slug}.title`);
 
   return (
     <a
@@ -130,13 +136,13 @@ function ProjectCard({
           </span>
         </h3>
         <p className="mt-3 max-w-prose font-sans text-base leading-relaxed text-ink-soft">
-          {project.excerpt}
+          {t(`projects.items.${project.slug}.excerpt`)}
         </p>
       </div>
       <div className="flex flex-col gap-1 font-mono text-xs uppercase tracking-[0.18em] text-ink-soft md:items-end md:text-right">
-        <span>{project.role}</span>
+        <span>{t(`projects.items.${project.slug}.role`)}</span>
         {project.kind === "professional" && (
-          <span aria-label="Years">{project.years}</span>
+          <span aria-label={t("projects.field_years")}>{project.years}</span>
         )}
       </div>
     </a>
