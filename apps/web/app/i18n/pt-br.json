@@ -71,7 +71,7 @@
         "tag": "Jam",
         "blurb": "Platformer de game jam; feito num fim de semana e ainda de pé."
       },
-      "cowboy_investor": {
+      "cowboy-investor": {
         "title": "Cowboy Investor",
         "tag": "LLM",
         "blurb": "Um wrapper de LLM que tenta dar conselhos de investimento personalizados."

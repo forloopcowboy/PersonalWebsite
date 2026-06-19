@@ -68,7 +68,7 @@
         "tag": "Jam",
         "blurb": "Game-jam platformer; built in a weekend and still walks."
       },
-      "cowboy_investor": {
+      "cowboy-investor": {
         "title": "Cowboy Investor",
         "tag": "LLM",
         "blurb": "A small LLM-backed wrapper that attempts to give personalized investment advice."

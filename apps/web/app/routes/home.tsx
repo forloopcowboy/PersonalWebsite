@@ -69,7 +69,7 @@ interface SideProject {
 const SIDE_PROJECTS: SideProject[] = [
   { key: 'recolonizer', href: 'https://forloopcowboy.itch.io/recolonizer' },
   { key: 'glutton', href: 'https://forloopcowboy.itch.io/glutton-for-gluten' },
-  { key: 'cowboy_investor', href: 'https://invest.forloopcowboy.com/' },
+  { key: 'cowboy-investor', href: 'https://invest.forloopcowboy.com/' },
 ];
 
 export default function Home() {
