@@ -24,7 +24,7 @@
     "title": "A messy problem is my favorite kind of problem.",
     "bodies": [
       "Half a decade spent cooking React and C# code, with a soft spot for slightly absurd problem statements. So far that's meant <emphasis>clinical-trial supply chains, satellite carbon analysis, and Belgian payroll</emphasis>.<br/>Outside work, I build games, interactive media, tools, and LLM-based experiments. They all serve the same purpose: keeping a beginner's mind near the tools I use professionally.",
-      "I'm a programmer with a designer's habits, working mostly in React and C#. Half a decade in, my taste runs toward systems where <emphasis>“this should be simple” turns out to be the most expensive sentence in the room</emphasis> — clinical trials, carbon registries, Belgian payroll.<br/>Outside hours go to games, interactive media, tools, and LLM-based experiments. The variety keeps a beginner's mind around tools I use professionally.",
+      "I'm a programmer with a designer's habits, working mostly in React and C#. Half a decade in, my taste runs toward systems where <emphasis>“this should be simple” turns out to be the most expensive sentence in the room</emphasis> — clinical trials, carbon registries, Belgian payroll.<br/>Outside hours are spent making games, creating interactive media, tools, and building LLM-based experiments. The variety keeps a beginner's mind around tools I use professionally.",
       "Half a decade of React and C# spent inside slightly absurd domains — clinical-trial supply, satellite carbon analysis, cafeteria-plan driven payroll. I'm not picky about the stack so much as <emphasis>the shape of the problem</emphasis>: dense, under-specified, occasionally regulated into a corner.<br/>Outside work I build games, interactive media, tools, and LLM-based experiments. A finished project is the cleanest proof I know that I still enjoy this."
     ]
   },
@@ -81,6 +81,51 @@
     "title_em": "Let's talk.",
     "body": "Taking on contract and consulting work — React and C# preferred, ambiguous problem statements welcome.",
     "cta": "Get in touch"
+  },
+  "contact_form": {
+    "meta_title": "Contact — Leo Gonsalves",
+    "meta_description": "Get in touch about a project, a technical question, or just to say hi.",
+    "title": "Get in touch",
+    "opener": "Open to consultancy, contract work, and building your project end-to-end.",
+    "name_label": "Name",
+    "name_placeholder": "Your name",
+    "email_label": "Email",
+    "email_placeholder": "you@example.com",
+    "topic_label": "Topic",
+    "topic_hint": "Pick at least one",
+    "topics": {
+      "quote": "Quote a project",
+      "games": "Games & entertainment",
+      "technical": "Technical question",
+      "meeting": "Book a meeting",
+      "other": "Other"
+    },
+    "message_label": "Message",
+    "reset_template": "Reset to template",
+    "submit": "Send message",
+    "submitting": "Sending…",
+    "success_title": "Sent.",
+    "success_body": "Thank you for reaching out. I'll get back to you as soon as I can.",
+    "send_another": "Send another message",
+    "error_generic": "Something went wrong — try again or email me directly.",
+    "error_expired": "This form expired. Refresh the page and try again.",
+    "validation": {
+      "name_required": "Name is required",
+      "email_required": "Email is required",
+      "email_invalid": "That doesn't look like an email address",
+      "topic_required": "Pick at least one topic",
+      "message_required": "Message is required"
+    },
+    "email_fallback": "Prefer email?",
+    "elsewhere": "Elsewhere",
+    "itch": "itch.io",
+    "templates": {
+      "quote": "Hi — I'd like to discuss a project. Here's the rough shape:\n\n- What it is:\n- What needs building (high level):\n- Timeline I'm hoping for:\n- Budget range (or 'still figuring this out'):\n- Anything I'm uncertain about:\n\nHappy to share more on a call.",
+      "games": "Hi — I came across [your game / project] and wanted to reach out about [collab / question / something else]. A bit about me: ",
+      "technical": "Hi — I'm trying to [what you're building or doing]. Specifically, I'm stuck on:\n\nWhat I've tried so far:\n\nAny pointers welcome.",
+      "meeting": "Hi — I'd like to book a call to discuss [topic]. My timezone is [tz] and I'm generally free [days/times]. Roughly [duration] should be enough.",
+      "other": "Hi — "
+    }
   },
   "footer": {
     "copyright": "© 2026 — Leo Gonsalves",

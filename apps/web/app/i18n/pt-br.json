@@ -85,6 +85,51 @@
     "body": "Aceitando trabalho freelance e consultoria — React e C# de preferência, enunciados ambíguos são bem-vindos.",
     "cta": "Entrar em contato"
   },
+  "contact_form": {
+    "meta_title": "Contato — Leo Gonsalves",
+    "meta_description": "Entre em contato sobre um projeto, uma dúvida técnica ou só pra trocar uma ideia.",
+    "title": "Entre em contato",
+    "opener": "Disponível para consultoria, trabalho freelance e construção do seu projeto de ponta a ponta.",
+    "name_label": "Nome",
+    "name_placeholder": "Seu nome",
+    "email_label": "Email",
+    "email_placeholder": "voce@exemplo.com",
+    "topic_label": "Assunto",
+    "topic_hint": "Escolha pelo menos um",
+    "topics": {
+      "quote": "Orçamento de projeto",
+      "games": "Jogos e entretenimento",
+      "technical": "Dúvida técnica",
+      "meeting": "Agendar reunião",
+      "other": "Outro"
+    },
+    "message_label": "Mensagem",
+    "reset_template": "Voltar ao modelo",
+    "submit": "Enviar mensagem",
+    "submitting": "Enviando…",
+    "success_title": "Enviado.",
+    "success_body": "Obrigado por entrar em contato! Responderei o mais rápido possível.",
+    "send_another": "Enviar outra mensagem",
+    "error_generic": "Algo deu errado — tente de novo ou me mande um email.",
+    "error_expired": "Este formulário expirou. Atualize a página e tente novamente.",
+    "validation": {
+      "name_required": "Nome é obrigatório",
+      "email_required": "Email é obrigatório",
+      "email_invalid": "Isso não parece um endereço de email",
+      "topic_required": "Escolha pelo menos um assunto",
+      "message_required": "Mensagem é obrigatória"
+    },
+    "email_fallback": "Prefere email?",
+    "elsewhere": "Outros canais",
+    "itch": "itch.io",
+    "templates": {
+      "quote": "Olá — gostaria de discutir um projeto. Aqui vai um resumo:\n\n- O que é:\n- O que precisa ser construído (visão geral):\n- Prazo que tenho em mente:\n- Faixa de orçamento (ou 'ainda estou definindo'):\n- Algo que me preocupa:\n\nPodemos conversar por call se preferir.",
+      "games": "Olá — encontrei [seu jogo / projeto] e queria entrar em contato sobre [collab / dúvida / outro]. Um pouco sobre mim: ",
+      "technical": "Olá — estou tentando [o que você está construindo ou fazendo]. Especificamente, estou travado em:\n\nO que já tentei:\n\nQualquer dica é bem-vinda.",
+      "meeting": "Olá — gostaria de agendar uma call para discutir [assunto]. Meu fuso horário é [fuso] e geralmente estou livre [dias/horários]. Mais ou menos [duração] deve ser suficiente.",
+      "other": "Olá — "
+    }
+  },
   "footer": {
     "copyright": "© 2026 — Leo Gonsalves",
     "email": "Email",

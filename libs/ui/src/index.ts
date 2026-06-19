@@ -17,4 +17,7 @@ export type { SectionHeaderProps } from './components/SectionHeader';
 export { LanguagePicker } from './components/LanguagePicker';
 export type { LanguagePickerProps, LanguageOption } from './components/LanguagePicker';
 
+export { Alert } from './components/Alert';
+export type { AlertProps } from './components/Alert';
+
 export { cn } from './lib/cn';
