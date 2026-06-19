@@ -21,11 +21,11 @@
   },
   "about": {
     "eyebrow": "About",
-    "title": "Programmer with design instincts. Drawn to the messy ones.",
+    "title": "A messy problem is my favorite kind of problem.",
     "bodies": [
       "Half a decade spent cooking React and C# code, with a soft spot for slightly absurd problem statements. So far that's meant <emphasis>clinical-trial supply chains, satellite carbon analysis, and Belgian payroll</emphasis>.<br/>Outside work, I build games, interactive media, tools, and LLM-based experiments. They all serve the same purpose: keeping a beginner's mind near the tools I use professionally.",
       "I'm a programmer with a designer's habits, working mostly in React and C#. Half a decade in, my taste runs toward systems where <emphasis>“this should be simple” turns out to be the most expensive sentence in the room</emphasis> — clinical trials, carbon registries, Belgian payroll.<br/>Outside hours go to games, interactive media, tools, and LLM-based experiments. The variety keeps a beginner's mind around tools I use professionally.",
-      "Half a decade of React and C# spent inside slightly absurd domains — clinical-trial supply, satellite carbon analysis, continental payroll. I'm not picky about the stack so much as <emphasis>the shape of the problem</emphasis>: dense, under-specified, occasionally regulated into a corner.<br/>Outside work I build games, interactive media, tools, and LLM-based experiments. A finished project is the cleanest proof I know that I still enjoy this."
+      "Half a decade of React and C# spent inside slightly absurd domains — clinical-trial supply, satellite carbon analysis, cafeteria-plan driven payroll. I'm not picky about the stack so much as <emphasis>the shape of the problem</emphasis>: dense, under-specified, occasionally regulated into a corner.<br/>Outside work I build games, interactive media, tools, and LLM-based experiments. A finished project is the cleanest proof I know that I still enjoy this."
     ]
   },
   "work": {

@@ -19,6 +19,7 @@ import i18n from '../i18n/config';
 import enUS from '../i18n/en-us.json';
 import ptBR from '../i18n/pt-br.json';
 import type { Route } from './+types/home';
+import { SiteHeader } from '../components/SiteChrome';
 
 const translations: Record<string, typeof enUS> = {
   'en-us': enUS,
@@ -87,60 +88,6 @@ export default function Home() {
         <SiteFooter />
       </div>
     </main>
-  );
-}
-
-function SiteHeader() {
-  const { t, i18n } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  return (
-    <header className="flex items-center justify-between py-8">
-      <a
-        href={`/${locale}`}
-        className="group inline-flex items-center gap-3"
-        aria-label="forloopcowboy — home"
-      >
-        <Logo className="h-7 w-7" />
-        <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft transition-colors duration-200 group-hover:text-ink">
-          {t('nav.home')}
-        </span>
-      </a>
-      <nav className="flex items-center gap-6">
-        <Link
-          href="#work"
-          className="font-mono text-xs uppercase tracking-[0.18em]"
-        >
-          {t('nav.work')}
-        </Link>
-        <Link
-          href="#side"
-          className="font-mono text-xs uppercase tracking-[0.18em]"
-        >
-          {t('nav.side')}
-        </Link>
-        <Link
-          href={`/${locale}/contact`}
-          className="font-mono text-xs uppercase tracking-[0.18em]"
-        >
-          {t('nav.contact')}
-        </Link>
-        <LanguagePicker
-          value={i18n.language}
-          options={supportedLanguages}
-          onChange={(code) => {
-            const newSlug = slugFromLocale(code);
-            const newPath = location.pathname.replace(
-              /^\/[a-z]{2}-[a-z]{2}/,
-              `/${newSlug}`,
-            );
-            navigate(newPath);
-          }}
-        />
-      </nav>
-    </header>
   );
 }
 
@@ -280,7 +227,14 @@ function SideProjects() {
       <SectionHeader
         eyebrow={t('side.eyebrow')}
         href="#side"
-        title={t('side.title')}
+        title={
+          <Trans
+            i18nKey={`side.title`}
+            components={{
+              em: <em className="font-normal italic text-ember" />,
+            }}
+          />
+        }
         lede={t('side.lede')}
       />
 
@@ -363,7 +317,7 @@ function SiteFooter() {
   const { t } = useTranslation();
 
   return (
-    <footer className="mt-8 flex flex-col gap-6 border-t border-rule py-10 md:flex-row md:items-center md:justify-between">
+    <footer className="mt-8 flex flex-col-reverse items-center justify-between gap-6 border-t border-rule py-10 md:flex-row">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
         {t('footer.copyright')}
       </p>

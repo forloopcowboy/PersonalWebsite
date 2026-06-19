@@ -1,7 +1,7 @@
-import { useTranslation } from "react-i18next";
-import { useLocation, useNavigate, useParams } from "react-router";
-import { LanguagePicker, Link, Logo } from "@personal/ui";
-import { supportedLanguages, slugFromLocale } from "../i18n/config";
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate, useParams } from 'react-router';
+import { LanguagePicker, Link, Logo } from '@personal/ui';
+import { supportedLanguages, slugFromLocale } from '../i18n/config';
 
 export function SiteHeader() {
   const { t, i18n } = useTranslation();
@@ -10,7 +10,7 @@ export function SiteHeader() {
   const navigate = useNavigate();
 
   return (
-    <header className="flex items-center justify-between py-8">
+    <header className="flex flex-col items-center justify-between gap-5 py-8 md:flex-row">
       <a
         href={`/${locale}`}
         className="group inline-flex items-center gap-3"
@@ -18,7 +18,7 @@ export function SiteHeader() {
       >
         <Logo className="h-7 w-7" />
         <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft transition-colors duration-200 group-hover:text-ink">
-          {t("nav.home")}
+          {t('nav.home')}
         </span>
       </a>
       <nav className="flex items-center gap-6">
@@ -26,19 +26,19 @@ export function SiteHeader() {
           href={`/${locale}#work`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
-          {t("nav.work")}
+          {t('nav.work')}
         </Link>
         <Link
           href={`/${locale}#side`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
-          {t("nav.side")}
+          {t('nav.side')}
         </Link>
         <Link
           href={`/${locale}/contact`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
-          {t("nav.contact")}
+          {t('nav.contact')}
         </Link>
         <LanguagePicker
           value={i18n.language}
@@ -63,13 +63,15 @@ export function SiteFooter() {
   return (
     <footer className="mt-8 flex flex-col gap-6 border-t border-rule py-10 md:flex-row md:items-center md:justify-between">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft">
-        {t("footer.copyright")}
+        {t('footer.copyright')}
       </p>
       <div className="flex items-center gap-6 font-sans text-sm">
-        <Link href="mailto:leo@forloopcowboy.com">{t("footer.email")}</Link>
-        <Link href="https://github.com/forloopcowboy">{t("footer.github")}</Link>
+        <Link href="mailto:leo@forloopcowboy.com">{t('footer.email')}</Link>
+        <Link href="https://github.com/forloopcowboy">
+          {t('footer.github')}
+        </Link>
         <Link href="https://www.linkedin.com/in/leogonsalves">
-          {t("footer.linkedin")}
+          {t('footer.linkedin')}
         </Link>
       </div>
     </footer>
