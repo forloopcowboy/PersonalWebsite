@@ -1,4 +1,4 @@
-import { data, useLoaderData, useParams } from "react-router";
+import { data, useLoaderData } from "react-router";
 import { useTranslation } from "react-i18next";
 import { Link } from "@personal/ui";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
@@ -9,6 +9,7 @@ import {
 } from "../lib/projects";
 import { projectMdxComponents } from "../lib/mdx-components";
 import i18n from "../i18n/config";
+import { useLocale } from "../i18n/LocaleContext";
 import type { Route } from "./+types/project.$slug";
 
 export function meta({ data: pageData }: Route.MetaArgs) {
@@ -36,7 +37,7 @@ export function loader({ params }: Route.LoaderArgs) {
 
 export default function ProjectPage() {
   const { metadata, previous, next } = useLoaderData<typeof loader>();
-  const { locale } = useParams<{ locale: string }>();
+  const { locale } = useLocale();
   const Body = getProjectBody(metadata.slug, locale);
 
   return (
@@ -62,7 +63,7 @@ export default function ProjectPage() {
 
 function ProjectHero({ project }: { project: Project }) {
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
   const heading = projectHeading(project);
   const showYears = project.kind === "professional" || Boolean(project.years);
 
@@ -70,7 +71,7 @@ function ProjectHero({ project }: { project: Project }) {
     <section className="flex flex-col gap-10 pb-20 pt-16 md:pt-24">
       <div className="animate-settle-in flex items-center gap-3 text-ink-soft">
         <a
-          href={`/${locale}/projects`}
+          href={`${localePrefix}/projects`}
           className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
         >
           {t("projects.back")}
@@ -173,7 +174,7 @@ function NavCell({
   direction: "previous" | "next";
 }) {
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
   const alignRight = direction === "next";
   const label =
     direction === "previous"
@@ -201,7 +202,7 @@ function NavCell({
 
   return (
     <a
-      href={`/${locale}/projects/${project.slug}`}
+      href={`${localePrefix}/projects/${project.slug}`}
       className={`group flex min-h-[8rem] flex-col justify-center gap-2 bg-paper-raised p-8 transition-colors duration-200 hover:bg-ember/[0.04] ${
         alignRight ? "items-end text-right" : "items-start text-left"
       }`}

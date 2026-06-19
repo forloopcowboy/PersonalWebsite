@@ -1,9 +1,10 @@
-import { useLoaderData, useParams } from 'react-router';
+import { useLoaderData } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { SectionHeader, cn, inkPullUnderline } from '@personal/ui';
 import { SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { projects, type Project } from '../lib/projects';
 import i18n from '../i18n/config';
+import { useLocale } from '../i18n/LocaleContext';
 import type { Route } from './+types/projects';
 
 export function meta({}: Route.MetaArgs) {
@@ -26,7 +27,7 @@ export function loader() {
 export default function ProjectsIndex() {
   const { professional, personal } = useLoaderData<typeof loader>();
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
 
   return (
     <main className="min-h-dvh bg-paper text-ink">
@@ -36,7 +37,7 @@ export default function ProjectsIndex() {
         <section className="border-t border-rule pb-16 pt-20 md:pt-28">
           <SectionHeader
             eyebrow={t('projects.eyebrow')}
-            href={`/${locale}/projects`}
+            href={`${localePrefix}/projects`}
             title={t('projects.title')}
             lede={t('projects.lede')}
           />
@@ -109,7 +110,7 @@ function ProjectCard({
   tone: 'professional' | 'personal';
 }) {
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
 
   const heading =
     project.kind === 'professional'
@@ -118,7 +119,7 @@ function ProjectCard({
 
   return (
     <a
-      href={`/${locale}/projects/${project.slug}`}
+      href={`${localePrefix}/projects/${project.slug}`}
       className="group grid grid-cols-1 gap-x-12 gap-y-3 py-8 md:grid-cols-[1fr_auto] md:items-baseline"
     >
       <div>

@@ -42,8 +42,22 @@ export function detectLocaleSlug(acceptLanguage?: string | null): LocaleSlug {
   return "en-us";
 }
 
+export function resolveLocale(
+  paramLocale: string | undefined,
+  request: Request,
+): LocaleSlug {
+  if (paramLocale && isValidLocaleSlug(paramLocale)) {
+    return paramLocale;
+  }
+  return detectLocaleSlug(request.headers.get("Accept-Language"));
+}
+
 function getInitialLocale(): string {
   if (typeof window !== "undefined") {
+    const htmlLang = document.documentElement.lang;
+    if (htmlLang && Object.values(slugToCode).includes(htmlLang)) {
+      return htmlLang;
+    }
     const match = window.location.pathname.match(/^\/([a-z]{2}-[a-z]{2})/);
     if (match) {
       const code = slugToCode[match[1] as LocaleSlug];

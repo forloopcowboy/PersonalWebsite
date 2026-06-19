@@ -1,21 +1,13 @@
 import { Trans, useTranslation } from 'react-i18next';
-import {
-  useLoaderData,
-  useLocation,
-  useNavigate,
-  useParams,
-} from 'react-router';
+import { useLoaderData } from 'react-router';
 import {
   Button,
-  cn,
-  LanguagePicker,
   Link,
-  Logo,
   SectionHeader,
-  inkPullUnderline,
 } from '@personal/ui';
-import { supportedLanguages, slugFromLocale } from '../i18n/config';
+import { resolveLocale } from '../i18n/config';
 import i18n from '../i18n/config';
+import { useLocale } from '../i18n/LocaleContext';
 import enUS from '../i18n/en-us.json';
 import ptBR from '../i18n/pt-br.json';
 import type { Route } from './+types/home';
@@ -38,8 +30,9 @@ export function meta({}: Route.MetaArgs) {
 
 const pick = (n: number) => Math.floor(Math.random() * n);
 
-export function loader({ params }: Route.LoaderArgs) {
-  const t = translations[params.locale] ?? enUS;
+export function loader({ params, request }: Route.LoaderArgs) {
+  const locale = resolveLocale(params.locale, request);
+  const t = translations[locale] ?? enUS;
   return {
     heroIndex: pick(t.hero.headlines.length),
     aboutIndex: pick(t.about.bodies.length),
@@ -93,7 +86,7 @@ export default function Home() {
 
 function Hero({ index }: { index: number }) {
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
 
   return (
     <section className="flex flex-col gap-12 pb-32 pt-20 md:gap-14 md:pt-32">
@@ -125,7 +118,7 @@ function Hero({ index }: { index: number }) {
             {t('hero.cta_work')}
           </Button>
         </a>
-        <a href={`/${locale}/contact`} className="focus-visible:outline-none">
+        <a href={`${localePrefix}/contact`} className="focus-visible:outline-none">
           <Button variant="secondary" size="lg">
             {t('hero.cta_contact')}
           </Button>
@@ -163,7 +156,7 @@ function About({ index }: { index: number }) {
 
 function SelectedWork({ titleIndex }: { titleIndex: number }) {
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
 
   return (
     <section
@@ -185,7 +178,7 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
             style={{ animationDelay: `${i * 80}ms` }}
           >
             <div>
-              <Link href={`/${locale}/projects/${role.key}`}>
+              <Link href={`${localePrefix}/projects/${role.key}`}>
                 <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em]">
                   <span>{t(`work.roles.${role.key}.company`)}</span>
                 </h3>
@@ -205,7 +198,7 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
 
       <div className="mt-12">
         <Link
-          href={`/${locale}/projects`}
+          href={`${localePrefix}/projects`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t('work.view_all')}
@@ -217,7 +210,7 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
 
 function SideProjects() {
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
 
   return (
     <section
@@ -252,7 +245,7 @@ function SideProjects() {
               <span aria-hidden className="h-px w-6 bg-rule" />
             </div>
             <div>
-              <Link href={`/${locale}/projects/${project.key}`}>
+              <Link href={`${localePrefix}/projects/${project.key}`}>
                 <h3 className="font-display text-2xl font-normal leading-tight tracking-[-0.01em]">
                   {t(`side.projects.${project.key}.title`)}
                 </h3>
@@ -275,7 +268,7 @@ function SideProjects() {
 
 function ContactCTA() {
   const { t } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
 
   return (
     <section
@@ -303,7 +296,7 @@ function ContactCTA() {
             {t('contact.body')}
           </p>
         </div>
-        <a href={`/${locale}/contact`} className="focus-visible:outline-none">
+        <a href={`${localePrefix}/contact`} className="focus-visible:outline-none">
           <Button variant="primary" size="lg">
             {t('contact.cta')}
           </Button>

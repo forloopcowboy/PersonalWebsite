@@ -1,18 +1,19 @@
 import { useTranslation } from 'react-i18next';
-import { useLocation, useNavigate, useParams } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { LanguagePicker, Link, Logo } from '@personal/ui';
 import { supportedLanguages, slugFromLocale } from '../i18n/config';
+import { useLocale } from '../i18n/LocaleContext';
 
 export function SiteHeader() {
   const { t, i18n } = useTranslation();
-  const { locale } = useParams<{ locale: string }>();
+  const { localePrefix } = useLocale();
   const location = useLocation();
   const navigate = useNavigate();
 
   return (
     <header className="flex flex-col items-center justify-between gap-5 py-8 md:flex-row">
       <a
-        href={`/${locale}`}
+        href={localePrefix || '/'}
         className="group inline-flex items-center gap-3"
         aria-label="forloopcowboy — home"
       >
@@ -23,19 +24,19 @@ export function SiteHeader() {
       </a>
       <nav className="flex items-center gap-6">
         <Link
-          href={`/${locale}#work`}
+          href={`${localePrefix}/#work`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t('nav.work')}
         </Link>
         <Link
-          href={`/${locale}#side`}
+          href={`${localePrefix}/#side`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t('nav.side')}
         </Link>
         <Link
-          href={`/${locale}/contact`}
+          href={`${localePrefix}/contact`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t('nav.contact')}
@@ -45,11 +46,9 @@ export function SiteHeader() {
           options={supportedLanguages}
           onChange={(code) => {
             const newSlug = slugFromLocale(code);
-            const newPath = location.pathname.replace(
-              /^\/[a-z]{2}-[a-z]{2}/,
-              `/${newSlug}`,
-            );
-            navigate(newPath);
+            const pathWithoutLocale =
+              location.pathname.replace(/^\/[a-z]{2}-[a-z]{2}/, '') || '/';
+            navigate(`/${newSlug}${pathWithoutLocale}`);
           }}
         />
       </nav>

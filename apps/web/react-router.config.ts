@@ -6,13 +6,10 @@ const locales = ["en-us", "pt-br"];
 export default {
   ssr: true,
   async prerender() {
-    return [
-      "/",
-      ...locales.flatMap((locale) => [
-        `/${locale}`,
-        `/${locale}/projects`,
-        ...projects.map((p) => `/${locale}/projects/${p.slug}`),
-      ]),
-    ];
+    return locales.flatMap((locale) => [
+      `/${locale}`,
+      `/${locale}/projects`,
+      ...projects.map((p) => `/${locale}/projects/${p.slug}`),
+    ]);
   },
 } satisfies Config;
