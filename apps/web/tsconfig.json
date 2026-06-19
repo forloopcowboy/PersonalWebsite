@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["app", "env.d.ts", "react-router.config.ts", ".react-router/types/**/*"],
+  "include": ["app", "env.d.ts", "react-router.config.ts", ".react-router/types/**/*", "app/**/*.mdx"],
   "compilerOptions": {
     "rootDirs": [".", "./.react-router/types"]
   }

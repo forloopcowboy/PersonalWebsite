@@ -1,6 +1,12 @@
 import { reactRouter } from "@react-router/dev/vite";
+import mdx from "@mdx-js/rollup";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [reactRouter()],
+  plugins: [
+    mdx({
+      providerImportSource: "@mdx-js/react",
+    }),
+    reactRouter(),
+  ],
 });

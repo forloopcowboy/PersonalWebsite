@@ -4,7 +4,7 @@ import preset from '@personal/ui/tailwind-preset';
 export default {
   presets: [preset],
   content: [
-    './app/**/*.{js,jsx,ts,tsx}',
+    './app/**/*.{js,jsx,ts,tsx,mdx}',
     '../../libs/ui/src/**/*.{js,jsx,ts,tsx}',
   ],
 };
