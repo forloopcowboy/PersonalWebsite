@@ -1,10 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useLoaderData } from 'react-router';
-import {
-  Button,
-  Link,
-  SectionHeader,
-} from '@personal/ui';
+import { Button, Link, SectionHeader } from '@personal/ui';
 import { resolveLocale } from '../i18n/config';
 import i18n from '../i18n/config';
 import { useLocale } from '../i18n/LocaleContext';
@@ -89,7 +85,7 @@ function Hero({ index }: { index: number }) {
   const { localePrefix } = useLocale();
 
   return (
-    <section className="flex flex-col gap-12 pb-32 pt-20 md:gap-14 md:pt-32">
+    <section className="flex min-h-[85vh] flex-col gap-12 pb-32 pt-12 md:gap-14 md:pt-20">
       <div className="flex animate-settle-in items-center gap-3 text-ink-soft">
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">
@@ -118,7 +114,10 @@ function Hero({ index }: { index: number }) {
             {t('hero.cta_work')}
           </Button>
         </a>
-        <a href={`${localePrefix}/contact`} className="focus-visible:outline-none">
+        <a
+          href={`${localePrefix}/contact`}
+          className="focus-visible:outline-none"
+        >
           <Button variant="secondary" size="lg">
             {t('hero.cta_contact')}
           </Button>
@@ -296,7 +295,10 @@ function ContactCTA() {
             {t('contact.body')}
           </p>
         </div>
-        <a href={`${localePrefix}/contact`} className="focus-visible:outline-none">
+        <a
+          href={`${localePrefix}/contact`}
+          className="focus-visible:outline-none"
+        >
           <Button variant="primary" size="lg">
             {t('contact.cta')}
           </Button>
