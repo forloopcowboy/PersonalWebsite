@@ -8,25 +8,16 @@ Lighthouse was a ground-up rebuild of an older Java product, modernizing both th
 
 ## What I worked on
 
-{/* TODO(user): 3–6 concrete bullets. Examples of the shape to aim for:
-  - which surface of Lighthouse (UI, planning engine, integration layer, modeling tooling) you owned
-  - any specific systems you migrated off the legacy Java stack
-  - integrations with IRT/RTSM you helped wire up
-  - work on the optimization layer vs. the application layer
-  Keep them verbs-first: "Built…", "Migrated…", "Shipped…". */}
-
-- TODO(user)
-- TODO(user)
-- TODO(user)
+- Built UI features and data visualizations for the planning and forecasting surfaces of Lighthouse.
+- Designed data structures, wrote and optimized queries, and handled migrations across the Postgres layer.
+- Worked alongside the lead architect to structure the new application as a reference for the broader stack modernization, shaping patterns the rest of the team would follow.
 
 ## Tech and approach
 
-{/* TODO(user): 1–3 short paragraphs. Likely candidates: the React/TypeScript front-end, the planning/modeling layer, how the new system relates to the legacy Java code it replaces, and how the team worked (founding-team cadence, time pressure, audit constraints). Keep it specific — no tag soup. */}
+The front-end was a standard React SPA with Tailwind for styling. Tailwind gave us a shared language for layout and design without boxing anyone in. On the database side, Postgres with Kysely and Liquibase let us keep light type safety around our queries while retaining full control over the SQL underneath.
 
-TODO(user) — describe the stack and the working mode without listing every dependency.
+The interesting part of the job was the tension between old and new. Lighthouse replaced a system that had been running for twenty years, and you can't just throw that away. The work was about evolving the technology, bringing in modern tooling and fresh ideas, without losing what the legacy system got right. Lots of prototyping, lots of iteration, and a constant back-and-forth between trying something creative and making sure it actually held up.
 
 ## Status
 
-{/* TODO(user): one line. Status of Lighthouse, your current relationship to the product, whether you're still contributing, etc. No metrics unless you have them. */}
-
-TODO(user).
+Lighthouse is in active use by pharmaceutical supply chain teams.

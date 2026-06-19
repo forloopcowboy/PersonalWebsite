@@ -8,25 +8,18 @@ TRIS sits on that friction. The product packages the geospatial analysis a small
 
 ## What I worked on
 
-{/* TODO(user): 3–6 concrete bullets. Likely candidates (only keep what's true):
-  - the geospatial analysis pipeline (satellite imagery, PostGIS, MRV calculations)
-  - the customer-facing application (whose users? landowners directly, or consultants?)
-  - what "bootstrapping" actually meant — first hire, infra from zero, etc.
-  - any specific verification standard you targeted (Verra, Gold Standard, SBCE)
-  Verbs-first: "Built…", "Wrote…", "Stood up…". */}
-
-- TODO(user)
-- TODO(user)
-- TODO(user)
+- Built an early Unity 3D prototype to render reforestation projections in-browser via WebGL. It was abandoned during market-fit analysis, but it taught us what the product actually needed to be.
+- Iterated from that prototype toward a console-based geospatial analysis pipeline, which became the core of the product.
+- Wrapped the pipeline into a web UI tailored for farmers and landowners with no technical background.
+- Built a separate data visualization dashboard for carbon consultants working across multiple properties.
+- Designed a custom caching and querying layer to handle the massive geometries you get when working at Brazil's scale.
 
 ## Tech and approach
 
-{/* TODO(user): 1–3 short paragraphs. Geospatial is unusual enough to be worth a sentence on — what kind of imagery, how the pipeline runs, where the heavy lifting lives. If PostGIS was central, say so; if it wasn't, don't pad. */}
+The early prototype was Unity and WebGL. Once we moved past that, the stack settled into a GCP-based infrastructure with Google's geospatial services doing the heavy lifting on satellite imagery and land analysis. The backend was Python and Postgres for processing pipeline outputs and serving queries.
 
-TODO(user) — describe the stack and pipeline without listing every dependency.
+The front-end was a React SPA with Tailwind and Mapbox for map rendering. Most of the UI components were hand-rolled and iterated specifically for our audience. Farmers and consultants use software differently, and off-the-shelf component libraries didn't fit either group well enough.
 
 ## Status
 
-{/* TODO(user): one line. Is TRIS live? Generating credits? Where you stand with it now. */}
-
-TODO(user).
+I moved on after we proved market fit and the company secured its initial funding from the state of São Paulo. The project is now in the hands of its CEO and founder, while I focus on work closer to where I live in Belgium.
