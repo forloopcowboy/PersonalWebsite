@@ -11,6 +11,9 @@ importers:
       '@remix-run/dev':
         specifier: ^2.17.5
         version: 2.17.5(@remix-run/react@2.17.5(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(typescript@5.9.3))(@types/node@25.9.3)(jiti@1.21.7)(typescript@5.9.3)(vite@6.4.2(@types/node@25.9.3)(jiti@1.21.7)(yaml@2.9.0))(yaml@2.9.0)
+      '@remix-run/node':
+        specifier: ^2.17.5
+        version: 2.17.5(typescript@5.9.3)
     devDependencies:
       nx:
         specifier: ^20.3.0
