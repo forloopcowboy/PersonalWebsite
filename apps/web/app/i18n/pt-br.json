@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Leo Gonsalves — Engenheiro de software",
-    "description": "Engenheiro trabalhando com React e C# em ensaios clínicos, ferramentas geoespaciais e folha de pagamento belga. Disponível para trabalho freelance e consultoria."
+    "description": "Engenheiro trabalhando com React, C# e mais. Disponível para trabalho freelance e consultoria."
   },
   "nav": {
     "home": "forloopcowboy",
@@ -13,8 +13,11 @@
     "index": "00",
     "tagline": "Leo Gonsalves — Engenheiro de software",
     "headlines": [
-      "Programador com instinto de designer — <em>atraído por domínios que mordem de volta</em>.",
-      "Meia década de React e C# dentro de sistemas com <em>peças demais em movimento</em>."
+      "Meia década de React e C# <em>simplificando</em> sistemas de <em>alta complexidade</em>.",
+      "Engenheiro com cabeça de designer — <em>movido por problemas que não cabem num só slide</em>.",
+      "Meia década traduzindo sistemas cabeludos em <em>interfaces que fazem sentido</em>.",
+      "Código e design a serviço do mesmo vício: <em>traduzir o complicado em algo que qualquer um entende</em>.",
+      "Design na cabeça, código nas mãos — <em>e um gosto suspeito por descomplicar o complicado</em>."
     ],
     "cta_work": "Ver meu trabalho",
     "cta_contact": "Entrar em contato"
@@ -25,7 +28,7 @@
     "bodies": [
       "Meia década cozinhando código em React e C#, com um fraco por enunciados levemente absurdos. Até agora isso significou <emphasis>cadeias de suprimentos de ensaios clínicos, análise de carbono por satélite e folha de pagamento belga</emphasis>.<br/>Fora do trabalho, construo jogos, mídia interativa, ferramentas e experimentos com LLMs. Tudo serve ao mesmo propósito: manter a cabeça de principiante perto das ferramentas que uso profissionalmente.",
       "Sou um programador com hábitos de designer, trabalhando principalmente com React e C#. Depois de meia década, meu gosto pende para sistemas onde <emphasis>“isso devia ser simples” acaba sendo a frase mais cara da sala</emphasis> — ensaios clínicos, registros de carbono, folha de pagamento belga.<br/>Horas vagas vão para jogos, mídia interativa, ferramentas e experimentos com LLMs. A variedade mantém a cabeça de principiante por perto das ferramentas que uso profissionalmente.",
-      "Meia década de React e C# dentro de domínios levemente absurdos — suprimentos de ensaios clínicos, análise de carbono por satélite, folha de pagamento continental. Não sou exigente com a stack, mas sim com <emphasis>o formato do problema</emphasis>: denso, subespecificado, vez ou outra regulado até ficar sem saída.<br/>Fora do trabalho construo jogos, mídia interativa, ferramentas e experimentos com LLMs. Um projeto finalizado é a prova mais limpa que conheço de que ainda gosto disso."
+      "Meia década de React e C# criando soluções em domínios levemente absurdos — cadeia de suprimentos para testes clínicos, análise de carbono por satélite, folha de pagamento e remuneração flexível. Não sou exigente com a stack, nem com <emphasis>o formato do problema</emphasis>: seja denso, subespecificado ou duramente regulamentado.<br/>Fora do trabalho construo jogos digitais, mídia interativa, ferramentas e experimentos com LLMs. Finalizar um projeto solo é a prova mais clara de que ainda gosto disso."
     ]
   },
   "work": {
@@ -34,7 +37,7 @@
       "Três empresas. Três enunciados que não cabiam num slide.",
       "Três empresas, três setores regulados, um engenheiro teimoso."
     ],
-    "lede": "Entregas sob auditoria, sob prazo e, de vez em quando, sob passagens de satélite.",
+    "lede": "Entregas sob auditoria, sob prazo e, de vez em quando, sob a sombra de um satélite.",
     "visit": "Visitar",
     "view_all": "Ver todos os projetos",
     "roles": {
