@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "Leo Gonsalves — Engenheiro de software",
+    "description": "Engenheiro trabalhando com React e C# em ensaios clínicos, ferramentas geoespaciais e folha de pagamento belga. Disponível para trabalho freelance e consultoria."
+  },
+  "nav": {
+    "home": "forloopcowboy",
+    "work": "Trabalho",
+    "side": "Paralelos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "index": "00",
+    "tagline": "Leo Gonsalves — Engenheiro de software",
+    "headlines": [
+      "Programador com instinto de designer — <em>atraído por domínios que mordem de volta</em>.",
+      "Meia década de React e C# dentro de sistemas com <em>peças demais em movimento</em>."
+    ],
+    "cta_work": "Ver meu trabalho",
+    "cta_contact": "Entrar em contato"
+  },
+  "about": {
+    "eyebrow": "Sobre",
+    "title": "Programador com instinto de designer. Atraído pelos problemas cabeludos.",
+    "bodies": [
+      "Meia década cozinhando código em React e C#, com um fraco por enunciados levemente absurdos. Até agora isso significou <emphasis>cadeias de suprimentos de ensaios clínicos, análise de carbono por satélite e folha de pagamento belga</emphasis>.<br/>Fora do trabalho, construo jogos, mídia interativa, ferramentas e experimentos com LLMs. Tudo serve ao mesmo propósito: manter a cabeça de principiante perto das ferramentas que uso profissionalmente.",
+      "Sou um programador com hábitos de designer, trabalhando principalmente com React e C#. Depois de meia década, meu gosto pende para sistemas onde <emphasis>“isso devia ser simples” acaba sendo a frase mais cara da sala</emphasis> — ensaios clínicos, registros de carbono, folha de pagamento belga.<br/>Horas vagas vão para jogos, mídia interativa, ferramentas e experimentos com LLMs. A variedade mantém a cabeça de principiante por perto das ferramentas que uso profissionalmente.",
+      "Meia década de React e C# dentro de domínios levemente absurdos — suprimentos de ensaios clínicos, análise de carbono por satélite, folha de pagamento continental. Não sou exigente com a stack, mas sim com <emphasis>o formato do problema</emphasis>: denso, subespecificado, vez ou outra regulado até ficar sem saída.<br/>Fora do trabalho construo jogos, mídia interativa, ferramentas e experimentos com LLMs. Um projeto finalizado é a prova mais limpa que conheço de que ainda gosto disso."
+    ]
+  },
+  "work": {
+    "eyebrow": "Trabalho selecionado",
+    "titles": [
+      "Três empresas. Três enunciados que não cabiam num slide.",
+      "Três empresas, três setores regulados, um engenheiro teimoso."
+    ],
+    "lede": "Entregas sob auditoria, sob prazo e, de vez em quando, sob passagens de satélite.",
+    "visit": "Visitar",
+    "view_all": "Ver todos os projetos",
+    "roles": {
+      "n-side": {
+        "company": "N-SIDE",
+        "contribution": "Engenheiro do time fundador do Lighthouse — plataforma de planejamento de suprimentos para ensaios clínicos, modernizando uma stack legada em Java."
+      },
+      "tris": {
+        "company": "TRIS",
+        "contribution": "Criei do zero uma ferramenta de análise geoespacial que abre acesso a créditos de carbono para agricultores e proprietários rurais brasileiros."
+      },
+      "payflip": {
+        "company": "Payflip",
+        "contribution": "Construindo infraestrutura unificada de pagamento por cartão para benefícios flexíveis e transparência salarial na Bélgica."
+      }
+    }
+  },
+  "side": {
+    "eyebrow": "Paralelos",
+    "title": "Coisas menores, feitas pela alegria de terminar.",
+    "lede": "Fora do trabalho, principalmente fins de semana. Outro registro — mesmo instinto.",
+    "play": "Jogar",
+    "projects": {
+      "recolonizer": {
+        "title": "Recolonizer",
+        "tag": "Jogo",
+        "blurb": "Um tower defense feito solo em Unity — pathfinding, waves e uma teimosia por C#."
+      },
+      "glutton": {
+        "title": "Glutton for Gluten",
+        "tag": "Jam",
+        "blurb": "Platformer de game jam; feito num fim de semana e ainda de pé."
+      },
+      "cowboy_investor": {
+        "title": "Cowboy Investor",
+        "tag": "LLM",
+        "blurb": "Um wrapper de LLM que tenta dar conselhos de investimento personalizados."
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "title": "Tem um sistema que criou vida própria?",
+    "title_em": "Vamos conversar.",
+    "body": "Aceitando trabalho freelance e consultoria — React e C# de preferência, enunciados ambíguos são bem-vindos.",
+    "cta": "Entrar em contato"
+  },
+  "footer": {
+    "copyright": "© 2026 — Leo Gonsalves",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn"
+  },
+  "projects": {
+    "meta_title": "Projetos — Leo Gonsalves",
+    "meta_description": "Projetos profissionais e pessoais selecionados: Lighthouse na N-SIDE, TRIS, Payflip e alguns projetos de fim de semana.",
+    "eyebrow": "Todos os projetos",
+    "title": "Trabalho profissional e pessoal",
+    "lede": "De setores regulados a jams de fim de semana, uma seleção de projetos grandes e pequenos que me atraíram ao longo dos anos.",
+    "professional_eyebrow": "Profissional",
+    "professional_summary": "Trabalho de time fundador ou engenheiro inicial em setores regulados — suprimentos clínicos, carbono, folha de pagamento.",
+    "personal_eyebrow": "Pessoal",
+    "personal_summary": "Fins de semana, jams e pequenos experimentos. Outro registro, mesmo instinto.",
+    "back": "← Todos os projetos",
+    "kind_professional": "Profissional",
+    "kind_personal": "Pessoal",
+    "field_role": "Função",
+    "field_years": "Período",
+    "field_link": "Link",
+    "nav_previous": "Anterior",
+    "nav_next": "Próximo",
+    "nav_previous_label": "← Anterior",
+    "nav_next_label": "Próximo →",
+    "detail_meta_title": "{{heading}} — Leo Gonsalves",
+    "not_found_title": "Projeto não encontrado — Leo Gonsalves",
+    "not_found": "Projeto não encontrado",
+    "items": {
+      "n-side": {
+        "company": "N-SIDE",
+        "role": "Engenheiro de software do time fundador, Lighthouse",
+        "excerpt": "Engenheiro do time fundador do Lighthouse, modernizando a stack legada em Java da N-SIDE numa nova plataforma de planejamento de suprimentos para ensaios clínicos.",
+        "link_label": "Brochura do Lighthouse (PDF)"
+      },
+      "tris": {
+        "company": "TRIS",
+        "role": "Engenheiro fundador / CTO",
+        "excerpt": "Criei do zero uma ferramenta de análise geoespacial democratizando o acesso a créditos de carbono para agricultores e proprietários rurais brasileiros.",
+        "link_label": "tris.earth"
+      },
+      "payflip": {
+        "company": "Payflip",
+        "role": "Engenheiro Sênior",
+        "excerpt": "Construindo infraestrutura unificada de pagamento por cartão para benefícios flexíveis e transparência salarial na Bélgica.",
+        "link_label": "payflip.be"
+      },
+      "recolonizer": {
+        "title": "Recolonizer",
+        "role": "Dev solo",
+        "excerpt": "Tower defense feito em Unity.",
+        "link_label": "Jogar no itch.io"
+      },
+      "glutton-for-gluten": {
+        "title": "Glutton for Gluten",
+        "role": "Game jam – Programador líder",
+        "excerpt": "Platformer feito durante uma game jam.",
+        "link_label": "Jogar no itch.io"
+      },
+      "cowboy-investor": {
+        "title": "Cowboy Investor",
+        "role": "Projeto solo / Vibe coder",
+        "excerpt": "Um wrapper de LLM que oferece conselhos de investimento opinativos e experimentais.",
+        "link_label": "invest.forloopcowboy.com"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+## Resumo
+
+O TRIS é uma ferramenta geoespacial voltada para tornar a originação de créditos de carbono acessível a agricultores e proprietários rurais brasileiros — o segmento do mercado que historicamente ficou de fora do processo de certificação por conta dos custos.
+
+O Brasil é um dos maiores países de originação no mercado voluntário global de carbono, com créditos vindos da conservação florestal na Amazônia, programas de carbono no solo e projetos de restauração. No final de 2024, o país autorizou um mercado doméstico regulado (o SBCE) e um certificador nacional, ambos com o objetivo explícito de reduzir custos de certificação e ampliar o acesso para pequenos produtores. Para o pequeno produtor, a maior fricção não é o carbono em si — é o baseline geoespacial, o MRV (monitoramento, reporte e verificação) e toda a burocracia ao redor.
+
+O TRIS ataca exatamente essa fricção. O produto empacota a análise geoespacial que um pequeno proprietário teria que encomendar de uma consultoria, para que o custo de *descobrir se a sua terra se qualifica* deixe de ser uma barreira.
+
+## No que trabalhei
+
+- Construí um protótipo inicial em Unity 3D para renderizar projeções de reflorestamento no navegador via WebGL. Foi abandonado durante a análise de market fit, mas nos ensinou o que o produto realmente precisava ser.
+- Iterei a partir desse protótipo em direção a um pipeline de análise geoespacial via console, que se tornou o núcleo do produto.
+- Envolvi o pipeline em uma interface web pensada para agricultores e proprietários rurais sem background técnico.
+- Construí um dashboard separado de visualização de dados para consultores de carbono que trabalham com múltiplas propriedades.
+- Projetei uma camada customizada de cache e consultas para lidar com as geometrias enormes que aparecem quando se trabalha na escala do Brasil.
+
+## Tecnologia e abordagem
+
+O protótipo inicial era Unity e WebGL. Depois que superamos essa fase, a stack se consolidou em uma infraestrutura baseada em GCP, com os serviços geoespaciais do Google fazendo o trabalho pesado de imagens de satélite e análise de uso do solo. O backend era Python e Postgres para processar as saídas do pipeline e servir consultas.
+
+O front-end era um React SPA com Tailwind e Mapbox para renderização de mapas. A maioria dos componentes de UI foi feita sob medida e iterada especificamente para o nosso público. Agricultores e consultores usam software de formas diferentes, e bibliotecas de componentes prontas não serviam bem para nenhum dos dois grupos.
+
+## Status
+
+Saí do projeto depois que provamos o market fit e a empresa conseguiu seu financiamento inicial do estado de São Paulo. O projeto agora está nas mãos do CEO e fundador, enquanto eu foco em trabalhos mais perto de onde moro, na Bélgica.

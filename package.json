@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "nx run web:dev",
     "build": "nx run web:build",
-    "start": "nx run web:start"
+    "start": "nx run web:start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "nx": "^20.3.0",

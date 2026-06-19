@@ -1,0 +1,23 @@
+## Resumo
+
+A N-SIDE é uma empresa belga que aplica otimização matemática a problemas de decisão em cadeias de suprimento clínicas e mercados de energia. O Lighthouse é sua plataforma de previsão e planejamento de suprimentos para ensaios clínicos, usada por equipes de supply chain em empresas farmacêuticas para modelar estudos, rodar cenários e gerar previsões de demanda.
+
+O problema por trás é difícil por razões nada glamurosas. O suprimento de medicamentos para ensaios clínicos precisa cobrir recrutamento incerto, redes de centros em vários países, prazos de validade curtos e comparadores caros. Fornecer demais desperdiça medicamento investigacional; fornecer de menos arrisca rupturas de estoque que atrasam pacientes. O Lighthouse se apoia na tradição de otimização da N-SIDE para calibrar configurações de IRT — estoque de segurança por centro, frequência de envio — para que cada centro receba o que a dispensação realmente exige.
+
+O Lighthouse foi uma reconstrução do zero de um produto legado em Java, modernizando tanto a stack quanto a camada de modelagem por baixo.
+
+## No que trabalhei
+
+- Construí funcionalidades de UI e visualizações de dados para as superfícies de planejamento e previsão do Lighthouse.
+- Projetei estruturas de dados, escrevi e otimizei queries, e cuidei das migrações na camada de Postgres.
+- Trabalhei ao lado do arquiteto líder para estruturar a nova aplicação como referência para a modernização mais ampla da stack, definindo padrões que o restante do time seguiria.
+
+## Tecnologia e abordagem
+
+O front-end era um React SPA padrão com Tailwind para estilização. O Tailwind nos deu uma linguagem compartilhada para layout e design sem engessar ninguém. No lado do banco, Postgres com Kysely e Liquibase nos permitiu manter uma type safety leve nas queries sem abrir mão do controle total sobre o SQL por baixo.
+
+A parte mais interessante do trabalho era a tensão entre o velho e o novo. O Lighthouse substituiu um sistema que estava rodando há vinte anos, e você não pode simplesmente jogar isso fora. O trabalho era evoluir a tecnologia, trazendo ferramentas modernas e ideias novas, sem perder o que o sistema legado acertou. Muita prototipagem, muita iteração, e um vai-e-vem constante entre tentar algo criativo e garantir que aquilo realmente se sustentava.
+
+## Status
+
+O Lighthouse está em uso ativo por equipes de supply chain farmacêutico.

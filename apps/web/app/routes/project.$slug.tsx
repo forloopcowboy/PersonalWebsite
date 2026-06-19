@@ -1,4 +1,4 @@
-import { data, useLoaderData } from "react-router";
+import { data, useLoaderData, useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import { Link } from "@personal/ui";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
@@ -36,7 +36,8 @@ export function loader({ params }: Route.LoaderArgs) {
 
 export default function ProjectPage() {
   const { metadata, previous, next } = useLoaderData<typeof loader>();
-  const Body = getProjectBody(metadata.slug);
+  const { locale } = useParams<{ locale: string }>();
+  const Body = getProjectBody(metadata.slug, locale);
 
   return (
     <main className="min-h-dvh bg-paper text-ink">
@@ -61,6 +62,7 @@ export default function ProjectPage() {
 
 function ProjectHero({ project }: { project: Project }) {
   const { t } = useTranslation();
+  const { locale } = useParams<{ locale: string }>();
   const heading = projectHeading(project);
   const showYears = project.kind === "professional" || Boolean(project.years);
 
@@ -68,7 +70,7 @@ function ProjectHero({ project }: { project: Project }) {
     <section className="flex flex-col gap-10 pb-20 pt-16 md:pt-24">
       <div className="animate-settle-in flex items-center gap-3 text-ink-soft">
         <a
-          href="/projects"
+          href={`/${locale}/projects`}
           className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
         >
           {t("projects.back")}
@@ -171,6 +173,7 @@ function NavCell({
   direction: "previous" | "next";
 }) {
   const { t } = useTranslation();
+  const { locale } = useParams<{ locale: string }>();
   const alignRight = direction === "next";
   const label =
     direction === "previous"
@@ -198,7 +201,7 @@ function NavCell({
 
   return (
     <a
-      href={`/projects/${project.slug}`}
+      href={`/${locale}/projects/${project.slug}`}
       className={`group flex min-h-[8rem] flex-col justify-center gap-2 bg-paper-raised p-8 transition-colors duration-200 hover:bg-ember/[0.04] ${
         alignRight ? "items-end text-right" : "items-start text-left"
       }`}

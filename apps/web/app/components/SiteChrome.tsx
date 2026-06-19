@@ -1,19 +1,18 @@
 import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate, useParams } from "react-router";
 import { LanguagePicker, Link, Logo } from "@personal/ui";
-import { supportedLanguages } from "../i18n/config";
+import { supportedLanguages, slugFromLocale } from "../i18n/config";
 
-/**
- * Header/footer shared by routes other than the home page. The home page keeps
- * its own inline copies because its nav anchors are in-page (`#work`, `#side`);
- * here we route them back to the home page (`/#work`, `/#side`).
- */
 export function SiteHeader() {
   const { t, i18n } = useTranslation();
+  const { locale } = useParams<{ locale: string }>();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <header className="flex items-center justify-between py-8">
       <a
-        href="/"
+        href={`/${locale}`}
         className="group inline-flex items-center gap-3"
         aria-label="forloopcowboy — home"
       >
@@ -24,19 +23,19 @@ export function SiteHeader() {
       </a>
       <nav className="flex items-center gap-6">
         <Link
-          href="/#work"
+          href={`/${locale}#work`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t("nav.work")}
         </Link>
         <Link
-          href="/#side"
+          href={`/${locale}#side`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t("nav.side")}
         </Link>
         <Link
-          href="/contact"
+          href={`/${locale}/contact`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t("nav.contact")}
@@ -44,7 +43,14 @@ export function SiteHeader() {
         <LanguagePicker
           value={i18n.language}
           options={supportedLanguages}
-          onChange={(code) => i18n.changeLanguage(code)}
+          onChange={(code) => {
+            const newSlug = slugFromLocale(code);
+            const newPath = location.pathname.replace(
+              /^\/[a-z]{2}-[a-z]{2}/,
+              `/${newSlug}`,
+            );
+            navigate(newPath);
+          }}
         />
       </nav>
     </header>

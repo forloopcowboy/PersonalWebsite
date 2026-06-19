@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from "react-i18next";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useLocation, useNavigate, useParams } from "react-router";
 import {
   Button,
   cn,
@@ -9,17 +9,17 @@ import {
   SectionHeader,
   inkPullUnderline,
 } from "@personal/ui";
-import { supportedLanguages } from "../i18n/config";
+import { supportedLanguages, slugFromLocale } from "../i18n/config";
+import i18n from "../i18n/config";
 import enUS from "../i18n/en-us.json";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Leo Gonsalves — Software engineer" },
+    { title: i18n.t("meta.title") },
     {
       name: "description",
-      content:
-        "Engineer working in React and C# across clinical trials, geospatial tooling, and Belgian payroll. Available for contract and consulting work.",
+      content: i18n.t("meta.description"),
     },
   ];
 }
@@ -80,11 +80,14 @@ export default function Home() {
 
 function SiteHeader() {
   const { t, i18n } = useTranslation();
+  const { locale } = useParams<{ locale: string }>();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <header className="flex items-center justify-between py-8">
       <a
-        href="/"
+        href={`/${locale}`}
         className="group inline-flex items-center gap-3"
         aria-label="forloopcowboy — home"
       >
@@ -107,7 +110,7 @@ function SiteHeader() {
           {t("nav.side")}
         </Link>
         <Link
-          href="/contact"
+          href={`/${locale}/contact`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t("nav.contact")}
@@ -115,7 +118,14 @@ function SiteHeader() {
         <LanguagePicker
           value={i18n.language}
           options={supportedLanguages}
-          onChange={(code) => i18n.changeLanguage(code)}
+          onChange={(code) => {
+            const newSlug = slugFromLocale(code);
+            const newPath = location.pathname.replace(
+              /^\/[a-z]{2}-[a-z]{2}/,
+              `/${newSlug}`,
+            );
+            navigate(newPath);
+          }}
         />
       </nav>
     </header>
@@ -124,6 +134,7 @@ function SiteHeader() {
 
 function Hero({ index }: { index: number }) {
   const { t } = useTranslation();
+  const { locale } = useParams<{ locale: string }>();
 
   return (
     <section className="flex flex-col gap-12 pb-32 pt-20 md:gap-14 md:pt-32">
@@ -155,7 +166,7 @@ function Hero({ index }: { index: number }) {
             {t("hero.cta_work")}
           </Button>
         </a>
-        <a href="/contact" className="focus-visible:outline-none">
+        <a href={`/${locale}/contact`} className="focus-visible:outline-none">
           <Button variant="secondary" size="lg">
             {t("hero.cta_contact")}
           </Button>
@@ -193,6 +204,7 @@ function About({ index }: { index: number }) {
 
 function SelectedWork({ titleIndex }: { titleIndex: number }) {
   const { t } = useTranslation();
+  const { locale } = useParams<{ locale: string }>();
 
   return (
     <section
@@ -213,7 +225,7 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
             className="animate-settle-in group grid grid-cols-1 gap-x-12 gap-y-4 py-10 md:grid-cols-[16rem_1fr_auto] md:items-baseline"
             style={{ animationDelay: `${i * 80}ms` }}
           >
-            <Link href={`/projects/${role.key}`}>
+            <Link href={`/${locale}/projects/${role.key}`}>
               <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em]">
                 <span>{t(`work.roles.${role.key}.company`)}</span>
               </h3>
@@ -232,7 +244,7 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
 
       <div className="mt-12">
         <Link
-          href="/projects"
+          href={`/${locale}/projects`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >
           {t("work.view_all")}
@@ -290,6 +302,7 @@ function SideProjects() {
 
 function ContactCTA() {
   const { t } = useTranslation();
+  const { locale } = useParams<{ locale: string }>();
 
   return (
     <section
@@ -317,7 +330,7 @@ function ContactCTA() {
             {t("contact.body")}
           </p>
         </div>
-        <a href="/contact" className="focus-visible:outline-none">
+        <a href={`/${locale}/contact`} className="focus-visible:outline-none">
           <Button variant="primary" size="lg">
             {t("contact.cta")}
           </Button>

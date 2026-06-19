@@ -1,0 +1,19 @@
+## Resumo
+
+Um wrapper de LLM que dá conselhos de investimento opinados e experimentais. As opiniões são o ponto central; o experimento é saber se um enquadramento opinado torna o resultado mais ou menos útil do que um mais cauteloso.
+
+Deixando claro: não é aconselhamento financeiro. É um site pequeno que finge dar conselhos financeiros — algo entre um exercício de pensamento e um brinquedo.
+
+O projeto também é uma desculpa pra me manter atualizado nas bordas práticas de design de aplicações com LLM: estrutura de prompt, caching, latência, onde recorrer a código determinístico, e como fazer um modelo com opiniões ainda soar como ele mesmo ao longo de uma conversa.
+
+## Tecnologia e abordagem
+
+Começou como uma ferramenta de terminal. Exportei um monte de dados financeiros das minhas contas bancárias e alimentei um prompt que considerava minha situação multinacional e um monte de especificidades. Funcionou bem pra mim, mas quando quis que pessoas menos técnicas (meus pais, basicamente) testassem e dessem suas opiniões, o terminal não ia rolar. Então fiz um frontend no embalo com um mecanismo de prompt mais simples, pra conselhos menos precisos mas mais acessíveis, voltado pra quem quer testar a ideia sem ter que inserir todos os seus dados financeiros.
+
+Também usei o projeto pra aprender sobre Electron, dando aos usuários a opção de baixar um app nativo e manter todos os dados localmente em vez de enviar pro meu banco de dados.
+
+A stack é um React SPA com Tailwind, Postgres e SuperTokens pra autenticação. Eu queria autonomia total: um monolito, sem serviços extras ou complicações além do runtime do LLM em si. E foi o que consegui.
+
+## Status
+
+[No ar em invest.forloopcowboy.com.](https://invest.forloopcowboy.com/) Experimental. Não é aconselhamento financeiro.
