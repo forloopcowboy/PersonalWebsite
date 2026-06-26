@@ -82,7 +82,7 @@ export default function ContactPage() {
       <div className="mx-auto flex max-w-page flex-col px-6 md:px-10 lg:px-gutter">
         <SiteHeader />
 
-        <div className="flex-1 py-20 md:py-28">
+        <div className="flex-1 px-6 py-3 sm:py-16 md:px-6 md:py-28">
           <SectionHeader
             eyebrow={t('contact.eyebrow')}
             title={t('contact_form.title')}
@@ -356,7 +356,7 @@ function ContactForm({
                   'transition-colors duration-150',
                   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
                   selected
-                    ? 'border-teal bg-teal/[0.08] text-teal'
+                    ? 'text-gradient border-ember bg-teal/[0.08]'
                     : 'border-rule text-ink-soft hover:border-ink/50 hover:text-ink',
                 )}
               >

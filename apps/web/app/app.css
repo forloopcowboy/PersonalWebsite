@@ -58,6 +58,25 @@
     color: theme('colors.paper');
   }
 
+  .text-gradient {
+    background: linear-gradient(
+      135deg,
+      #cea07e 0%,
+      rgb(237, 217, 163) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .rule-gradient {
+    border-image: linear-gradient(
+      to right,
+      rgba(206, 160, 126, 0.4),
+      rgba(237, 217, 163, 0.4)
+    ) 1;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,

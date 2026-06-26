@@ -154,7 +154,7 @@ export function IllustrationNSide(props: IllustrationProps) {
         width="8"
         height="1.5"
         rx="0.75"
-        className="fill-mauve/[.25]"
+        className="fill-ink-soft/[.25]"
       />
       <rect
         x="143"
@@ -162,7 +162,7 @@ export function IllustrationNSide(props: IllustrationProps) {
         width="8"
         height="1.5"
         rx="0.75"
-        className="fill-mauve/[.2]"
+        className="fill-ink-soft/[.2]"
       />
       <rect
         x="143"
@@ -170,7 +170,7 @@ export function IllustrationNSide(props: IllustrationProps) {
         width="8"
         height="1.5"
         rx="0.75"
-        className="fill-mauve/[.25]"
+        className="fill-ink-soft/[.25]"
       />
       <rect
         x="143"
@@ -178,7 +178,7 @@ export function IllustrationNSide(props: IllustrationProps) {
         width="8"
         height="1.5"
         rx="0.75"
-        className="fill-mauve/[.2]"
+        className="fill-ink-soft/[.2]"
       />
       {/* Syringe plunger */}
       <rect
@@ -204,7 +204,7 @@ export function IllustrationNSide(props: IllustrationProps) {
         width="2"
         height="18"
         rx="1"
-        className="fill-mauve/[.3]"
+        className="fill-ink-soft/[.3]"
       />
       {/* Syringe liquid fill */}
       <rect
@@ -223,7 +223,7 @@ export function IllustrationNSide(props: IllustrationProps) {
         width="55"
         height="50"
         rx="6"
-        className="fill-mauve/[.1]"
+        className="fill-ink-soft/[.1]"
       />
       <path
         d="M180 85 L190 72 L200 78 L210 62 L215 70"
@@ -283,7 +283,7 @@ export function IllustrationTris(props: IllustrationProps) {
         cy="80"
         rx="50"
         ry="20"
-        className="stroke-mauve/[.2]"
+        className="stroke-ink-soft/[.2]"
         strokeWidth="1"
       />
       <ellipse
@@ -291,7 +291,7 @@ export function IllustrationTris(props: IllustrationProps) {
         cy="80"
         rx="20"
         ry="50"
-        className="stroke-mauve/[.15]"
+        className="stroke-ink-soft/[.15]"
         strokeWidth="1"
       />
       <path
@@ -338,7 +338,7 @@ export function IllustrationTris(props: IllustrationProps) {
         width="40"
         height="25"
         rx="5"
-        className="fill-mauve/[.1]"
+        className="fill-ink-soft/[.1]"
       />
       <rect
         x="175"
@@ -375,7 +375,7 @@ export function IllustrationPayflip(props: IllustrationProps) {
         width="120"
         height="75"
         rx="10"
-        className="fill-mauve/[.15]"
+        className="fill-ink-soft/[.15]"
       />
       <rect
         x="55"
@@ -410,12 +410,12 @@ export function IllustrationPayflip(props: IllustrationProps) {
         className="fill-wood/[.15]"
       />
       <circle cx="140" cy="95" r="10" className="fill-teal/[.4]" />
-      <path d="M137 95 L140 92 L143 95 L140 98 Z" className="fill-mauve/[.3]" />
+      <path d="M137 95 L140 92 L143 95 L140 98 Z" className="fill-ink-soft/[.3]" />
       <circle cx="185" cy="65" r="18" className="fill-ember/[.25]" />
       <circle cx="195" cy="75" r="18" className="fill-teal/[.2]" />
       <path
         d="M182 60 L182 70 M178 65 L186 65"
-        className="stroke-mauve/[.3]"
+        className="stroke-ink-soft/[.3]"
         strokeWidth="1.5"
         strokeLinecap="round"
       />
@@ -462,7 +462,7 @@ export function IllustrationRecolonizer(props: IllustrationProps) {
         width="60"
         height="80"
         rx="6"
-        className="fill-mauve/[.2]"
+        className="fill-ink-soft/[.2]"
       />
       <rect
         x="95"
@@ -570,7 +570,7 @@ export function IllustrationGlutton(props: IllustrationProps) {
         width="50"
         height="35"
         rx="8"
-        className="fill-mauve/[.12]"
+        className="fill-ink-soft/[.12]"
       />
       <circle cx="45" cy="52" r="6" className="fill-teal/[.25]" />
       <circle cx="65" cy="52" r="6" className="fill-peach/[.25]" />
@@ -585,7 +585,7 @@ export function IllustrationGlutton(props: IllustrationProps) {
       <circle cx="190" cy="60" r="14" className="fill-teal/[.15]" />
       <polygon
         points="190,48 198,56 195,66 185,66 182,56"
-        className="stroke-mauve/[.2]"
+        className="stroke-ink-soft/[.2]"
         strokeWidth="1"
       />
     </svg>
@@ -619,7 +619,7 @@ export function IllustrationCowboyInvestor(props: IllustrationProps) {
         width="140"
         height="55"
         rx="8"
-        className="fill-mauve/[.12]"
+        className="fill-ink-soft/[.12]"
       />
       <path
         d="M70 120 L90 95 L110 110 L130 88 L150 105 L170 85"
@@ -680,7 +680,7 @@ export function IllustrationNotFound(props: IllustrationProps) {
       <circle cx="160" cy="75" r="5" className="fill-ember/[.4]" />
       <path
         d="M160 125 L180 110"
-        className="stroke-mauve/[.3]"
+        className="stroke-ink-soft/[.3]"
         strokeWidth="2"
         strokeLinecap="round"
       />

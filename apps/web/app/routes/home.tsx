@@ -89,7 +89,7 @@ function Hero({ index }: { index: number }) {
 
   return (
     <section className="relative flex min-h-[85vh] flex-col gap-12 py-4 sm:py-12 md:gap-14 md:pt-20">
-      <HeroDecoration className="pointer-events-none absolute -bottom-4 right-0 w-[35rem] opacity-60 lg:w-[45rem]" />
+      <HeroDecoration className="pointer-events-none absolute -bottom-[1.35rem] right-0 w-[35rem] opacity-60 sm:-bottom-[1.25rem] md:-bottom-[1.65rem] lg:md:-bottom-[1.85rem] lg:w-[45rem]" />
       <div className="flex animate-settle-in items-center gap-3 text-ink-soft">
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">
@@ -110,7 +110,7 @@ function Hero({ index }: { index: number }) {
         <Trans
           i18nKey={`hero.headlines.${index}`}
           components={{
-            em: <em className="font-normal italic text-ember" />,
+            em: <em className="text-gradient font-normal italic" />,
           }}
         />
       </h1>
@@ -143,7 +143,7 @@ function About({ index }: { index: number }) {
   return (
     <section
       id="about"
-      className="scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
+      className="rule-gradient scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
     >
       <SectionHeader
         eyebrow={t('about.eyebrow')}
@@ -170,7 +170,7 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
   return (
     <section
       id="work"
-      className="scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
+      className="rule-gradient scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
     >
       <SectionHeader
         eyebrow={t('work.eyebrow')}
@@ -224,18 +224,20 @@ function SideProjects() {
   return (
     <section
       id="side"
-      className="scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
+      className="rule-gradient scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
     >
       <SectionHeader
         eyebrow={t('side.eyebrow')}
         href="#side"
         title={
-          <Trans
-            i18nKey={`side.title`}
-            components={{
-              em: <em className="font-normal italic text-teal" />,
-            }}
-          />
+          <span className="text-gradient">
+            <Trans
+              i18nKey={`side.title`}
+              components={{
+                em: <em className="font-normal italic text-teal" />,
+              }}
+            />
+          </span>
         }
         lede={t('side.lede')}
       />
@@ -244,9 +246,23 @@ function SideProjects() {
         {SIDE_PROJECTS.map((project, i) => (
           <article
             key={project.key}
-            className="flex animate-settle-in flex-col gap-5 bg-paper-raised p-8"
+            className="relative flex animate-settle-in flex-col gap-5 overflow-hidden bg-paper-raised p-8"
             style={{ animationDelay: `${i * 80}ms` }}
           >
+            <span
+              aria-hidden
+              className="absolute inset-x-0 top-0 h-[2px]"
+              style={{
+                background: `linear-gradient(90deg, ${
+                  [
+                    'rgb(var(--color-ember))',
+                    'rgb(var(--color-peach))',
+                    'rgb(var(--color-teal))',
+                  ][i]
+                } 0%, transparent 100%)`,
+                opacity: 0.5,
+              }}
+            />
             <div className="flex items-center gap-3 text-ink-soft">
               <span className="font-mono text-xs uppercase tracking-[0.18em] text-teal">
                 {t(`side.projects.${project.key}.tag`)}
@@ -282,7 +298,7 @@ function ContactCTA() {
   return (
     <section
       id="contact"
-      className="scroll-mt-16 border-t border-rule py-28 md:py-32"
+      className="rule-gradient scroll-mt-16 border-t border-rule py-28 md:py-32"
     >
       <div className="flex flex-col items-start gap-10 md:flex-row md:items-end md:justify-between">
         <div className="max-w-[30ch]">
@@ -297,7 +313,7 @@ function ContactCTA() {
           </div>
           <h2 className="mt-6 font-display text-4xl font-light leading-[1.04] tracking-[-0.02em] text-ink [text-wrap:balance] md:text-5xl">
             {t('contact.title')}{' '}
-            <em className="font-normal italic text-ember">
+            <em className="text-gradient font-normal italic">
               {t('contact.title_em')}
             </em>
           </h2>

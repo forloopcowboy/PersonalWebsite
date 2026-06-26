@@ -32,7 +32,9 @@ export function SectionHeader({
     <header
       className={cn(
         'flex flex-col',
-        align === 'center' ? 'items-center text-center' : 'items-start text-left',
+        align === 'center'
+          ? 'items-center text-center'
+          : 'items-start text-left',
         className,
       )}
     >
@@ -51,7 +53,7 @@ export function SectionHeader({
           )}
         </div>
       )}
-      <h2 className="font-display text-4xl font-light leading-[1.04] tracking-[-0.02em] text-ink md:text-5xl [text-wrap:balance]">
+      <h2 className="font-display text-4xl font-light leading-[1.04] tracking-[-0.02em] text-ink [text-wrap:balance] md:text-5xl">
         {title}
       </h2>
       {lede && (
