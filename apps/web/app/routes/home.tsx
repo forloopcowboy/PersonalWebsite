@@ -85,16 +85,22 @@ function Hero({ index }: { index: number }) {
   const { localePrefix } = useLocale();
 
   return (
-    <section className="flex min-h-[85vh] flex-col gap-12 pb-32 pt-12 md:gap-14 md:pt-20">
+    <section className="flex min-h-[85vh] flex-col gap-12 py-4 sm:py-12 md:gap-14 md:pt-20">
       <div className="flex animate-settle-in items-center gap-3 text-ink-soft">
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">
-          {t('hero.tagline')}
+          <Trans
+            i18nKey={`hero.tagline`}
+            components={{
+              em: <em className="font-normal italic text-ember" />,
+              br: <span aria-hidden className="block h-2" />,
+            }}
+          />
         </span>
       </div>
 
       <h1
-        className="max-w-[22ch] animate-settle-in font-display text-5xl font-light leading-[1.02] tracking-[-0.025em] text-ink [text-wrap:balance] md:text-6xl"
+        className="max-w-[22ch] animate-settle-in font-display text-4xl font-light leading-[1.02] tracking-[-0.025em] text-ink [text-wrap:balance] sm:text-5xl md:text-6xl"
         style={{ animationDelay: '80ms' }}
       >
         <Trans
@@ -133,14 +139,14 @@ function About({ index }: { index: number }) {
   return (
     <section
       id="about"
-      className="scroll-mt-16 border-t border-rule py-24 md:py-28"
+      className="scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
     >
       <SectionHeader
         eyebrow={t('about.eyebrow')}
         href="#about"
         title={t('about.title')}
       />
-      <p className="mt-10 max-w-prose font-sans text-lg leading-relaxed text-ink-soft [text-wrap:pretty]">
+      <p className="text-md mt-10 max-w-prose font-sans leading-relaxed text-ink-soft [text-wrap:pretty] sm:text-lg">
         <Trans
           i18nKey={`about.bodies.${index}`}
           components={{
@@ -160,7 +166,7 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
   return (
     <section
       id="work"
-      className="scroll-mt-16 border-t border-rule py-24 md:py-28"
+      className="scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
     >
       <SectionHeader
         eyebrow={t('work.eyebrow')}
@@ -214,7 +220,7 @@ function SideProjects() {
   return (
     <section
       id="side"
-      className="scroll-mt-16 border-t border-rule py-24 md:py-28"
+      className="scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
     >
       <SectionHeader
         eyebrow={t('side.eyebrow')}
