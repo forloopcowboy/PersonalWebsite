@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router';
-import { useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'react-i18next';
 import { SectionHeader, cn, inkPullUnderline } from '@personal/ui';
 import { SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { projects, type Project } from '../lib/projects';
@@ -142,7 +142,12 @@ function ProjectCard({
           </span>
         </h3>
         <div className="my-2 flex flex-col gap-1 font-mono text-xs uppercase tracking-[0.18em] text-ink-soft/60">
-          <span>{t(`projects.items.${project.slug}.role`)}</span>
+          <span>
+            <Trans
+              i18nKey={`projects.items.${project.slug}.role`}
+              components={{ br: <br /> }}
+            />
+          </span>
           {project.kind === 'professional' && (
             <span aria-label={t('projects.field_years')}>{project.years}</span>
           )}
