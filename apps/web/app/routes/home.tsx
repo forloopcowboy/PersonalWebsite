@@ -89,7 +89,7 @@ function Hero({ index }: { index: number }) {
 
   return (
     <section className="relative flex min-h-[85vh] flex-col gap-12 py-4 sm:py-12 md:gap-14 md:pt-20">
-      <HeroDecoration className="pointer-events-none absolute right-0 top-8 hidden w-[28rem] opacity-60 md:block lg:w-[34rem]" />
+      <HeroDecoration className="pointer-events-none absolute -bottom-4 right-0 w-[35rem] opacity-60 lg:w-[45rem]" />
       <div className="flex animate-settle-in items-center gap-3 text-ink-soft">
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">

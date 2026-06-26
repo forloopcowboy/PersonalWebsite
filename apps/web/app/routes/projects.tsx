@@ -121,7 +121,7 @@ function ProjectCard({
   return (
     <a
       href={`${localePrefix}/projects/${project.slug}`}
-      className="group grid grid-cols-1 gap-x-12 gap-y-3 py-8 md:grid-cols-[1fr_auto] md:items-stretch"
+      className="group grid grid-cols-1 gap-x-12 gap-y-3 py-8 md:grid-cols-[1fr_auto] md:items-start"
     >
       <div>
         <h3
@@ -157,7 +157,7 @@ function ProjectCard({
         </p>
       </div>
       {Illustration && (
-        <Illustration className="fixed right-2 w-44 opacity-50 transition-opacity duration-200 group-hover:opacity-80 md:w-52 lg:relative" />
+        <Illustration className="fixed right-2 top-2 w-44 opacity-50 transition-opacity duration-200 group-hover:opacity-80 md:w-52 lg:relative" />
       )}
     </a>
   );
