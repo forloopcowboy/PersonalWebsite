@@ -18,7 +18,7 @@ export function SiteHeader() {
         aria-label="forloopcowboy — home"
       >
         <Logo className="h-7 w-7" />
-        <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft transition-colors duration-200 group-hover:text-ink">
+        <span className="text-gradient font-mono text-sm uppercase tracking-[0.18em] transition-colors duration-200 group-hover:text-ink">
           {t('nav.home')}
         </span>
       </a>
