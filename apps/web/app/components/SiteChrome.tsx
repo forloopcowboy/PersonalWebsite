@@ -47,6 +47,20 @@ export function SiteHeader() {
         >
           {t('nav.contact')}
         </Link>
+        <div className="hidden md:block">
+          <LanguagePicker
+            value={i18n.language}
+            options={supportedLanguages}
+            onChange={(code) => {
+              const newSlug = slugFromLocale(code);
+              const pathWithoutLocale =
+                location.pathname.replace(/^\/[a-z]{2}-[a-z]{2}/, '') || '/';
+              navigate(`/${newSlug}${pathWithoutLocale}`);
+            }}
+          />
+        </div>
+      </nav>
+      <div className="block md:hidden">
         <LanguagePicker
           value={i18n.language}
           options={supportedLanguages}
@@ -57,7 +71,7 @@ export function SiteHeader() {
             navigate(`/${newSlug}${pathWithoutLocale}`);
           }}
         />
-      </nav>
+      </div>
     </header>
   );
 }

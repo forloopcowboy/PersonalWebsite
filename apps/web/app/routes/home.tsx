@@ -8,6 +8,7 @@ import enUS from '../i18n/en-us.json';
 import ptBR from '../i18n/pt-br.json';
 import type { Route } from './+types/home';
 import { SiteHeader } from '../components/SiteChrome';
+import { getProjectIllustration } from '../lib/project-illustrations';
 
 const translations: Record<string, typeof enUS> = {
   'en-us': enUS,
@@ -88,7 +89,7 @@ function Hero({ index }: { index: number }) {
   const { localePrefix } = useLocale();
 
   return (
-    <section className="relative flex min-h-[85vh] flex-col gap-12 py-4 sm:py-12 md:gap-14 md:pt-20">
+    <section className="relative flex min-h-[85vh] flex-col gap-12 py-0 pb-16 pt-10 sm:py-8 md:gap-14 md:py-10 lg:py-16">
       <HeroDecoration className="pointer-events-none absolute -bottom-[1.35rem] right-0 w-[35rem] opacity-60 sm:-bottom-[1.25rem] md:-bottom-[1.65rem] lg:md:-bottom-[1.85rem] lg:w-[45rem]" />
       <div className="flex animate-settle-in items-center gap-3 text-ink-soft">
         <span aria-hidden className="h-px w-8 bg-rule" />
@@ -143,7 +144,7 @@ function About({ index }: { index: number }) {
   return (
     <section
       id="about"
-      className="rule-gradient scroll-mt-16 border-t border-rule py-9 sm:py-24 md:py-28"
+      className="rule-gradient scroll-mt-16 border-t border-rule py-16 sm:py-24 md:py-28"
     >
       <SectionHeader
         eyebrow={t('about.eyebrow')}
@@ -180,29 +181,35 @@ function SelectedWork({ titleIndex }: { titleIndex: number }) {
       />
 
       <ol className="mt-16 flex flex-col divide-y divide-rule">
-        {SELECTED_WORK.map((role, i) => (
-          <li
-            key={role.key}
-            className="group grid animate-settle-in grid-cols-1 gap-x-12 gap-y-4 py-10 md:grid-cols-[16rem_1fr_auto] md:items-baseline"
-            style={{ animationDelay: `${i * 80}ms` }}
-          >
-            <div>
-              <Link href={`${localePrefix}/projects/${role.key}`}>
-                <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em]">
-                  <span>{t(`work.roles.${role.key}.company`)}</span>
-                </h3>
-              </Link>
-            </div>
-            <p className="max-w-prose font-sans text-base leading-relaxed text-ink-soft">
-              {t(`work.roles.${role.key}.contribution`)}
-            </p>
-            <div className="md:self-baseline">
-              <Link href={role.href} className="text-sm">
-                {`${t('work.visit')} ${role.href.split('https://')[1].split('/')[0].replace('www.', '')}`}
-              </Link>
-            </div>
-          </li>
-        ))}
+        {SELECTED_WORK.map((role, i) => {
+          const Illustration = getProjectIllustration(role.key);
+          return (
+            <li
+              key={role.key}
+              className="group grid animate-settle-in grid-cols-1 gap-x-12 gap-y-4 py-10 md:grid-cols-[16rem_1fr_auto] md:items-baseline lg:py-12"
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
+              {Illustration && (
+                <Illustration className="pointer-events-none fixed right-2 top-2 w-44 opacity-10 transition-opacity duration-700 group-hover:opacity-60 md:left-2 md:right-auto md:top-8 md:w-52" />
+              )}
+              <div>
+                <Link href={`${localePrefix}/projects/${role.key}`}>
+                  <h3 className="font-display text-3xl font-light leading-tight tracking-[-0.015em]">
+                    <span>{t(`work.roles.${role.key}.company`)}</span>
+                  </h3>
+                </Link>
+              </div>
+              <p className="max-w-prose font-sans text-base leading-relaxed text-ink-soft">
+                {t(`work.roles.${role.key}.contribution`)}
+              </p>
+              <div className="md:self-baseline">
+                <Link href={role.href} className="text-sm">
+                  {`${t('work.visit')} ${role.href.split('https://')[1].split('/')[0].replace('www.', '')}`}
+                </Link>
+              </div>
+            </li>
+          );
+        })}
       </ol>
 
       <div className="mt-12">

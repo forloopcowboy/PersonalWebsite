@@ -67,7 +67,7 @@ function ProjectHero({ project }: { project: Project }) {
   const Illustration = getProjectIllustration(project.slug);
 
   return (
-    <section className="relative flex flex-col gap-10 pb-20 pt-16 md:pt-24">
+    <section className="relative flex flex-col gap-3 py-16 md:gap-10 md:py-16 lg:py-7">
       {Illustration && (
         <Illustration className="pointer-events-none absolute right-0 top-12 w-40 opacity-30 md:w-64 md:opacity-40" />
       )}
@@ -87,14 +87,14 @@ function ProjectHero({ project }: { project: Project }) {
       </div>
 
       <h1
-        className="text-gradient max-w-[18ch] animate-settle-in font-display text-5xl font-light leading-[1.02] tracking-[-0.025em] text-ink [text-wrap:balance] md:text-6xl"
+        className="text-gradient my-3 max-w-[18ch] animate-settle-in font-display text-5xl font-light leading-[1.02] tracking-[-0.025em] text-ink [text-wrap:balance] md:text-6xl"
         style={{ animationDelay: '80ms' }}
       >
         {heading}
       </h1>
 
       <dl
-        className="grid animate-settle-in grid-cols-1 gap-6 border-t border-rule pt-8 md:grid-cols-3"
+        className="grid animate-settle-in grid-cols-1 gap-1 border-t border-rule pt-8 sm:gap-2 md:grid-cols-3 md:gap-4 lg:gap-6"
         style={{ animationDelay: '160ms' }}
       >
         <HeroField
