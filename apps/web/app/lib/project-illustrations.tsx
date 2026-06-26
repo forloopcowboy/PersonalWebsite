@@ -6,6 +6,7 @@ import {
   IllustrationRecolonizer,
   IllustrationGlutton,
   IllustrationCowboyInvestor,
+  IllustrationThisWebsite,
 } from '@personal/ui';
 
 const map: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
@@ -15,6 +16,7 @@ const map: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
   recolonizer: IllustrationRecolonizer,
   'glutton-for-gluten': IllustrationGlutton,
   'cowboy-investor': IllustrationCowboyInvestor,
+  'this-website': IllustrationThisWebsite,
 };
 
 export function getProjectIllustration(slug: string) {

@@ -1,0 +1,43 @@
+## Resumo
+
+Este é o site que você está vendo agora. Ele substituiu um portfólio antigo que tinha virado uma vitrine de funcionalidades técnicas que ninguém pediu — um CMS customizado, um pipeline de markdown, temas dinâmicos, autenticação — tudo construído pra provar que eu sabia fazer, nada disso útil como portfólio de verdade.
+
+A reconstrução tinha algumas metas: criar algo que lê bem e carrega rápido, aprender renderização server-side com React Router v7, e apostar pesado em vibe coding pra testar até onde desenvolvimento assistido por IA consegue levar um projeto do conceito à produção.
+
+## Por que reconstruir
+
+O site antigo era um monolito Next.js que fazia coisa demais. Até facilitava escrever e editar conteúdo, mas a infraestrutura por trás — hospedagem de imagens, armazenamento de artigos, uma camada inteira de CMS — tinha custos e processamento absurdos pra o que é, no fundo, conteúdo estático. Era encanamento impressionante, inútil como portfólio. Ninguém contrata um engenheiro porque o site pessoal dele tem painel de admin.
+
+Na era do código assistido por IA, um site SSR gerenciado por código pareceu a transição natural. Conteúdo estático vive em arquivos MDX. Traduções vivem em JSON. O design é opinativo mas mínimo — sem toggle de dark mode, sem seletor de tema, sem funcionalidade pela funcionalidade. Se não ajuda alguém a entender meu trabalho, não entra.
+
+## Stack
+
+- **React Router v7** — roteamento baseado em arquivos com SSR, substituindo tanto o Next.js quanto a marca Remix. Loaders rodam no servidor, componentes hidratam no cliente. Como alguém da velha guarda de SPAs, acostumado com a separação limpa entre cliente e servidor e APIs REST, adaptar a esse modelo foi um bom processo de aprendizado — server components pareciam estranhos até começarem a parecer PHP bem feito.
+- **MDX** — os textos dos projetos (como este) vivem como arquivos `.mdx`, importados estaticamente por idioma. Sem compilação em runtime, sem fetch de CMS. O conteúdo está no repositório, versionado junto com o código.
+- **Tailwind CSS v3** — estilização utility-first com tokens de design customizados (`ink`, `paper`, `teal`, `ember`, `peach`, `wood`) pra paleta.
+- **i18next** — suporte completo inglês/português. Traduções em JSON puro, trocadas no nível da rota.
+- **Nx monorepo** — o site (`apps/web`) compartilha uma biblioteca de UI (`libs/ui`) com exports de componentes, ilustrações e primitivos de design.
+- **Vite** — HMR rápido, plugin de MDX, nada exótico.
+- **Vercel** — push pra main e tá no ar.
+
+## Vibe coding
+
+Desenvolvimento assistido por IA foi central nesse projeto — não como autocomplete, mas como colaborador em arquitetura, textos, design de componentes e velocidade de iteração:
+
+- Descrever um layout ou componente em prompt, revisar o que volta, ajustar na mão ou re-promptar com correções.
+- Usar IA pra primeiros rascunhos de textos, depois reescrever com minhas próprias palavras.
+- Contar com code review de LLMs pra pegar coisas que eu perderia sozinho — lacunas de acessibilidade, peso do bundle, edge cases de i18n.
+- A distância entre "ideia" e "deploy" encolheu de dias pra horas na maioria das páginas.
+
+O site é vibe-coded no sentido honesto da palavra — a IA fez boa parte do andaime, eu tomei todas as decisões de gosto. Cada layout, cor, timing de animação e escolha de palavras passou pelas minhas mãos.
+
+## Decisões de design
+
+Deliberadamente contido. Uma paleta quente e neutra, bastante espaço em branco e layouts que priorizam tipografia, deixando a escrita fazer o trabalho. As ilustrações são SVGs autorais usando os tokens de cor do próprio site — sem banco de imagens, sem imagens geradas.
+
+Animações sutis e funcionais: fade-ins escalonados em listas, sublinhados que puxam como tinta nos links, easing de assentamento que parece físico sem distrair. Tudo no lugar certo, nada competindo por atenção.
+
+## Status
+
+- [No ar em forloopcowboy.com.](https://forloopcowboy.com/)
+- [Código-fonte no GitHub.](https://github.com/forloopcowboy/PersonalWebsite)

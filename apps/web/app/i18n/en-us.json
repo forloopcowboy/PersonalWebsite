@@ -194,6 +194,12 @@
         "role": "Solo build / Vibe coder",
         "excerpt": "An LLM wrapper offering opinionated, experimental investment advice.",
         "link_label": "invest.forloopcowboy.com"
+      },
+      "this-website": {
+        "title": "This Website",
+        "role": "Design, dev & content",
+        "excerpt": "A personal portfolio rebuilt from scratch with React Router v7, SSR, MDX, and heavy vibe coding — replacing a feature-bloated CMS experiment with something actually marketable.",
+        "link_label": "forloopcowboy.com"
       }
     }
   }

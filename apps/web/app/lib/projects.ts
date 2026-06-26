@@ -69,6 +69,13 @@ export const projects: readonly Project[] = [
       href: 'https://invest.forloopcowboy.com/',
     },
   },
+  {
+    slug: 'this-website',
+    kind: 'personal',
+    link: {
+      href: 'https://forloopcowboy.com/',
+    },
+  },
 ] as const;
 
 export function projectHeading(project: Project): string {

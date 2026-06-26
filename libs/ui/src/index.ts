@@ -30,5 +30,6 @@ export {
   IllustrationRecolonizer,
   IllustrationGlutton,
   IllustrationCowboyInvestor,
+  IllustrationThisWebsite,
   IllustrationNotFound,
 } from './illustrations';

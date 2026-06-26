@@ -653,6 +653,163 @@ export function IllustrationCowboyInvestor(props: IllustrationProps) {
   );
 }
 
+export function IllustrationThisWebsite(props: IllustrationProps) {
+  return (
+    <svg
+      viewBox="0 0 240 160"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      {...props}
+    >
+      {/* Background circle — site/globe */}
+      <circle cx="120" cy="80" r="45" className="fill-teal/[.12]" />
+      <circle
+        cx="120"
+        cy="80"
+        r="34"
+        className="stroke-wood/[.2]"
+        strokeWidth="1"
+        strokeDasharray="4 3"
+      />
+
+      {/* Left curly brace */}
+      <path
+        d="M88 52 Q95 52 97 58 L97 72 Q97 78 92 80 Q97 82 97 88 L97 102 Q95 108 88 108"
+        className="stroke-ember/[.45]"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* Right curly brace */}
+      <path
+        d="M152 52 Q145 52 143 58 L143 72 Q143 78 148 80 Q143 82 143 88 L143 102 Q145 108 152 108"
+        className="stroke-ember/[.45]"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* Cowboy hat */}
+      <path
+        d="M108 72 Q112 62 120 64 Q128 62 132 72 L130 72 Q127 66 120 67 Q113 66 110 72 Z"
+        className="fill-wood/[.35]"
+      />
+      <rect
+        x="110"
+        y="70"
+        width="20"
+        height="3"
+        rx="1.5"
+        className="fill-wood/[.3]"
+      />
+
+      {/* Code lines inside braces */}
+      <rect
+        x="108"
+        y="80"
+        width="18"
+        height="2"
+        rx="1"
+        className="fill-teal/[.4]"
+      />
+      <rect
+        x="112"
+        y="86"
+        width="12"
+        height="2"
+        rx="1"
+        className="fill-peach/[.35]"
+      />
+      <rect
+        x="110"
+        y="92"
+        width="15"
+        height="2"
+        rx="1"
+        className="fill-teal/[.3]"
+      />
+
+      {/* Browser chrome — top left */}
+      <rect
+        x="22"
+        y="28"
+        width="55"
+        height="38"
+        rx="5"
+        className="fill-ink-soft/[.1]"
+      />
+      <circle cx="33" cy="36" r="2" className="fill-ember/[.35]" />
+      <circle cx="41" cy="36" r="2" className="fill-peach/[.3]" />
+      <circle cx="49" cy="36" r="2" className="fill-teal/[.35]" />
+      <rect
+        x="28"
+        y="44"
+        width="35"
+        height="2"
+        rx="1"
+        className="fill-wood/[.2]"
+      />
+      <rect
+        x="28"
+        y="50"
+        width="24"
+        height="2"
+        rx="1"
+        className="fill-wood/[.15]"
+      />
+      <rect
+        x="28"
+        y="56"
+        width="30"
+        height="2"
+        rx="1"
+        className="fill-wood/[.12]"
+      />
+
+      {/* MDX file icon — bottom right */}
+      <rect
+        x="175"
+        y="95"
+        width="40"
+        height="35"
+        rx="4"
+        className="fill-ink-soft/[.1]"
+      />
+      <rect
+        x="181"
+        y="105"
+        width="20"
+        height="2"
+        rx="1"
+        className="fill-teal/[.3]"
+      />
+      <rect
+        x="181"
+        y="111"
+        width="28"
+        height="2"
+        rx="1"
+        className="fill-peach/[.25]"
+      />
+      <rect
+        x="181"
+        y="117"
+        width="16"
+        height="2"
+        rx="1"
+        className="fill-teal/[.2]"
+      />
+
+      {/* Accent dots */}
+      <circle cx="42" cy="120" r="6" className="fill-peach/[.2]" />
+      <circle cx="195" cy="45" r="8" className="fill-ember/[.15]" />
+      <circle cx="180" cy="30" r="4" className="fill-teal/[.2]" />
+    </svg>
+  );
+}
+
 export function IllustrationNotFound(props: IllustrationProps) {
   return (
     <svg

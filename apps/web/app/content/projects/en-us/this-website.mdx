@@ -1,0 +1,43 @@
+## Summary
+
+This is the site you're looking at. It replaced an older portfolio that had become a showcase of technical features nobody asked for — a custom CMS, a markdown pipeline, dynamic theming, auth — all built to prove I could build them, none of it useful as an actual portfolio.
+
+The rewrite had a few goals: make something that reads well and loads fast, learn server-side rendering with React Router v7, and lean into vibe coding to see how far AI-assisted development could carry a project from concept to production.
+
+## Why rebuild
+
+The old site was a Next.js monolith that did too much. It made writing and editing content easy enough, but the infrastructure behind it — image hosting, article storage, a full CMS layer — carried absurd costs and processing overhead for what is essentially static content. It was impressive plumbing, useless as a portfolio. Nobody hires you because your personal site has an admin panel.
+
+In the age of AI-assisted coding, a code-managed SSR site felt like the natural transition. Static content lives in MDX files. Translations live in JSON. The design is opinionated but minimal — no dark mode toggle, no theme picker, no features for the sake of features. If it doesn't help someone understand my work, it doesn't ship.
+
+## Stack
+
+- **React Router v7** — file-based routing with SSR, replacing both Next.js and the Remix branding. Loaders run server-side, components hydrate on the client. As an old-school SPA guy who's very comfortable with a clean client/server split and REST APIs, adapting to this model was a good learning process — server components felt foreign until they started feeling like PHP done right.
+- **MDX** — project write-ups (like this one) live as `.mdx` files, imported statically per locale. No runtime compilation, no CMS fetch. Content is in the repo, versioned with the code.
+- **Tailwind CSS v3** — utility-first styling with custom design tokens (`ink`, `paper`, `teal`, `ember`, `peach`, `wood`) for the palette.
+- **i18next** — full English/Portuguese support. Plain JSON translations swapped at the route level.
+- **Nx monorepo** — the site (`apps/web`) shares a UI library (`libs/ui`) with component exports, illustrations, and design primitives.
+- **Vite** — fast HMR, MDX plugin, nothing exotic.
+- **Vercel** — push to main, it's live.
+
+## Vibe coding
+
+AI-assisted development was central to this build — not as autocomplete, but as a collaborator on architecture, copy, component design, and iteration speed:
+
+- Prompt a rough layout or component, review what comes back, adjust by hand or re-prompt with corrections.
+- Use AI for first drafts of copy, then rewrite to sound like me.
+- Lean on LLM code review to catch things I'd miss solo — accessibility gaps, bundle weight, i18n edge cases.
+- The gap between "idea" and "deployed" shrank from days to hours for most pages.
+
+The site is vibe-coded in the honest sense — AI did a lot of the scaffolding, I made all the taste decisions. Every layout, color, animation timing, and word choice went through my hands.
+
+## Design choices
+
+Deliberately restrained. A warm neutral palette, generous whitespace, and type-forward layouts that let the writing do the work. Illustrations are hand-authored SVGs using the site's own color tokens — no stock art, no generated images.
+
+Animations are subtle and functional: staggered fade-ins on lists, ink-pull underlines on links, settle-in easing that feels physical without being distracting. Everything in its place, nothing competing for attention.
+
+## Status
+
+- [Live at forloopcowboy.com.](https://forloopcowboy.com/)
+- [Source on GitHub.](https://github.com/forloopcowboy/PersonalWebsite)
