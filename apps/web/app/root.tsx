@@ -5,22 +5,27 @@ import {
   Scripts,
   ScrollRestoration,
   type LinksFunction,
-} from "react-router";
-import { useTranslation } from "react-i18next";
-import { faviconUrl, logo192Url } from "@personal/ui";
-import appStylesUrl from "./app.css?url";
-import "./i18n/config";
+} from 'react-router';
+import { useTranslation } from 'react-i18next';
+import { faviconUrl, logo192Url } from '@personal/ui';
+import appStylesUrl from './app.css?url';
+import './i18n/config';
+import { Analytics } from '@vercel/analytics/react';
 
 export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
   {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap",
+    rel: 'preconnect',
+    href: 'https://fonts.gstatic.com',
+    crossOrigin: 'anonymous',
   },
-  { rel: "stylesheet", href: appStylesUrl },
-  { rel: "icon", href: faviconUrl, type: "image/x-icon" },
-  { rel: "apple-touch-icon", href: logo192Url },
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap',
+  },
+  { rel: 'stylesheet', href: appStylesUrl },
+  { rel: 'icon', href: faviconUrl, type: 'image/x-icon' },
+  { rel: 'apple-touch-icon', href: logo192Url },
 ];
 
 export default function Root() {
@@ -38,6 +43,7 @@ export default function Root() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );
