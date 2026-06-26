@@ -1,6 +1,6 @@
 import { Trans, useTranslation } from 'react-i18next';
 import { useLoaderData } from 'react-router';
-import { Button, Link, SectionHeader } from '@personal/ui';
+import { Button, Link, SectionHeader, HeroDecoration } from '@personal/ui';
 import { resolveLocale } from '../i18n/config';
 import i18n from '../i18n/config';
 import { useLocale } from '../i18n/LocaleContext';
@@ -42,12 +42,12 @@ interface Role {
 }
 
 const SELECTED_WORK: Role[] = [
+  { key: 'payflip', href: 'https://payflip.be/en/' },
+  { key: 'tris', href: 'https://www.tris.earth/' },
   {
     key: 'n-side',
     href: 'https://www.n-side.com/en/life-sciences/cts-digital-twin/lighthouse-easy-and-accurate-clinical-supply-forecasting-planning-solution/',
   },
-  { key: 'tris', href: 'https://www.tris.earth/' },
-  { key: 'payflip', href: 'https://payflip.be/en/' },
 ];
 
 interface SideProject {
@@ -57,7 +57,10 @@ interface SideProject {
 
 const SIDE_PROJECTS: SideProject[] = [
   { key: 'recolonizer', href: 'https://forloopcowboy.itch.io/recolonizer' },
-  { key: 'glutton', href: 'https://forloopcowboy.itch.io/glutton-for-gluten' },
+  {
+    key: 'glutton-for-gluten',
+    href: 'https://forloopcowboy.itch.io/glutton-for-gluten',
+  },
   { key: 'cowboy-investor', href: 'https://invest.forloopcowboy.com/' },
 ];
 
@@ -85,14 +88,15 @@ function Hero({ index }: { index: number }) {
   const { localePrefix } = useLocale();
 
   return (
-    <section className="flex min-h-[85vh] flex-col gap-12 py-4 sm:py-12 md:gap-14 md:pt-20">
+    <section className="relative flex min-h-[85vh] flex-col gap-12 py-4 sm:py-12 md:gap-14 md:pt-20">
+      <HeroDecoration className="pointer-events-none absolute right-0 top-8 hidden w-[28rem] opacity-60 md:block lg:w-[34rem]" />
       <div className="flex animate-settle-in items-center gap-3 text-ink-soft">
         <span aria-hidden className="h-px w-8 bg-rule" />
         <span className="font-mono text-xs uppercase tracking-[0.18em]">
           <Trans
             i18nKey={`hero.tagline`}
             components={{
-              em: <em className="font-normal italic text-ember" />,
+              em: <em className="font-normal italic text-teal" />,
               br: <span aria-hidden className="block h-2" />,
             }}
           />
@@ -229,7 +233,7 @@ function SideProjects() {
           <Trans
             i18nKey={`side.title`}
             components={{
-              em: <em className="font-normal italic text-ember" />,
+              em: <em className="font-normal italic text-teal" />,
             }}
           />
         }
@@ -244,7 +248,7 @@ function SideProjects() {
             style={{ animationDelay: `${i * 80}ms` }}
           >
             <div className="flex items-center gap-3 text-ink-soft">
-              <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
+              <span className="font-mono text-xs uppercase tracking-[0.18em] text-teal">
                 {t(`side.projects.${project.key}.tag`)}
               </span>
               <span aria-hidden className="h-px w-6 bg-rule" />
@@ -286,7 +290,7 @@ function ContactCTA() {
             <span aria-hidden className="h-px w-8 bg-rule" />
             <a
               href="#contact"
-              className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
+              className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-teal focus-visible:text-teal focus-visible:outline-none"
             >
               {t('contact.eyebrow')}
             </a>

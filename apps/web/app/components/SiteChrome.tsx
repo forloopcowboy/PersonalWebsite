@@ -36,6 +36,12 @@ export function SiteHeader() {
           {t('nav.side')}
         </Link>
         <Link
+          href={`${localePrefix}/projects`}
+          className="font-mono text-xs uppercase tracking-[0.18em]"
+        >
+          {t('nav.projects')}
+        </Link>
+        <Link
           href={`${localePrefix}/contact`}
           className="font-mono text-xs uppercase tracking-[0.18em]"
         >

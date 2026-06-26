@@ -33,7 +33,7 @@ const variants: Record<ButtonVariant, string> = {
   ].join(' '),
   ghost: [
     'bg-transparent text-ink',
-    'hover:text-ember hover:bg-ember/[0.06]',
+    'hover:text-teal hover:bg-teal/[0.06]',
   ].join(' '),
 };
 

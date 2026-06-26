@@ -4,23 +4,33 @@
 
 @layer base {
   :root {
-    --color-paper: 244 238 226;
-    --color-paper-raised: 251 247 238;
-    --color-ink: 26 23 20;
-    --color-ink-soft: 107 98 88;
-    --color-rule: 229 221 203;
-    --color-ember: 152 68 71;
-    --color-ember-deep: 103 55 57;
+    --color-paper: 248 242 230;
+    --color-paper-raised: 253 249 240;
+    --color-ink: 68 55 66;
+    --color-ink-soft: 132 108 91;
+    --color-rule: 225 213 185;
+    --color-ember: 206 160 126;
+    --color-ember-deep: 148 116 90;
+    --color-teal: 127 186 183;
+    --color-teal-deep: 95 156 152;
+    --color-mauve: 68 55 66;
+    --color-wood: 132 108 91;
+    --color-peach: 237 217 163;
   }
 
   .dark {
-    --color-paper: 21 17 13;
-    --color-paper-raised: 31 26 20;
-    --color-ink: 240 232 218;
-    --color-ink-soft: 168 151 138;
-    --color-rule: 45 38 32;
-    --color-ember: 194 87 90;
-    --color-ember-deep: 224 116 122;
+    --color-paper: 24 19 22;
+    --color-paper-raised: 36 29 34;
+    --color-ink: 237 228 205;
+    --color-ink-soft: 178 158 142;
+    --color-rule: 58 47 55;
+    --color-ember: 214 172 138;
+    --color-ember-deep: 228 190 152;
+    --color-teal: 189 191 34;
+    --color-teal-deep: 140 195 192;
+    --color-mauve: 78 65 76;
+    --color-wood: 152 128 112;
+    --color-peach: 237 217 163;
   }
 
   *,

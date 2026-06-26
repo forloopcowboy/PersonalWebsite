@@ -42,7 +42,7 @@ export function SectionHeader({
           {href ? (
             <a
               href={href}
-              className="transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
+              className="transition-colors duration-200 ease-settle hover:text-teal focus-visible:text-teal focus-visible:outline-none"
             >
               {eyebrowLabel}
             </a>

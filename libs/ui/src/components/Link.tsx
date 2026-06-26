@@ -12,7 +12,7 @@ export const inkPullUnderline = [
   'bg-[linear-gradient(currentColor,currentColor)] bg-no-repeat',
   'bg-[length:0%_1px] bg-[position:0_92%]',
   'hover:bg-[length:100%_1px] focus-visible:bg-[length:100%_1px]',
-  'hover:text-ember focus-visible:text-ember',
+  'hover:text-teal focus-visible:text-teal',
   'transition-[background-size,color] duration-300 ease-settle',
   'focus-visible:outline-none',
 ].join(' ');

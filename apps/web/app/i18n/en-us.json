@@ -7,6 +7,7 @@
     "home": "forloopcowboy",
     "work": "Work",
     "side": "Side",
+    "projects": "All projects",
     "contact": "Contact"
   },
   "hero": {
@@ -40,11 +41,11 @@
     "roles": {
       "n-side": {
         "company": "N-SIDE",
-        "contribution": "Founding-team engineer on Lighthouse — a clinical-trial supply-planning platform modernizing a legacy Java stack."
+        "contribution": "Software engineer on the team that built Lighthouse — a clinical-trial supply-planning platform modernizing a legacy Java stack."
       },
       "tris": {
         "company": "TRIS",
-        "contribution": "Bootstrapped and built a geospatial analysis tool opening carbon-credit access to Brazilian farmers and landowners."
+        "contribution": "Part of the founding team behind a bootstrapped geospatial analysis tool opening carbon-credit access to Brazilian farmers and landowners."
       },
       "payflip": {
         "company": "Payflip",
@@ -54,8 +55,8 @@
   },
   "side": {
     "eyebrow": "On the side",
-    "title": "Smaller things, built for the joy of finishing them.",
-    "lede": "Outside work, mostly weekends. A different register — same instinct.",
+    "title": "Side projects built for the joy of bringing something to life...",
+    "lede": "...and bringing joy to the people who play them. A few of my favorites below.",
     "play": "Play",
     "projects": {
       "recolonizer": {
@@ -63,7 +64,7 @@
         "tag": "Game",
         "blurb": "A tower defense built solo in Unity — pathing, waves, and a stubborn fondness for C#."
       },
-      "glutton": {
+      "glutton-for-gluten": {
         "title": "Glutton for Gluten",
         "tag": "Jam",
         "blurb": "Game-jam platformer; built in a weekend and still walks."
@@ -142,7 +143,7 @@
     "professional_eyebrow": "Professional",
     "professional_summary": "Founding-team or early-engineer work in regulated industries — clinical supply, carbon, payroll.",
     "personal_eyebrow": "Personal",
-    "personal_summary": "Weekends, jams, and small experiments. Different register, same instinct.",
+    "personal_summary": "Weekends, jams, and small experiments. Built for fun to bring joy to others.",
     "back": "← All projects",
     "kind_professional": "Professional",
     "kind_personal": "Personal",

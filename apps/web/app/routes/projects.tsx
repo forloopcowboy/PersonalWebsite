@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { SectionHeader, cn, inkPullUnderline } from '@personal/ui';
 import { SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { projects, type Project } from '../lib/projects';
+import { getProjectIllustration } from '../lib/project-illustrations';
 import i18n from '../i18n/config';
 import { useLocale } from '../i18n/LocaleContext';
 import type { Route } from './+types/projects';
@@ -36,7 +37,6 @@ export default function ProjectsIndex() {
 
         <section className="border-t border-rule pb-16 pt-20 md:pt-28">
           <SectionHeader
-            eyebrow={t('projects.eyebrow')}
             href={`${localePrefix}/projects`}
             title={t('projects.title')}
             lede={t('projects.lede')}
@@ -77,7 +77,7 @@ function ProjectGroup({ eyebrow, summary, items, tone }: ProjectGroupProps) {
         <div className="md:sticky md:top-12 md:self-start">
           <div className="flex items-center gap-3 text-ink-soft">
             <span aria-hidden className="h-px w-8 bg-rule" />
-            <span className="font-mono text-xs uppercase tracking-[0.18em] text-ember">
+            <span className="font-mono text-xs uppercase tracking-[0.18em] text-teal">
               {eyebrow}
             </span>
           </div>
@@ -111,6 +111,7 @@ function ProjectCard({
 }) {
   const { t } = useTranslation();
   const { localePrefix } = useLocale();
+  const Illustration = getProjectIllustration(project.slug);
 
   const heading =
     project.kind === 'professional'
@@ -120,7 +121,7 @@ function ProjectCard({
   return (
     <a
       href={`${localePrefix}/projects/${project.slug}`}
-      className="group grid grid-cols-1 gap-x-12 gap-y-3 py-8 md:grid-cols-[1fr_auto] md:items-baseline"
+      className="group grid grid-cols-1 gap-x-12 gap-y-3 py-8 md:grid-cols-[1fr_auto] md:items-stretch"
     >
       <div>
         <h3
@@ -134,7 +135,7 @@ function ProjectCard({
           <span
             className={cn(
               inkPullUnderline,
-              'duration-200 ease-settle group-hover:text-ember',
+              'duration-200 ease-settle group-hover:text-teal',
             )}
           >
             {heading}
@@ -150,6 +151,9 @@ function ProjectCard({
           {t(`projects.items.${project.slug}.excerpt`)}
         </p>
       </div>
+      {Illustration && (
+        <Illustration className="fixed right-2 w-44 opacity-50 transition-opacity duration-200 group-hover:opacity-80 md:w-52 lg:relative" />
+      )}
     </a>
   );
 }

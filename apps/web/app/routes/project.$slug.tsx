@@ -7,6 +7,7 @@ import {
   projectHeading,
   type Project,
 } from "../lib/projects";
+import { getProjectIllustration } from "../lib/project-illustrations";
 import { projectMdxComponents } from "../lib/mdx-components";
 import i18n from "../i18n/config";
 import { useLocale } from "../i18n/LocaleContext";
@@ -66,13 +67,17 @@ function ProjectHero({ project }: { project: Project }) {
   const { localePrefix } = useLocale();
   const heading = projectHeading(project);
   const showYears = project.kind === "professional" || Boolean(project.years);
+  const Illustration = getProjectIllustration(project.slug);
 
   return (
-    <section className="flex flex-col gap-10 pb-20 pt-16 md:pt-24">
+    <section className="relative flex flex-col gap-10 pb-20 pt-16 md:pt-24">
+      {Illustration && (
+        <Illustration className="pointer-events-none absolute right-0 top-12 w-40 opacity-30 md:w-64 md:opacity-40" />
+      )}
       <div className="animate-settle-in flex items-center gap-3 text-ink-soft">
         <a
           href={`${localePrefix}/projects`}
-          className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-ember focus-visible:text-ember focus-visible:outline-none"
+          className="font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-200 ease-settle hover:text-teal focus-visible:text-teal focus-visible:outline-none"
         >
           {t("projects.back")}
         </a>
@@ -203,11 +208,11 @@ function NavCell({
   return (
     <a
       href={`${localePrefix}/projects/${project.slug}`}
-      className={`group flex min-h-[8rem] flex-col justify-center gap-2 bg-paper-raised p-8 transition-colors duration-200 hover:bg-ember/[0.04] ${
+      className={`group flex min-h-[8rem] flex-col justify-center gap-2 bg-paper-raised p-8 transition-colors duration-200 hover:bg-teal/[0.06] ${
         alignRight ? "items-end text-right" : "items-start text-left"
       }`}
     >
-      <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft group-hover:text-ember">
+      <span className="font-mono text-xs uppercase tracking-[0.18em] text-ink-soft group-hover:text-teal">
         {direction === "previous"
           ? t("projects.nav_previous_label")
           : t("projects.nav_next_label")}

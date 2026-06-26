@@ -7,6 +7,7 @@
     "home": "forloopcowboy",
     "work": "Trabalho",
     "side": "Paralelos",
+    "projects": "Meus projetos",
     "contact": "Contato"
   },
   "hero": {
@@ -66,7 +67,7 @@
         "tag": "Jogo",
         "blurb": "Um tower defense feito solo em Unity — pathfinding, waves e uma teimosia por C#."
       },
-      "glutton": {
+      "glutton-for-gluten": {
         "title": "Glutton for Gluten",
         "tag": "Jam",
         "blurb": "Platformer de game jam; feito num fim de semana e ainda de pé."

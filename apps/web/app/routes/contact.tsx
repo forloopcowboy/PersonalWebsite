@@ -229,7 +229,7 @@ function ContactForm({
             'bg-[linear-gradient(currentColor,currentColor)] bg-no-repeat',
             'bg-[length:100%_1px] bg-[position:0_92%]',
             'transition-colors duration-300 ease-settle',
-            'hover:text-ember focus-visible:text-ember focus-visible:outline-none',
+            'hover:text-teal focus-visible:text-teal focus-visible:outline-none',
           )}
         >
           {t('contact_form.send_another')}
@@ -290,7 +290,7 @@ function ContactForm({
           className={cn(
             'w-full rounded-sm border bg-transparent px-3 py-2.5 font-sans text-base text-ink placeholder:text-ink-soft/50',
             'transition-colors duration-150',
-            'focus:border-ember focus:outline-none focus:ring-1 focus:ring-ember/40',
+            'focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal/40',
             errors.name ? 'border-ember/60' : 'border-rule',
           )}
         />
@@ -320,7 +320,7 @@ function ContactForm({
           className={cn(
             'w-full rounded-sm border bg-transparent px-3 py-2.5 font-sans text-base text-ink placeholder:text-ink-soft/50',
             'transition-colors duration-150',
-            'focus:border-ember focus:outline-none focus:ring-1 focus:ring-ember/40',
+            'focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal/40',
             errors.email ? 'border-ember/60' : 'border-rule',
           )}
         />
@@ -354,9 +354,9 @@ function ContactForm({
                 className={cn(
                   'rounded-sm border px-3 py-1.5 font-sans text-sm',
                   'transition-colors duration-150',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
                   selected
-                    ? 'border-ember bg-ember/[0.06] text-ember'
+                    ? 'border-teal bg-teal/[0.08] text-teal'
                     : 'border-rule text-ink-soft hover:border-ink/50 hover:text-ink',
                 )}
               >
@@ -380,7 +380,7 @@ function ContactForm({
             <button
               type="button"
               onClick={resetToTemplate}
-              className="font-sans text-xs text-ink-soft transition-colors duration-150 hover:text-ember focus-visible:text-ember focus-visible:outline-none"
+              className="font-sans text-xs text-ink-soft transition-colors duration-150 hover:text-teal focus-visible:text-teal focus-visible:outline-none"
             >
               {t('contact_form.reset_template')}
             </button>
@@ -401,7 +401,7 @@ function ContactForm({
           className={cn(
             'w-full resize-y rounded-sm border bg-transparent px-3 py-2.5 font-sans text-base leading-relaxed text-ink placeholder:text-ink-soft/50',
             'transition-colors duration-150',
-            'focus:border-ember focus:outline-none focus:ring-1 focus:ring-ember/40',
+            'focus:border-teal focus:outline-none focus:ring-1 focus:ring-teal/40',
             errors.message ? 'border-ember/60' : 'border-rule',
           )}
         />

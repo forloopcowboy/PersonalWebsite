@@ -18,6 +18,11 @@ const preset = {
       rule: 'rgb(var(--color-rule) / <alpha-value>)',
       ember: 'rgb(var(--color-ember) / <alpha-value>)',
       'ember-deep': 'rgb(var(--color-ember-deep) / <alpha-value>)',
+      teal: 'rgb(var(--color-teal) / <alpha-value>)',
+      'teal-deep': 'rgb(var(--color-teal-deep) / <alpha-value>)',
+      mauve: 'rgb(var(--color-mauve) / <alpha-value>)',
+      wood: 'rgb(var(--color-wood) / <alpha-value>)',
+      peach: 'rgb(var(--color-peach) / <alpha-value>)',
     },
     extend: {
       fontFamily: {

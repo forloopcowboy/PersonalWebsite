@@ -21,3 +21,14 @@ export { Alert } from './components/Alert';
 export type { AlertProps } from './components/Alert';
 
 export { cn } from './lib/cn';
+
+export {
+  HeroDecoration,
+  IllustrationNSide,
+  IllustrationTris,
+  IllustrationPayflip,
+  IllustrationRecolonizer,
+  IllustrationGlutton,
+  IllustrationCowboyInvestor,
+  IllustrationNotFound,
+} from './illustrations';
