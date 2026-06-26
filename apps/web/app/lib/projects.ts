@@ -97,7 +97,7 @@ export function getAdjacentProjects(slug: string): {
   const i = projects.findIndex((p) => p.slug === slug);
   if (i === -1) return {};
   return {
-    previous: i > 0 ? projects[i - 1] : undefined,
-    next: i < projects.length - 1 ? projects[i + 1] : undefined,
+    previous: projects[(i - 1 + projects.length) % projects.length],
+    next: projects[(i + 1) % projects.length],
   };
 }

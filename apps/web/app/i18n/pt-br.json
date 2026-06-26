@@ -200,7 +200,7 @@
       "this-website": {
         "title": "Este Site",
         "role": "Design, dev & conteúdo",
-        "excerpt": "Portfólio pessoal reconstruído do zero com React Router v7, SSR, MDX e bastante vibe coding — substituindo um experimento inchado de CMS por algo que realmente funciona como vitrine.",
+        "excerpt": "Portfólio pessoal reconstruído do zero para substituir um web-portfolio inchado por algo que realmente funciona como vitrine.",
         "link_label": "forloopcowboy.com"
       }
     }

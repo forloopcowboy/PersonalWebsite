@@ -157,7 +157,7 @@ function ProjectCard({
         </p>
       </div>
       {Illustration && (
-        <Illustration className="fixed right-2 top-2 w-44 opacity-50 transition-opacity duration-200 group-hover:opacity-80 md:w-52 lg:relative" />
+        <Illustration className="fixed right-2 top-2 w-44 opacity-20 transition-opacity duration-200 group-hover:opacity-60 md:w-52 lg:relative" />
       )}
     </a>
   );
