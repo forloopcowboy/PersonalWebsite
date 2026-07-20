@@ -1,0 +1,20 @@
+{
+  "name": "@personal/head-renderer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./HeadCanvas": "./src/HeadCanvas.tsx"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.170.0",
+    "@types/react": "^19.0.0"
+  }
+}

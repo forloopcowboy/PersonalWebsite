@@ -1,0 +1,21 @@
+import { HeadEditor } from '../../../components/HeadEditor';
+
+## Customização de Personagens
+
+Um shader customizado compõe características faciais de atlas de texturas sobre uma esfera UV — olhos, nariz, boca, sobrancelhas e barba — cada um posicionado e dimensionado independentemente. O mesmo sistema renderiza avatares multiplayer no jogo.
+
+Este é um port ao vivo do shader HLSL da Unity para WebGL via Three.js. Experimente:
+
+<HeadEditor />
+
+## Resumo
+
+Bad Tourist é um jogo arcade cooperativo multiplayer de turismo construído em Unity com Netcode for GameObjects. Os jogadores exploram fases juntos, completam atividades e ganham prêmios — tudo sob networking com autoridade do servidor.
+
+## Tecnologia
+
+- **Engine**: Unity (URP) com Netcode for GameObjects
+- **Linguagem**: C#
+- **Arquitetura**: Autoridade do servidor com padrão request-validate-broadcast
+- **Sistema de personagens**: Shader HLSL customizado para composição facial, presets e arquétipos baseados em ScriptableObjects
+- **Sistema de atividades**: Blocos de construção modulares (timers, gatilhos de proximidade, pontuação) compostos em atividades
