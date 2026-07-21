@@ -55,7 +55,7 @@ export function SiteHeader() {
               const newSlug = slugFromLocale(code);
               const pathWithoutLocale =
                 location.pathname.replace(/^\/[a-z]{2}-[a-z]{2}/, '') || '/';
-              navigate(`/${newSlug}${pathWithoutLocale}`);
+              navigate(`/${newSlug}${pathWithoutLocale}${location.search}`);
             }}
           />
         </div>
@@ -68,7 +68,7 @@ export function SiteHeader() {
             const newSlug = slugFromLocale(code);
             const pathWithoutLocale =
               location.pathname.replace(/^\/[a-z]{2}-[a-z]{2}/, '') || '/';
-            navigate(`/${newSlug}${pathWithoutLocale}`);
+            navigate(`/${newSlug}${pathWithoutLocale}${location.search}`);
           }}
         />
       </div>

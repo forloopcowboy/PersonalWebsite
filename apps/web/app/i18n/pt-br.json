@@ -215,5 +215,24 @@
         "link_label": "forloopcowboy.com"
       }
     }
+  },
+  "head_editor": {
+    "eyes": "Olhos",
+    "nose": "Nariz",
+    "mouth": "Boca",
+    "brows": "Sobranc.",
+    "beard": "Barba",
+    "accessory": "Acess.",
+    "skin": "Pele",
+    "skin_color_aria": "Cor de pele {{hex}}",
+    "feature": "Parte",
+    "variant": "Variante",
+    "enabled": "Ativo",
+    "transform": "Posição",
+    "x_offset": "Offset X",
+    "y_offset": "Offset Y",
+    "scale": "Escala",
+    "share": "Compartilhar",
+    "copied": "URL copiada!"
   }
 }

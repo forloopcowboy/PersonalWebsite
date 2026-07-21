@@ -39,7 +39,7 @@ export class HeadRenderer {
       alpha: true,
       premultipliedAlpha: false,
     });
-    instance.renderer.setSize(width, height);
+    instance.renderer.setSize(width, height, false);
     instance.renderer.setPixelRatio(pixelRatio);
     instance.renderer.setClearColor(0x000000, 0);
 
@@ -71,9 +71,14 @@ export class HeadRenderer {
   }
 
   resize(width: number, height: number): void {
-    this.camera.aspect = width / height;
+    const aspect = width / height;
+    this.camera.aspect = aspect;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(width, height);
+    this.renderer.setSize(width, height, false);
+
+    const halfFov = (this.camera.fov * Math.PI) / 360;
+    const fitDist = 1 / Math.tan(halfFov);
+    this.camera.position.z = Math.max(fitDist, fitDist / aspect) * 1.27;
   }
 
   dispose(): void {
@@ -98,7 +103,10 @@ export class HeadRenderer {
     const dy = e.clientY - this.lastMouseY;
     this.rotationY += dx * 0.01;
     this.rotationX += dy * 0.01;
-    this.rotationX = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, this.rotationX));
+    this.rotationX = Math.max(
+      -Math.PI / 3,
+      Math.min(Math.PI / 3, this.rotationX),
+    );
     this.lastMouseX = e.clientX;
     this.lastMouseY = e.clientY;
     this.mesh.rotation.y = this.rotationY;

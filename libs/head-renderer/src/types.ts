@@ -58,7 +58,7 @@ export const DEFAULT_CONFIG: HeadConfig = {
     },
     [FeatureType.Eyebrow]: {
       index: 0,
-      translation: [0, 0.07],
+      translation: [0, 0.1],
       scale: 0.64,
       enabled: true,
     },
@@ -104,14 +104,14 @@ export const SMILEY_CONFIG: HeadConfig = {
     },
     [FeatureType.Eyebrow]: {
       index: 15,
-      translation: [0, 0],
+      translation: [0, 0.1],
       scale: 0.3,
       enabled: false,
     },
     [FeatureType.FacialHair]: {
       index: 0,
-      translation: [0, 0],
-      scale: 0.3,
+      translation: [0, -0.05],
+      scale: 0.45,
       enabled: false,
     },
   },

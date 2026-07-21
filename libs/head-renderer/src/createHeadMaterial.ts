@@ -24,11 +24,18 @@ function featureUniforms(
   feature: FeatureConfig | undefined,
   texture: THREE_NS.Texture | null,
 ) {
-  const f = feature ?? { index: 0, translation: [0, 0] as [number, number], scale: 0.3, enabled: false };
+  const f = feature ?? {
+    index: 0,
+    translation: [0, 0] as [number, number],
+    scale: 0.3,
+    enabled: false,
+  };
   return {
     [`u_${prefix}Tex`]: { value: texture },
     [`u_${prefix}Index`]: { value: f.index },
-    [`u_${prefix}Translation`]: { value: new THREE.Vector3(f.translation[0], f.translation[1], f.scale) },
+    [`u_${prefix}Translation`]: {
+      value: new THREE.Vector3(f.translation[0], f.translation[1], f.scale),
+    },
     [`u_${prefix}Enabled`]: { value: f.enabled ? 1.0 : 0.0 },
   };
 }
@@ -39,9 +46,18 @@ function updateFeatureUniforms(
   prefix: string,
   feature: FeatureConfig | undefined,
 ) {
-  const f = feature ?? { index: 0, translation: [0, 0] as [number, number], scale: 0.3, enabled: false };
+  const f = feature ?? {
+    index: 0,
+    translation: [0, 0] as [number, number],
+    scale: 0.3,
+    enabled: false,
+  };
   uniforms[`u_${prefix}Index`].value = f.index;
-  (uniforms[`u_${prefix}Translation`].value as THREE_NS.Vector3).set(f.translation[0], f.translation[1], f.scale);
+  (uniforms[`u_${prefix}Translation`].value as THREE_NS.Vector3).set(
+    f.translation[0],
+    f.translation[1],
+    f.scale,
+  );
   uniforms[`u_${prefix}Enabled`].value = f.enabled ? 1.0 : 0.0;
 }
 
@@ -74,7 +90,12 @@ export async function createHeadMaterial(
   await Promise.all(loadPromises);
 
   const placeholderData = new Uint8Array([255, 255, 255, 0]);
-  const placeholderTex = new THREE.DataTexture(placeholderData, 1, 1, THREE.RGBAFormat);
+  const placeholderTex = new THREE.DataTexture(
+    placeholderData,
+    1,
+    1,
+    THREE.RGBAFormat,
+  );
   placeholderTex.needsUpdate = true;
 
   const uniforms: Record<string, { value: unknown }> = {
@@ -83,15 +104,45 @@ export async function createHeadMaterial(
     u_smoothness: { value: config.smoothness },
     u_gridCols: { value: config.gridCols },
     u_gridRows: { value: config.gridRows },
-    u_lightDirection: { value: new THREE.Vector3(0.5, 1.0, 0.8).normalize() },
+    u_lightDirection: { value: new THREE.Vector3(-1, -1, 0.8).normalize() },
     u_lightColor: { value: new THREE.Vector3(1.0, 0.98, 0.95) },
     u_ambientColor: { value: new THREE.Vector3(0.35, 0.35, 0.4) },
-    ...featureUniforms(THREE, 'eyes', config.features[FeatureType.Eye], textures[FeatureType.Eye] ?? placeholderTex),
-    ...featureUniforms(THREE, 'nose', config.features[FeatureType.Nose], textures[FeatureType.Nose] ?? placeholderTex),
-    ...featureUniforms(THREE, 'mouth', config.features[FeatureType.Mouth], textures[FeatureType.Mouth] ?? placeholderTex),
-    ...featureUniforms(THREE, 'eyebrows', config.features[FeatureType.Eyebrow], textures[FeatureType.Eyebrow] ?? placeholderTex),
-    ...featureUniforms(THREE, 'facialHair', config.features[FeatureType.FacialHair], textures[FeatureType.FacialHair] ?? placeholderTex),
-    ...featureUniforms(THREE, 'accessory', config.features[FeatureType.Accessory], textures[FeatureType.Accessory] ?? placeholderTex),
+    ...featureUniforms(
+      THREE,
+      'eyes',
+      config.features[FeatureType.Eye],
+      textures[FeatureType.Eye] ?? placeholderTex,
+    ),
+    ...featureUniforms(
+      THREE,
+      'nose',
+      config.features[FeatureType.Nose],
+      textures[FeatureType.Nose] ?? placeholderTex,
+    ),
+    ...featureUniforms(
+      THREE,
+      'mouth',
+      config.features[FeatureType.Mouth],
+      textures[FeatureType.Mouth] ?? placeholderTex,
+    ),
+    ...featureUniforms(
+      THREE,
+      'eyebrows',
+      config.features[FeatureType.Eyebrow],
+      textures[FeatureType.Eyebrow] ?? placeholderTex,
+    ),
+    ...featureUniforms(
+      THREE,
+      'facialHair',
+      config.features[FeatureType.FacialHair],
+      textures[FeatureType.FacialHair] ?? placeholderTex,
+    ),
+    ...featureUniforms(
+      THREE,
+      'accessory',
+      config.features[FeatureType.Accessory],
+      textures[FeatureType.Accessory] ?? placeholderTex,
+    ),
   };
 
   const material = new THREE.ShaderMaterial({
@@ -107,12 +158,42 @@ export async function createHeadMaterial(
     uniforms.u_gridCols.value = cfg.gridCols;
     uniforms.u_gridRows.value = cfg.gridRows;
 
-    updateFeatureUniforms(THREE, uniforms, 'eyes', cfg.features[FeatureType.Eye]);
-    updateFeatureUniforms(THREE, uniforms, 'nose', cfg.features[FeatureType.Nose]);
-    updateFeatureUniforms(THREE, uniforms, 'mouth', cfg.features[FeatureType.Mouth]);
-    updateFeatureUniforms(THREE, uniforms, 'eyebrows', cfg.features[FeatureType.Eyebrow]);
-    updateFeatureUniforms(THREE, uniforms, 'facialHair', cfg.features[FeatureType.FacialHair]);
-    updateFeatureUniforms(THREE, uniforms, 'accessory', cfg.features[FeatureType.Accessory]);
+    updateFeatureUniforms(
+      THREE,
+      uniforms,
+      'eyes',
+      cfg.features[FeatureType.Eye],
+    );
+    updateFeatureUniforms(
+      THREE,
+      uniforms,
+      'nose',
+      cfg.features[FeatureType.Nose],
+    );
+    updateFeatureUniforms(
+      THREE,
+      uniforms,
+      'mouth',
+      cfg.features[FeatureType.Mouth],
+    );
+    updateFeatureUniforms(
+      THREE,
+      uniforms,
+      'eyebrows',
+      cfg.features[FeatureType.Eyebrow],
+    );
+    updateFeatureUniforms(
+      THREE,
+      uniforms,
+      'facialHair',
+      cfg.features[FeatureType.FacialHair],
+    );
+    updateFeatureUniforms(
+      THREE,
+      uniforms,
+      'accessory',
+      cfg.features[FeatureType.Accessory],
+    );
   }
 
   function dispose() {

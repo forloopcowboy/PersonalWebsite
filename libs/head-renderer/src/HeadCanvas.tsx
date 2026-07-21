@@ -2,13 +2,20 @@ import { useEffect, useRef, type CSSProperties } from 'react';
 import type { HeadConfig, HeadRendererOptions } from './types';
 import { HeadRenderer } from './HeadRenderer';
 
-export interface HeadCanvasProps
-  extends Omit<HeadRendererOptions, 'width' | 'height'> {
+export interface HeadCanvasProps extends Omit<
+  HeadRendererOptions,
+  'width' | 'height'
+> {
   className?: string;
   style?: CSSProperties;
 }
 
-export function HeadCanvas({ config, className, style, ...opts }: HeadCanvasProps) {
+export function HeadCanvas({
+  config,
+  className,
+  style,
+  ...opts
+}: HeadCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rendererRef = useRef<HeadRenderer | null>(null);
   const configRef = useRef(config);
@@ -31,13 +38,15 @@ export function HeadCanvas({ config, className, style, ...opts }: HeadCanvasProp
         return;
       }
       rendererRef.current = renderer;
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      renderer.resize(w, h);
     });
 
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { width, height } = entry.contentRect;
-        rendererRef.current?.resize(width, height);
-      }
+    const observer = new ResizeObserver(() => {
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      rendererRef.current?.resize(w, h);
     });
     observer.observe(canvas);
 
@@ -53,11 +62,5 @@ export function HeadCanvas({ config, className, style, ...opts }: HeadCanvasProp
     rendererRef.current?.setConfig(config);
   }, [config]);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className={className}
-      style={{ display: 'block', width: '100%', height: '100%', ...style }}
-    />
-  );
+  return <canvas ref={canvasRef} className={className} />;
 }
