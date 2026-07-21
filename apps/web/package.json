@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
+    "@personal/head-renderer": "workspace:*",
     "@personal/ui": "workspace:*",
     "@react-router/node": "^7.5.0",
     "@react-router/serve": "^7.5.0",

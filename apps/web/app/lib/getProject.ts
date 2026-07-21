@@ -13,6 +13,7 @@ import PayflipBodyEn from "../content/projects/en-us/payflip.mdx";
 import RecolonizerBodyEn from "../content/projects/en-us/recolonizer.mdx";
 import GluttonBodyEn from "../content/projects/en-us/glutton-for-gluten.mdx";
 import CowboyInvestorBodyEn from "../content/projects/en-us/cowboy-investor.mdx";
+import BadTouristBodyEn from "../content/projects/en-us/bad-tourist.mdx";
 import ThisWebsiteBodyEn from "../content/projects/en-us/this-website.mdx";
 
 import NSideBodyPt from "../content/projects/pt-br/n-side.mdx";
@@ -21,6 +22,7 @@ import PayflipBodyPt from "../content/projects/pt-br/payflip.mdx";
 import RecolonizerBodyPt from "../content/projects/pt-br/recolonizer.mdx";
 import GluttonBodyPt from "../content/projects/pt-br/glutton-for-gluten.mdx";
 import CowboyInvestorBodyPt from "../content/projects/pt-br/cowboy-investor.mdx";
+import BadTouristBodyPt from "../content/projects/pt-br/bad-tourist.mdx";
 import ThisWebsiteBodyPt from "../content/projects/pt-br/this-website.mdx";
 
 type BodyMap = Record<string, MDXContent>;
@@ -33,6 +35,7 @@ const bodies: Record<string, BodyMap> = {
     recolonizer: RecolonizerBodyEn,
     "glutton-for-gluten": GluttonBodyEn,
     "cowboy-investor": CowboyInvestorBodyEn,
+    "bad-tourist": BadTouristBodyEn,
     "this-website": ThisWebsiteBodyEn,
   },
   "pt-br": {
@@ -42,6 +45,7 @@ const bodies: Record<string, BodyMap> = {
     recolonizer: RecolonizerBodyPt,
     "glutton-for-gluten": GluttonBodyPt,
     "cowboy-investor": CowboyInvestorBodyPt,
+    "bad-tourist": BadTouristBodyPt,
     "this-website": ThisWebsiteBodyPt,
   },
 };

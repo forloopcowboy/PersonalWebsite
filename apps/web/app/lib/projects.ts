@@ -70,6 +70,13 @@ export const projects: readonly Project[] = [
     },
   },
   {
+    slug: 'bad-tourist',
+    kind: 'personal',
+    link: {
+      href: 'https://github.com/forloopcowboy',
+    },
+  },
+  {
     slug: 'this-website',
     kind: 'personal',
     link: {

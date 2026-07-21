@@ -25,6 +25,10 @@ export function meta({ data: pageData }: Route.MetaArgs) {
   ];
 }
 
+export function shouldRevalidate({ currentUrl, nextUrl }: { currentUrl: URL; nextUrl: URL }) {
+  return currentUrl.pathname !== nextUrl.pathname;
+}
+
 export function loader({ params }: Route.LoaderArgs) {
   const project = getProject(params.slug);
   if (!project) {

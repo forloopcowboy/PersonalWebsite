@@ -74,6 +74,11 @@
         "title": "Cowboy Investor",
         "tag": "LLM",
         "blurb": "A small LLM-backed wrapper that attempts to give personalized investment advice."
+      },
+      "bad-tourist": {
+        "title": "Bad Tourist",
+        "tag": "Game",
+        "blurb": "Multiplayer cooperative tourism arcade game built in Unity with custom character customization."
       }
     }
   },
@@ -195,6 +200,12 @@
         "excerpt": "An LLM wrapper offering opinionated, experimental investment advice.",
         "link_label": "invest.forloopcowboy.com"
       },
+      "bad-tourist": {
+        "title": "Bad Tourist",
+        "role": "Solo dev",
+        "excerpt": "Multiplayer cooperative tourism arcade game — Unity, C#, Netcode for GameObjects.",
+        "link_label": "GitHub"
+      },
       "this-website": {
         "title": "This Website",
         "role": "Design, dev & content",
@@ -202,5 +213,24 @@
         "link_label": "forloopcowboy.com"
       }
     }
+  },
+  "head_editor": {
+    "eyes": "Eyes",
+    "nose": "Nose",
+    "mouth": "Mouth",
+    "brows": "Brows",
+    "beard": "Beard",
+    "accessory": "Acc.",
+    "skin": "Skin",
+    "skin_color_aria": "Skin color {{hex}}",
+    "feature": "Feature",
+    "variant": "Variant",
+    "enabled": "Enabled",
+    "transform": "Transform",
+    "x_offset": "X Offset",
+    "y_offset": "Y Offset",
+    "scale": "Scale",
+    "share": "Share",
+    "copied": "URL copied!"
   }
 }
