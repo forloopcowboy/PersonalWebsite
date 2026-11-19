@@ -1,0 +1,36 @@
+import { HeadEditor } from '../../../components/HeadEditor';
+
+## Conheça os Ballheads
+
+Eu queria um visual bem simples, bobinho e cartunesco pra manter o clima engraçado, e ao mesmo tempo permitir
+uma boa variedade de personalidades.
+
+O shader de customização de cabeça compõe características faciais a partir de atlas de texturas sobre uma esfera UV e deixa
+você escolher posição e escala. Nada muito sofisticado, mas me apaixonei pelo visual ridículo e
+não consegui parar de criar bonequinhos o fim de semana inteiro.
+
+Experimenta aí:
+
+<HeadEditor />
+
+Clique em **Compartilhar** pra copiar um link do seu personagem. Cole em qualquer lugar e a prévia mostra
+a carinha do seu ballhead.
+
+## Pra que serve?
+
+O Ballhead Character Editor é o criador de personagens de um jogo multiplayer cooperativo que estou
+fazendo sobre fazer coisas bobas com amigos. Por enquanto é só isso que eu conto.
+
+Os personagens criados neste editor poderão ser importados no jogo, então faça alguém com quem você
+gostaria de jogar.
+
+## Onde encontrar
+
+- **Demos**: as primeiras demos serão publicadas no [itch.io](https://forloopcowboy.itch.io/).
+- **Steam**: a página da loja será anunciada em breve.
+
+## Tecnologia
+
+- **Renderização**: three.js com um shader GLSL customizado
+- **Compartilhamento**: o personagem inteiro é compactado numa string na URL
+- **Prévias de links**: renderizadas no servidor, então cada personagem compartilhado aparece com a própria carinha

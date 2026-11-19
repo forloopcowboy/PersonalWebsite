@@ -1,0 +1,36 @@
+import { HeadEditor } from '../../../components/HeadEditor';
+
+## Meet the Ballheads
+
+I wanted a really simple, goofy, cartoonish look to keep the vibes hilarious while still allowing
+a good variety of personalities.
+
+The head customization shader composites facial features from texture atlases onto a UV sphere and lets
+you pick translation and scale. Not too fancy, but I fell in love with the silly look and
+could not stop myself from making little guys all weekend.
+
+Try it out:
+
+<HeadEditor />
+
+Hit **Share** to copy a link to your character. Paste it anywhere and the preview shows
+your ballhead's face.
+
+## What's it for?
+
+The Ballhead Character Editor is the character creator for a multiplayer co-op game I'm making about
+doing silly things with friends. That's all I'm saying for now.
+
+Characters created in this editor will be importable into the game, so make someone you'd want to
+play as.
+
+## Where to find it
+
+- **Demos**: the first demos will be published on [itch.io](https://forloopcowboy.itch.io/).
+- **Steam**: the store page will be announced soon.
+
+## Tech
+
+- **Rendering**: three.js with a custom GLSL shader
+- **Sharing**: the whole character is packed into a compact string in the URL
+- **Link previews**: rendered server-side, so every shared character gets its own face as the image

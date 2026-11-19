@@ -1,5 +1,5 @@
 import type { Config } from "@react-router/dev/config";
-import { projects } from "./app/lib/projects";
+import { HEAD_EDITOR_SLUG, projects } from "./app/lib/projects";
 
 const locales = ["en-us", "pt-br"];
 
@@ -9,7 +9,10 @@ export default {
     return locales.flatMap((locale) => [
       `/${locale}`,
       `/${locale}/projects`,
-      ...projects.map((p) => `/${locale}/projects/${p.slug}`),
+      // The editor page is rendered per request (its link preview depends on ?c=).
+      ...projects
+        .filter((p) => p.slug !== HEAD_EDITOR_SLUG)
+        .map((p) => `/${locale}/projects/${p.slug}`),
     ]);
   },
 } satisfies Config;

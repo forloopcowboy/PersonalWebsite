@@ -75,10 +75,10 @@
         "tag": "LLM",
         "blurb": "A small LLM-backed wrapper that attempts to give personalized investment advice."
       },
-      "bad-tourist": {
-        "title": "Bad Tourist",
-        "tag": "Game",
-        "blurb": "Multiplayer cooperative tourism arcade game built in Unity with custom character customization."
+      "ballhead-character-editor": {
+        "title": "Ballhead Character Editor",
+        "tag": "Tool",
+        "blurb": "A goofy little character creator: build a ballhead, share it with a link."
       }
     }
   },
@@ -200,11 +200,11 @@
         "excerpt": "An LLM wrapper offering opinionated, experimental investment advice.",
         "link_label": "invest.forloopcowboy.com"
       },
-      "bad-tourist": {
-        "title": "Bad Tourist",
+      "ballhead-character-editor": {
+        "title": "Ballhead Character Editor",
         "role": "Solo dev",
-        "excerpt": "Multiplayer cooperative tourism arcade game — Unity, C#, Netcode for GameObjects.",
-        "link_label": "GitHub"
+        "excerpt": "Build a silly ballhead character and share it with a link. Characters made here will be importable into a game I'm working on.",
+        "link_label": "itch.io"
       },
       "this-website": {
         "title": "This Website",

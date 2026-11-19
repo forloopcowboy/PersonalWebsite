@@ -5,7 +5,8 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./HeadCanvas": "./src/HeadCanvas.tsx"
+    "./HeadCanvas": "./src/HeadCanvas.tsx",
+    "./cpu": "./src/cpu/renderHeadImage.ts"
   },
   "peerDependencies": {
     "react": "^19.0.0"

@@ -27,6 +27,13 @@ export interface PersonalProject extends ProjectBase {
 
 export type Project = ProfessionalProject | PersonalProject;
 
+/**
+ * The Ballhead Character Editor page depends on the request (`?c=` carries the
+ * character), so it is server-rendered per request instead of prerendered, and
+ * it gets a link-preview image of the character (see routes/og-ballhead.ts).
+ */
+export const HEAD_EDITOR_SLUG = 'ballhead-character-editor';
+
 export const projects: readonly Project[] = [
   {
     slug: 'payflip',
@@ -70,10 +77,10 @@ export const projects: readonly Project[] = [
     },
   },
   {
-    slug: 'bad-tourist',
+    slug: HEAD_EDITOR_SLUG,
     kind: 'personal',
     link: {
-      href: 'https://github.com/forloopcowboy',
+      href: 'https://forloopcowboy.itch.io/',
     },
   },
   {
