@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/projects/bad-tourist",
+      "destination": "/projects/ballhead-character-editor",
+      "permanent": true
+    },
+    {
+      "source": "/:locale(en-us|pt-br)/projects/bad-tourist",
+      "destination": "/:locale/projects/ballhead-character-editor",
+      "permanent": true
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Copies the Bad Tourist feature atlases from the Unity project into libs/head-renderer/assets so the
+// Copies the character feature atlases from the Unity project into libs/head-renderer/assets so the
 // website head editor renders exactly what the game renders.
 //
 //   pnpm sync:head-textures            copy any atlas whose contents differ

@@ -3,7 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { Link } from '@personal/ui';
 import { SiteFooter, SiteHeader } from '../components/SiteChrome';
 import { getProject, getProjectBody } from '../lib/getProject';
-import { projectHeading, type Project } from '../lib/projects';
+import { HEAD_EDITOR_SLUG, projectHeading, type Project } from '../lib/projects';
+import { parseConfig, serializeConfig } from '../lib/head-config';
+import { getOrigin } from '../lib/origin.server';
 import { getProjectIllustration } from '../lib/project-illustrations';
 import { projectMdxComponents } from '../lib/mdx-components';
 import i18n from '../i18n/config';
@@ -16,25 +18,60 @@ export function meta({ data: pageData }: Route.MetaArgs) {
   }
   const { metadata } = pageData;
   const heading = projectHeading(metadata);
-  return [
-    { title: i18n.t('projects.detail_meta_title', { heading }) },
-    {
-      name: 'description',
-      content: i18n.t(`projects.items.${metadata.slug}.excerpt`),
-    },
+  const title = i18n.t('projects.detail_meta_title', { heading });
+  const description = i18n.t(`projects.items.${metadata.slug}.excerpt`);
+  const tags: Array<Record<string, string>> = [
+    { title },
+    { name: 'description', content: description },
   ];
+
+  if (pageData.share) {
+    const { url, image } = pageData.share;
+    tags.push(
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:url', content: url },
+      { property: 'og:image', content: image },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:image:width', content: '1200' },
+      { property: 'og:image:height', content: '630' },
+      { property: 'og:image:alt', content: heading },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: image },
+    );
+  }
+  return tags;
 }
 
 export function shouldRevalidate({ currentUrl, nextUrl }: { currentUrl: URL; nextUrl: URL }) {
   return currentUrl.pathname !== nextUrl.pathname;
 }
 
-export function loader({ params }: Route.LoaderArgs) {
+export function loader({ params, request }: Route.LoaderArgs) {
   const project = getProject(params.slug);
   if (!project) {
     throw data(i18n.t('projects.not_found'), { status: 404 });
   }
-  return project;
+
+  if (params.slug !== HEAD_EDITOR_SLUG) {
+    return { ...project, share: null };
+  }
+
+  // Link previews: point og:image at a render of the character in `?c=`.
+  // Re-serializing normalizes legacy/invalid params into a canonical `c`.
+  const url = new URL(request.url);
+  const c = serializeConfig(parseConfig(url.searchParams)).toString();
+  const origin = getOrigin(request);
+  return {
+    ...project,
+    share: {
+      url: `${origin}${url.pathname}?${c}`,
+      image: `${origin}/og/ballhead.png?${c}`,
+    },
+  };
 }
 
 export default function ProjectPage() {

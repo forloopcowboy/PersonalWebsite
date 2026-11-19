@@ -4,19 +4,7 @@ import { FeatureType } from './types';
 import vertexShader from './shaders/head.vert.glsl?raw';
 import fragmentShader from './shaders/head.frag.glsl?raw';
 
-import eyeTextureUrl from '../assets/EyeTextures.png';
-import noseTextureUrl from '../assets/NoseTextures.png';
-import mouthTextureUrl from '../assets/MouthTextures.png';
-import eyebrowTextureUrl from '../assets/EyebrowTextures.png';
-import facialHairTextureUrl from '../assets/FacialHairTextures.png';
-
-const DEFAULT_TEXTURE_URLS: Partial<Record<FeatureType, string>> = {
-  [FeatureType.Eye]: eyeTextureUrl,
-  [FeatureType.Nose]: noseTextureUrl,
-  [FeatureType.Mouth]: mouthTextureUrl,
-  [FeatureType.Eyebrow]: eyebrowTextureUrl,
-  [FeatureType.FacialHair]: facialHairTextureUrl,
-};
+import { DEFAULT_TEXTURE_URLS } from './textureUrls';
 
 function featureUniforms(
   THREE: typeof THREE_NS,
